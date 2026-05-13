@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --negro: #0E0E0E;
+  --azul-acero: #4A9FD4;
+  --blanco: #F0F0F0;
+  --azul-noche: #1E4A6E;
+  --gris-acero: #5A8FA8;
+  --antracita: #2A2A2A;
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px rgba(74, 159, 212, 0.5);
+  }
+  
+  .fade-in-section {
+    opacity: 0;
+    transform: translateY(20px);
+    visibility: hidden;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    will-change: opacity, visibility;
+  }
+  
+  .fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+  }
+  
+  /* Delay classes for staggered animations */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--negro);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--azul-noche);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--azul-acero);
+}
