@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 type Tab = 'INDUSTRIAL' | 'HOSPITALARIO' | 'COMERCIAL';
 
@@ -14,6 +15,7 @@ interface Project {
 const Portfolio: React.FC = () => {
   const { language } = useLanguage();
   const [activeTab, setActiveTab] = useState<Tab>('INDUSTRIAL');
+  const containerRef = useIntersectionObserver({ threshold: 0.1 });
 
   const t = {
     title: language === 'ES' ? "PORTAFOLIO FOTOGRÁFICO" : "PHOTO PORTFOLIO",
@@ -96,7 +98,7 @@ const Portfolio: React.FC = () => {
 
   return (
     <section className="py-24 bg-deepBlack relative w-full overflow-hidden">
-      <div className="container mx-auto px-6 max-w-6xl">
+      <div className="container mx-auto px-6 max-w-6xl" ref={containerRef}>
         
         <div className="mb-12 text-center md:text-left fade-in-section">
           <h2 className="font-barlow font-black text-[2.5rem] text-[#F0F0F0] uppercase tracking-wide leading-tight">
