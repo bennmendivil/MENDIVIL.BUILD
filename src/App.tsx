@@ -2,7 +2,9 @@ import { LanguageProvider } from './context/LanguageContext';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
+import Clients from './components/Clients';
 import Experience from './components/Experience';
+import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import LeanAI from './components/LeanAI';
 import Education from './components/Education';
@@ -17,7 +19,9 @@ function App() {
         <main>
           <Hero />
           <Stats />
+          <Clients />
           <Experience />
+          <Portfolio />
           <Services />
           <LeanAI />
           <Education />

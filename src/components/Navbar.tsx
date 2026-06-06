@@ -5,6 +5,7 @@ import Logo from './Logo';
 const Navbar: React.FC = () => {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -54,6 +55,38 @@ const Navbar: React.FC = () => {
           <a href="#contact" className="hidden lg:inline-block px-5 py-2 border-2 border-matteGold text-matteGold font-jetbrains text-sm font-bold hover:bg-matteGold hover:text-deepBlack transition-all">
             {t.nav.cta}
           </a>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            className="md:hidden text-[#F0F0F0] focus:outline-none"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+            {isMobileMenuOpen ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      <div 
+        className={`md:hidden absolute top-full left-0 w-full bg-[#0E0E0E] border-b-2 border-[#4A9FD4] transition-all duration-300 ease-in-out origin-top ${
+          isMobileMenuOpen ? 'opacity-100 scale-y-100' : 'opacity-0 scale-y-0'
+        }`}
+      >
+        <div className="flex flex-col py-4">
+          <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.home}</a>
+          <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.projects}</a>
+          <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.services}</a>
+          <a href="#lean-ai" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.leanAi}</a>
+          <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.contact}</a>
+          <div className="px-6 pt-6 pb-2">
+            <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#4A9FD4] text-white font-barlow font-bold text-[1.2rem] py-3 rounded-sm">
+              TRABAJEMOS JUNTOS / LET'S WORK TOGETHER
+            </a>
+          </div>
         </div>
       </div>
     </nav>
