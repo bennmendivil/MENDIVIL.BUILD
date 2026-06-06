@@ -11,12 +11,12 @@ const Clients: React.FC = () => {
   const companies = [
     "Toyota",
     "Constellation Brands",
+    "Worley",
     "Cushman & Wakefield",
     "SSOE Group",
     "Gilbane-Alberici",
     "Stanley Black & Decker",
     "MAGNA",
-    "Coppel",
     "Ronal Group"
   ];
 

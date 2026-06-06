@@ -27,6 +27,7 @@ const Navbar: React.FC = () => {
         <div className="hidden md:flex items-center space-x-8">
           <a href="#hero" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.home}</a>
           <a href="#projects" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.projects}</a>
+          <a href="#portfolio" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.portfolio}</a>
           <a href="#services" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.services}</a>
           <a href="#lean-ai" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.leanAi}</a>
           <a href="#contact" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.contact}</a>
@@ -34,8 +35,8 @@ const Navbar: React.FC = () => {
 
         {/* Actions */}
         <div className="flex items-center space-x-6">
-          {/* Language Toggle */}
-          <div className="flex items-center space-x-2 font-jetbrains text-sm">
+          {/* Language Toggle (Desktop) */}
+          <div className="hidden md:flex items-center space-x-2 font-jetbrains text-sm">
             <button 
               onClick={() => setLanguage('ES')} 
               className={`transition-colors ${language === 'ES' ? 'text-matteGold font-bold' : 'text-concreteGray hover:text-titaniumWhite'}`}
@@ -79,10 +80,29 @@ const Navbar: React.FC = () => {
         <div className="flex flex-col py-4">
           <a href="#hero" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.home}</a>
           <a href="#projects" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.projects}</a>
+          <a href="#portfolio" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.portfolio}</a>
           <a href="#services" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.services}</a>
           <a href="#lean-ai" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.leanAi}</a>
           <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.contact}</a>
-          <div className="px-6 pt-6 pb-2">
+          
+          {/* Mobile Language Toggle */}
+          <div className="flex items-center justify-center space-x-4 font-jetbrains text-[0.9rem] my-[16px]">
+            <button 
+              onClick={() => { setLanguage('ES'); setIsMobileMenuOpen(false); }} 
+              className={`transition-colors ${language === 'ES' ? 'text-[#4A9FD4] font-bold' : 'text-[#5A8FA8] hover:text-white'}`}
+            >
+              ES
+            </button>
+            <span className="text-[#5A8FA8]">|</span>
+            <button 
+              onClick={() => { setLanguage('EN'); setIsMobileMenuOpen(false); }} 
+              className={`transition-colors ${language === 'EN' ? 'text-[#4A9FD4] font-bold' : 'text-[#5A8FA8] hover:text-white'}`}
+            >
+              EN
+            </button>
+          </div>
+
+          <div className="px-6 pb-2">
             <a href="#contact" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#4A9FD4] text-white font-barlow font-bold text-[1.2rem] py-3 rounded-sm">
               TRABAJEMOS JUNTOS / LET'S WORK TOGETHER
             </a>

@@ -70,9 +70,6 @@ const Hero: React.FC = () => {
             <a href="#projects" className="px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider text-center hover:bg-white transition-colors">
               {t.hero.cta1}
             </a>
-            <a href="/cv.pdf" target="_blank" className="px-8 py-4 border-2 border-titaniumWhite text-titaniumWhite font-barlow font-bold text-lg tracking-wider text-center hover:bg-titaniumWhite hover:text-deepBlack transition-colors">
-              {t.hero.cta2}
-            </a>
           </div>
         </div>
       </div>

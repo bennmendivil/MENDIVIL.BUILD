@@ -7,6 +7,7 @@ export const translations = {
       projects: 'PROYECTOS',
       services: 'SERVICIOS',
       leanAi: 'LEAN + IA',
+      portfolio: 'PORTAFOLIO',
       contact: 'CONTACTO',
       cta: 'TRABAJEMOS JUNTOS'
     },
@@ -208,6 +209,7 @@ export const translations = {
       projects: 'PROJECTS',
       services: 'SERVICES',
       leanAi: 'LEAN + AI',
+      portfolio: 'PORTFOLIO',
       contact: 'CONTACT',
       cta: "LET'S WORK TOGETHER"
     },

@@ -97,7 +97,7 @@ const Portfolio: React.FC = () => {
   const activeProjects = projectsData[activeTab];
 
   return (
-    <section className="py-24 bg-deepBlack relative w-full overflow-hidden">
+    <section id="portfolio" className="py-24 bg-deepBlack relative w-full overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl" ref={containerRef}>
         
         <div className="mb-12 text-center md:text-left fade-in-section">
