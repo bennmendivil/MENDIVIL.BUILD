@@ -21,7 +21,7 @@ const Clients: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#2A2A2A] py-[16px] px-[36px] w-full">
+    <section className="bg-[#0E0E0E] py-[16px] px-[36px] w-full">
       <div className="container mx-auto flex flex-col items-center justify-center">
         <h3 className="font-jetbrains text-[#5A8FA8] text-[0.65rem] tracking-[3px] mb-[16px] text-center uppercase">
           {title}

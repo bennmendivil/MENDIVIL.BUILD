@@ -194,7 +194,8 @@ export const translations = {
       title: 'EL PROYECTO MÁS IMPORTANTE ESTÁ POR CONSTRUIRSE.',
       subtitle: 'Tu proyecto merece al ingeniero correcto.',
       whatsapp: 'ESCRIBIR POR WHATSAPP',
-      note: 'Disponible para proyectos en México y América Latina'
+      note: 'Disponible para proyectos en México y América Latina',
+      followMe: 'SÍGUEME EN REDES'
     },
     footer: {
       slogan: '14 años. Obra real. Resultados que permanecen.',
@@ -396,7 +397,8 @@ export const translations = {
       title: 'THE MOST IMPORTANT PROJECT IS YET TO BE BUILT.',
       subtitle: 'Your project deserves the right engineer.',
       whatsapp: 'MESSAGE ON WHATSAPP',
-      note: 'Available for projects in Mexico and Latin America'
+      note: 'Available for projects in Mexico and Latin America',
+      followMe: 'FOLLOW ME'
     },
     footer: {
       slogan: '14 years. Real work. Results that last.',
