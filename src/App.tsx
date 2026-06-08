@@ -7,7 +7,6 @@ import Experience from './components/Experience';
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import LeanConstruction from './components/LeanConstruction';
-import LeanAI from './components/LeanAI';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
@@ -25,7 +24,6 @@ function App() {
           <Portfolio />
           <Services />
           <LeanConstruction />
-          <LeanAI />
           <Education />
           <Contact />
         </main>
