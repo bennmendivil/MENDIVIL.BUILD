@@ -10,22 +10,30 @@ import LeanConstruction from './components/LeanConstruction';
 import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import LeanBuildSimulation from './components/LeanBuildSimulation';
 
 function App() {
+  const isSimulationRoute = window.location.pathname === '/lean-build-simulation';
   return (
     <LanguageProvider>
       <div className="bg-deepBlack min-h-screen font-inter text-titaniumWhite overflow-x-hidden">
         <Navbar />
         <main>
-          <Hero />
-          <Stats />
-          <Clients />
-          <Experience />
-          <Portfolio />
-          <Services />
-          <LeanConstruction />
-          <Education />
-          <Contact />
+          {isSimulationRoute ? (
+            <LeanBuildSimulation />
+          ) : (
+            <>
+              <Hero />
+              <Stats />
+              <Clients />
+              <Experience />
+              <Portfolio />
+              <Services />
+              <LeanConstruction />
+              <Education />
+              <Contact />
+            </>
+          )}
         </main>
         <Footer />
       </div>

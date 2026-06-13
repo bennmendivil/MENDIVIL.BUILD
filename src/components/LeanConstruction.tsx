@@ -137,6 +137,22 @@ const LeanConstruction: React.FC = () => {
       }
     ],
 
+    // 5.5 Simulation Workshop
+    simBadge: "NUEVO",
+    simTitle: "Lean Build Simulation",
+    simSubtitle: isEs 
+      ? "Taller vivencial de TAKT Planning para superintendentes" 
+      : "Hands-on TAKT Planning workshop for superintendents",
+    simDesc: isEs
+      ? "Tus equipos de obra construyen un edificio dos veces: sin plan y con TAKT. Ven la diferencia en sus propios datos."
+      : "Your field teams build a project twice — without a plan, and with TAKT. They see the difference in their own numbers.",
+    simPills: [
+      "2.5 hrs",
+      isEs ? "18-36 personas" : "18-36 people",
+      isEs ? "2 rondas" : "2 rounds"
+    ],
+    simCta: isEs ? "Conocer el taller" : "Learn more",
+
     // 6 Investment
     pricingTitle: isEs ? "INVERSIÓN" : "INVESTMENT",
     pill1Label: isEs ? "Diagnóstico + arranque" : "Diagnosis + kickoff",
@@ -323,6 +339,45 @@ const LeanConstruction: React.FC = () => {
               ))}
             </div>
 
+          </div>
+        </div>
+
+        {/* 5.5 Simulation Workshop */}
+        <div className="w-full bg-[#2A2A2A] border-[2px] border-transparent hover:border-[#4A9FD4]/30 rounded-[8px] p-[32px] md:p-[40px] mt-[24px] fade-in-section delay-300 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+          <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
+            <div className="flex-1 text-center md:text-left">
+              <div className="inline-block bg-[#4A9FD4]/15 border border-[#4A9FD4]/40 rounded-[3px] py-[3px] px-[10px] mb-[12px]">
+                <span className="font-jetbrains text-[#4A9FD4] text-[0.6rem] tracking-[3px] uppercase">
+                  {t.simBadge}
+                </span>
+              </div>
+              <h3 className="font-barlow font-black text-[#F0F0F0] text-[1.6rem] md:text-[2rem] uppercase tracking-wide mb-[8px]">
+                {t.simTitle}
+              </h3>
+              <p className="font-inter italic text-[#4A9FD4] text-[1rem] md:text-[1.1rem] mb-[16px]">
+                {t.simSubtitle}
+              </p>
+              <p className="font-inter text-[#5A8FA8] text-[0.95rem] leading-[1.6] mb-[24px] max-w-2xl mx-auto md:mx-0">
+                {t.simDesc}
+              </p>
+              
+              <div className="flex flex-wrap justify-center md:justify-start gap-4">
+                {t.simPills.map((pill, idx) => (
+                  <div key={idx} className="bg-[#0E0E0E] rounded-[4px] px-[16px] py-[8px] border border-[#4A9FD4]/20">
+                    <span className="font-jetbrains text-[#F0F0F0] text-[0.8rem]">{pill}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex-shrink-0 flex items-center justify-center self-center md:self-end mt-4 md:mt-0">
+              <a 
+                href="/lean-build-simulation"
+                className="inline-block bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[14px] px-[32px] rounded-[6px] hover:bg-[#1E4A6E] hover:border-[#4A9FD4] hover:text-white border-[2px] border-transparent transition-all duration-300 uppercase tracking-wide"
+              >
+                {t.simCta}
+              </a>
+            </div>
           </div>
         </div>
 
