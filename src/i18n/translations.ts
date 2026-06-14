@@ -124,7 +124,7 @@ export const translations = {
       title: '¿EN QUÉ PUEDO AYUDARTE?',
       cards: [
         {
-          title: 'GESTIÓN DE OBRA',
+          title: 'PROJECT MANAGEMENT',
           icon: 'HardHat',
           desc: 'Superintendencia y dirección de proyectos industriales, hospitalarios, aeroportuarios, de infraestructura y residenciales de lujo. De la planeación al cierre de obra.',
           bullets: [
@@ -328,7 +328,7 @@ export const translations = {
       title: 'HOW CAN I HELP YOU?',
       cards: [
         {
-          title: 'CONSTRUCTION MANAGEMENT',
+          title: 'PROJECT MANAGEMENT',
           icon: 'HardHat',
           desc: 'Superintendence and management of industrial, healthcare, airport, infrastructure and luxury residential projects. From planning to closeout.',
           bullets: [

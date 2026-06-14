@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { HardHat, BarChart2, Monitor, Microscope } from 'lucide-react';
+import { HardHat, BarChart2, Monitor, Microscope, Building, Cpu } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Services: React.FC = () => {
@@ -22,7 +22,57 @@ const Services: React.FC = () => {
     link: "https://gasavelaboratorio.com/"
   };
 
-  const allCards = [...t.services.cards, gasaveCard];
+  const ownersRepCard = {
+    icon: 'Building',
+    title: "OWNER'S REP",
+    desc: isEs
+      ? "Representación del dueño o desarrollador frente a contratistas, arquitectos y gobierno durante todas las etapas del proyecto."
+      : "Owner representation before contractors, architects and authorities throughout all project phases.",
+    bullets: isEs
+      ? [
+          "Supervisión de contratistas en nombre del cliente",
+          "Revisión de contratos y estimaciones de obra",
+          "Control de cambios y presupuesto del proyecto",
+          "Coordinación con autoridades y gestión de permisos",
+          "Reportes ejecutivos directos al dueño del proyecto"
+        ]
+      : [
+          "Contractor supervision on behalf of the client",
+          "Contract and estimate review",
+          "Change order and budget control",
+          "Authority coordination and permit management",
+          "Executive reports directly to the project owner"
+        ],
+    cta: isEs ? "Hablemos de tu proyecto →" : "Let's talk about your project →",
+    link: "#contact"
+  };
+
+  const aiCard = {
+    icon: 'Cpu',
+    title: isEs ? "IA APLICADA A CONSTRUCCIÓN" : "AI FOR CONSTRUCTION",
+    desc: isEs
+      ? "Automatizaciones, agentes de campo y visualización arquitectónica con inteligencia artificial para proyectos de construcción."
+      : "Automations, field agents and architectural visualization with artificial intelligence for construction projects.",
+    bullets: isEs
+      ? [
+          "Reportes automáticos generados desde fotos de obra",
+          "Agentes de IA asistentes para Superintendentes y PMs",
+          "Renders y videos con IA para licitaciones y ventas",
+          "Automatización de RFIs, minutas y control de avance",
+          "Herramientas personalizadas para tu proyecto"
+        ]
+      : [
+          "Automatic reports generated from site photos",
+          "AI field agents for Superintendents and PMs",
+          "AI renders and videos for bids and sales",
+          "RFI, minutes and progress control automation",
+          "Custom tools built for your project"
+        ],
+    cta: isEs ? "Ver aplicaciones →" : "See applications →",
+    link: "#lean" // Adjust link later if needed, assuming #lean for AI applications
+  };
+
+  const allCards = [...t.services.cards, gasaveCard, ownersRepCard, aiCard];
 
   const getIcon = (iconName: string, isGasave: boolean = false) => {
     const colorClass = isGasave ? "text-[#4A9FD4] mb-6" : "text-matteGold mb-6";
@@ -31,6 +81,8 @@ const Services: React.FC = () => {
       case 'BarChart2': return <BarChart2 size={32} className={colorClass} strokeWidth={1.5} />;
       case 'Monitor': return <Monitor size={32} className={colorClass} strokeWidth={1.5} />;
       case 'Microscope': return <Microscope size={32} className={colorClass} strokeWidth={1.5} />;
+      case 'Building': return <Building size={32} className={colorClass} strokeWidth={1.5} />;
+      case 'Cpu': return <Cpu size={32} className={colorClass} strokeWidth={1.5} />;
       default: return null;
     }
   };
@@ -45,7 +97,7 @@ const Services: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {allCards.map((card, index) => {
             const isGasave = index === 3;
             return (
@@ -81,8 +133,8 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
                 
-                {isGasave ? (
-                  <a href={(card as any).link} target="_blank" rel="noopener noreferrer" className="font-jetbrains text-sm text-[#4A9FD4] hover:text-white transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300">
+                {isGasave || index === 4 || index === 5 ? (
+                  <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className={`font-jetbrains text-sm transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300 ${isGasave ? 'text-[#4A9FD4] hover:text-white' : 'text-matteGold hover:text-white'}`}>
                     {card.cta}
                   </a>
                 ) : (
