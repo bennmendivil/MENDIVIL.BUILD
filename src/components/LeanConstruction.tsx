@@ -342,8 +342,44 @@ const LeanConstruction: React.FC = () => {
           </div>
         </div>
 
+        {/* ⑥ Investment */}
+        <div className="bg-[#1E4A6E] rounded-[8px] p-[32px] mt-[24px] text-center fade-in-section delay-400 flex flex-col items-center">
+          <h3 className="font-barlow font-black text-[#F0F0F0] text-[1.5rem] uppercase mb-[16px] tracking-wide">
+            {t.pricingTitle}
+          </h3>
+          
+          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 w-full mb-6">
+            {/* Pill 1 */}
+            <div className="flex flex-col items-center">
+              <span className="font-inter text-[#F0F0F0]/80 text-sm mb-1">{t.pill1Label}</span>
+              <span className="font-barlow font-bold text-[#4A9FD4] text-[1.8rem] leading-none">{t.pill1Value}</span>
+              <span className="font-jetbrains text-[#5A8FA8] text-[0.6rem] mt-2">{t.pill1Note}</span>
+            </div>
+            
+            {/* Pill 2 */}
+            <div className="flex flex-col items-center">
+              <span className="font-inter text-[#F0F0F0]/80 text-sm mb-1">{t.pill2Label}</span>
+              <span className="font-barlow font-bold text-[#4A9FD4] text-[1.8rem] leading-none">{t.pill2Value}</span>
+              <span className="font-jetbrains text-[#5A8FA8] text-[0.6rem] mt-2">{t.pill2Note}</span>
+            </div>
+          </div>
+          
+          <p className="font-jetbrains text-[#5A8FA8] text-[0.65rem] tracking-[2px] uppercase mb-[24px] whitespace-pre-line text-center">
+            {t.pricingNote}
+          </p>
+          
+          <a 
+            href="https://wa.me/524441418709" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[14px] px-[32px] rounded-[6px] hover:bg-[#1E4A6E] hover:border-[#4A9FD4] hover:text-white border-[2px] border-transparent transition-all duration-300 uppercase tracking-wide"
+          >
+            {t.cta}
+          </a>
+        </div>
+
         {/* 5.5 Simulation Workshop */}
-        <div className="w-full bg-[#2A2A2A] border-[2px] border-transparent hover:border-[#4A9FD4]/30 rounded-[8px] p-[32px] md:p-[40px] mt-[24px] fade-in-section delay-300 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+        <div className="w-full bg-[#2A2A2A] border-[2px] border-transparent hover:border-[#4A9FD4]/30 rounded-[8px] p-[32px] md:p-[40px] mt-[32px] fade-in-section delay-300 transition-all duration-300 hover:-translate-y-1 shadow-lg">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             <div className="flex-1 text-center md:text-left">
               <div className="inline-block bg-[#4A9FD4]/15 border border-[#4A9FD4]/40 rounded-[3px] py-[3px] px-[10px] mb-[12px]">
@@ -379,42 +415,6 @@ const LeanConstruction: React.FC = () => {
               </a>
             </div>
           </div>
-        </div>
-
-        {/* ⑥ Investment */}
-        <div className="bg-[#1E4A6E] rounded-[8px] p-[32px] mt-[32px] text-center fade-in-section delay-400 flex flex-col items-center">
-          <h3 className="font-barlow font-black text-[#F0F0F0] text-[1.5rem] uppercase mb-[16px] tracking-wide">
-            {t.pricingTitle}
-          </h3>
-          
-          <div className="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-16 w-full mb-6">
-            {/* Pill 1 */}
-            <div className="flex flex-col items-center">
-              <span className="font-inter text-[#F0F0F0]/80 text-sm mb-1">{t.pill1Label}</span>
-              <span className="font-barlow font-bold text-[#4A9FD4] text-[1.8rem] leading-none">{t.pill1Value}</span>
-              <span className="font-jetbrains text-[#5A8FA8] text-[0.6rem] mt-2">{t.pill1Note}</span>
-            </div>
-            
-            {/* Pill 2 */}
-            <div className="flex flex-col items-center">
-              <span className="font-inter text-[#F0F0F0]/80 text-sm mb-1">{t.pill2Label}</span>
-              <span className="font-barlow font-bold text-[#4A9FD4] text-[1.8rem] leading-none">{t.pill2Value}</span>
-              <span className="font-jetbrains text-[#5A8FA8] text-[0.6rem] mt-2">{t.pill2Note}</span>
-            </div>
-          </div>
-          
-          <p className="font-jetbrains text-[#5A8FA8] text-[0.65rem] tracking-[2px] uppercase mb-[24px] whitespace-pre-line text-center">
-            {t.pricingNote}
-          </p>
-          
-          <a 
-            href="https://wa.me/524441418709" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="inline-block bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[14px] px-[32px] rounded-[6px] hover:bg-[#1E4A6E] hover:border-[#4A9FD4] hover:text-white border-[2px] border-transparent transition-all duration-300 uppercase tracking-wide"
-          >
-            {t.cta}
-          </a>
         </div>
 
       </div>
