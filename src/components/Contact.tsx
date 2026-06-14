@@ -120,11 +120,11 @@ const Contact: React.FC = () => {
           <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 fade-in-section delay-300">
             {/* Email */}
             <a 
-              href="mailto:benjamh2@gmail.com" 
+              href="mailto:benjamin@mendivil.build" 
               className="w-full md:w-auto flex items-center justify-center space-x-3 px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider hover:bg-white transition-colors"
             >
               <Mail size={24} />
-              <span>benjamh2@gmail.com</span>
+              <span>benjamin@mendivil.build</span>
             </a>
 
             {/* LinkedIn */}
