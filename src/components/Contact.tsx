@@ -32,6 +32,13 @@ const FacebookIcon = ({ size = 24 }: { size?: number }) => (
   </svg>
 );
 
+const YoutubeIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+  </svg>
+);
+
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Contact: React.FC = () => {
@@ -137,6 +144,17 @@ const Contact: React.FC = () => {
               <LinkedinIcon size={24} />
               <span>LinkedIn</span>
             </a>
+
+            {/* WhatsApp */}
+            <a 
+              href="https://wa.me/524441418709" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="w-full md:w-auto flex items-center justify-center space-x-3 px-8 py-4 border-2 border-[#25D366] text-[#25D366] font-barlow font-bold text-lg tracking-wider hover:bg-[#25D366] hover:text-deepBlack transition-colors"
+            >
+              <MessageCircle size={24} />
+              <span>WhatsApp</span>
+            </a>
           </div>
 
           {/* Social Networks */}
@@ -157,6 +175,9 @@ const Contact: React.FC = () => {
                 </a>
                 <a href="https://wa.me/524441418709" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
                   <MessageCircle size={24} />
+                </a>
+                <a href="https://www.youtube.com/channel/UCqH3-iUphsyJJ_31JretqoQ" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#FF0000] transition-all duration-300 hover:scale-110">
+                  <YoutubeIcon size={24} />
                 </a>
               </div>
             </div>
