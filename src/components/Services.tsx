@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { HardHat, BarChart2, Monitor } from 'lucide-react';
+import { HardHat, BarChart2, Monitor, Microscope } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Services: React.FC = () => {
@@ -8,21 +8,29 @@ const Services: React.FC = () => {
   const isEs = language === 'ES';
   const containerRef = useIntersectionObserver({ threshold: 0.1 });
 
-  const gasave = {
+  const gasaveCard = {
+    icon: 'Microscope',
     badge: isEs ? "ALIANZA GASAVE" : "GASAVE ALLIANCE",
-    title: isEs ? "Control de Calidad y Mecánica de Suelos" : "Quality Control & Soil Mechanics",
-    subtitle: isEs ? "En alianza con GASAVE Laboratorio · Torreón, Coahuila" : "In alliance with GASAVE Laboratory · Torreón, Coahuila",
+    title: isEs ? "CONTROL DE CALIDAD" : "QUALITY CONTROL",
     desc: isEs 
-      ? "Servicios especializados de laboratorio para verificación de resistencia de concreto, estudios de mecánica de suelos, control de compactación en campo y ensayes de materiales para proyectos industriales y de infraestructura."
-      : "Specialized laboratory services for concrete strength verification, soil mechanics studies, field compaction control, and materials testing for industrial and infrastructure projects.",
-    cta: isEs ? "Ver laboratorio →" : "Visit lab →"
+      ? "Verificación de resistencia de concreto, mecánica de suelos y control de compactación en campo. En alianza con GASAVE Laboratorio, Torreón."
+      : "Concrete strength verification, soil mechanics and field compaction control. In alliance with GASAVE Laboratory, Torreón.",
+    bullets: isEs
+      ? ["Resistencia de concreto (cilindros y núcleos)", "Mecánica de suelos y sondeos", "Control de compactación en campo", "Ensayes de materiales para infraestructura"]
+      : ["Concrete strength testing", "Soil mechanics and borings", "Field compaction control", "Materials testing for infrastructure"],
+    cta: isEs ? "Ver laboratorio →" : "Visit lab →",
+    link: "https://gasavelaboratorio.com/"
   };
 
-  const getIcon = (iconName: string) => {
+  const allCards = [...t.services.cards, gasaveCard];
+
+  const getIcon = (iconName: string, isGasave: boolean = false) => {
+    const colorClass = isGasave ? "text-[#4A9FD4] mb-6" : "text-matteGold mb-6";
     switch (iconName) {
-      case 'HardHat': return <HardHat size={32} className="text-matteGold mb-6" strokeWidth={1.5} />;
-      case 'BarChart2': return <BarChart2 size={32} className="text-matteGold mb-6" strokeWidth={1.5} />;
-      case 'Monitor': return <Monitor size={32} className="text-matteGold mb-6" strokeWidth={1.5} />;
+      case 'HardHat': return <HardHat size={32} className={colorClass} strokeWidth={1.5} />;
+      case 'BarChart2': return <BarChart2 size={32} className={colorClass} strokeWidth={1.5} />;
+      case 'Monitor': return <Monitor size={32} className={colorClass} strokeWidth={1.5} />;
+      case 'Microscope': return <Microscope size={32} className={colorClass} strokeWidth={1.5} />;
       default: return null;
     }
   };
@@ -37,67 +45,54 @@ const Services: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {t.services.cards.map((card, index) => (
-            <div 
-              key={index} 
-              className={`bg-[#0F2236] border-t-4 border-matteGold p-8 flex flex-col group hover:-translate-y-2 transition-transform duration-300 fade-in-section delay-${(index + 1) * 100}`}
-            >
-              {getIcon(card.icon)}
-              
-              <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase mb-4">
-                {card.title}
-              </h3>
-              
-              <p className="font-inter text-titaniumWhite/80 text-sm leading-relaxed mb-8 flex-grow">
-                {card.desc}
-              </p>
-              
-              <ul className="space-y-3 mb-8">
-                {card.bullets.map((bullet, idx) => (
-                  <li key={idx} className="flex items-start">
-                    <span className="text-electricBlue mr-2 mt-1">▸</span>
-                    <span className="font-inter text-sm text-concreteGray leading-tight">{bullet}</span>
-                  </li>
-                ))}
-              </ul>
-              
-              <a href="#contact" className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300">
-                {card.cta}
-              </a>
-            </div>
-          ))}
-        </div>
-
-        {/* Gasave Alliance Card */}
-        <div className="mt-12 max-w-4xl mx-auto bg-[#2A2A2A] rounded-[8px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 fade-in-section delay-400 group hover:-translate-y-2 transition-transform duration-300">
-          <div className="flex-1 text-center md:text-left">
-            <div className="inline-block bg-[#4A9FD4]/15 border border-[#4A9FD4]/40 rounded-[3px] py-[3px] px-[10px] mb-4">
-              <span className="font-jetbrains text-[#4A9FD4] text-[0.6rem] tracking-[3px] uppercase">
-                {gasave.badge}
-              </span>
-            </div>
-            <h3 className="font-barlow font-bold text-2xl md:text-3xl text-titaniumWhite uppercase mb-2">
-              {gasave.title}
-            </h3>
-            <p className="font-inter italic text-[#4A9FD4] text-sm md:text-base mb-4">
-              {gasave.subtitle}
-            </p>
-            <p className="font-inter text-titaniumWhite/80 text-sm md:text-base leading-relaxed">
-              {gasave.desc}
-            </p>
-          </div>
-          
-          <div className="flex-shrink-0">
-            <a 
-              href="https://gasavelaboratorio.com/" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-block border-2 border-[#4A9FD4] text-[#4A9FD4] font-barlow font-bold text-[1rem] py-[12px] px-[24px] rounded-[6px] hover:bg-[#4A9FD4] hover:text-[#0E0E0E] transition-all duration-300 uppercase tracking-wide whitespace-nowrap"
-            >
-              {gasave.cta}
-            </a>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {allCards.map((card, index) => {
+            const isGasave = index === 3;
+            return (
+              <div 
+                key={index} 
+                className={`border-t-4 p-8 flex flex-col group hover:-translate-y-2 transition-transform duration-300 fade-in-section delay-${(index + 1) * 100} ${isGasave ? 'bg-[#1E4A6E] border-[#4A9FD4]' : 'bg-[#0F2236] border-matteGold'}`}
+              >
+                {/* Badge if exists */}
+                {'badge' in card && (
+                  <div className="mb-4">
+                    <span className="inline-block bg-[#4A9FD4]/20 border border-[#4A9FD4]/50 rounded-[3px] py-[2px] px-[8px] font-jetbrains text-[#F0F0F0] text-[0.6rem] tracking-[2px] uppercase">
+                      {(card as any).badge}
+                    </span>
+                  </div>
+                )}
+                
+                {getIcon(card.icon, isGasave)}
+                
+                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase mb-4">
+                  {card.title}
+                </h3>
+                
+                <p className="font-inter text-titaniumWhite/80 text-sm leading-relaxed mb-8 flex-grow">
+                  {card.desc}
+                </p>
+                
+                <ul className="space-y-3 mb-8">
+                  {card.bullets.map((bullet, idx) => (
+                    <li key={idx} className="flex items-start">
+                      <span className={`mr-2 mt-1 ${isGasave ? 'text-[#F0F0F0]' : 'text-electricBlue'}`}>▸</span>
+                      <span className="font-inter text-sm text-concreteGray leading-tight">{bullet}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                {isGasave ? (
+                  <a href={(card as any).link} target="_blank" rel="noopener noreferrer" className="font-jetbrains text-sm text-[#4A9FD4] hover:text-white transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300">
+                    {card.cta}
+                  </a>
+                ) : (
+                  <a href="#contact" className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300">
+                    {card.cta}
+                  </a>
+                )}
+              </div>
+            );
+          })}
         </div>
 
       </div>
