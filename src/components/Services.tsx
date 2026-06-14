@@ -4,8 +4,19 @@ import { HardHat, BarChart2, Monitor } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Services: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isEs = language === 'ES';
   const containerRef = useIntersectionObserver({ threshold: 0.1 });
+
+  const gasave = {
+    badge: isEs ? "ALIANZA GASAVE" : "GASAVE ALLIANCE",
+    title: isEs ? "Control de Calidad y Mecánica de Suelos" : "Quality Control & Soil Mechanics",
+    subtitle: isEs ? "En alianza con GASAVE Laboratorio · Torreón, Coahuila" : "In alliance with GASAVE Laboratory · Torreón, Coahuila",
+    desc: isEs 
+      ? "Servicios especializados de laboratorio para verificación de resistencia de concreto, estudios de mecánica de suelos, control de compactación en campo y ensayes de materiales para proyectos industriales y de infraestructura."
+      : "Specialized laboratory services for concrete strength verification, soil mechanics studies, field compaction control, and materials testing for industrial and infrastructure projects.",
+    cta: isEs ? "Ver laboratorio →" : "Visit lab →"
+  };
 
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -56,6 +67,37 @@ const Services: React.FC = () => {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Gasave Alliance Card */}
+        <div className="mt-12 max-w-4xl mx-auto bg-[#2A2A2A] rounded-[8px] p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-8 fade-in-section delay-400 group hover:-translate-y-2 transition-transform duration-300">
+          <div className="flex-1 text-center md:text-left">
+            <div className="inline-block bg-[#4A9FD4]/15 border border-[#4A9FD4]/40 rounded-[3px] py-[3px] px-[10px] mb-4">
+              <span className="font-jetbrains text-[#4A9FD4] text-[0.6rem] tracking-[3px] uppercase">
+                {gasave.badge}
+              </span>
+            </div>
+            <h3 className="font-barlow font-bold text-2xl md:text-3xl text-titaniumWhite uppercase mb-2">
+              {gasave.title}
+            </h3>
+            <p className="font-inter italic text-[#4A9FD4] text-sm md:text-base mb-4">
+              {gasave.subtitle}
+            </p>
+            <p className="font-inter text-titaniumWhite/80 text-sm md:text-base leading-relaxed">
+              {gasave.desc}
+            </p>
+          </div>
+          
+          <div className="flex-shrink-0">
+            <a 
+              href="https://gasavelaboratorio.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-block border-2 border-[#4A9FD4] text-[#4A9FD4] font-barlow font-bold text-[1rem] py-[12px] px-[24px] rounded-[6px] hover:bg-[#4A9FD4] hover:text-[#0E0E0E] transition-all duration-300 uppercase tracking-wide whitespace-nowrap"
+            >
+              {gasave.cta}
+            </a>
+          </div>
         </div>
 
       </div>
