@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { useForm, ValidationError } from '@formspree/react';
 import { Mail, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 
@@ -34,8 +35,10 @@ const FacebookIcon = ({ size = 24 }: { size?: number }) => (
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Contact: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isEs = language === 'ES';
   const containerRef = useIntersectionObserver({ threshold: 0.2 });
+  const [state, handleSubmit] = useForm('xjgdjgvz');
 
   return (
     <section id="contact" className="relative py-32 bg-deepBlack">
@@ -76,7 +79,45 @@ const Contact: React.FC = () => {
             {t.contact.subtitle}
           </p>
 
-          <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 fade-in-section delay-200">
+          {/* Formspree Form */}
+          {state.succeeded ? (
+            <div className="bg-[#1E4A6E] border border-[#4A9FD4]/30 rounded-[8px] p-8 text-center max-w-2xl mx-auto mb-16 fade-in-section delay-200">
+              <p className="font-barlow font-bold text-[#4A9FD4] text-[1.5rem] tracking-wide uppercase">
+                ¡Mensaje enviado! Te contactamos en menos de 24 horas.
+              </p>
+            </div>
+          ) : (
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-16 text-left max-w-2xl mx-auto fade-in-section delay-200" onSubmit={handleSubmit}>
+              <div className="w-full">
+                <input type="text" name="name" id="contact-name" required placeholder={isEs ? "Nombre completo" : "Full Name"} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full">
+                <input type="text" name="company" id="contact-company" required placeholder={isEs ? "Empresa" : "Company"} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Company" field="company" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full md:col-span-2">
+                <input type="email" name="email" id="contact-email" required placeholder="Email" className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full md:col-span-2">
+                <textarea name="message" id="contact-message" required placeholder={isEs ? "Mensaje" : "Message"} rows={4} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full"></textarea>
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              
+              <button type="submit" disabled={state.submitting} className="md:col-span-2 bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[16px] rounded-[6px] hover:bg-[#F0F0F0] disabled:bg-[#4A9FD4]/50 disabled:cursor-not-allowed transition-colors duration-300 uppercase tracking-wide mt-2">
+                {state.submitting ? "Enviando..." : (isEs ? "ENVIAR MENSAJE" : "SEND MESSAGE")}
+              </button>
+            </form>
+          )}
+
+          <div className="flex items-center justify-center my-8 fade-in-section delay-200">
+            <div className="h-px bg-white/10 w-16"></div>
+            <span className="font-jetbrains text-[#5A8FA8] text-xs px-4 uppercase tracking-widest">{isEs ? "O DIRECTAMENTE VÍA" : "OR DIRECTLY VIA"}</span>
+            <div className="h-px bg-white/10 w-16"></div>
+          </div>
+
+          <div className="flex flex-col md:flex-row gap-6 justify-center items-center mb-16 fade-in-section delay-300">
             {/* Email */}
             <a 
               href="mailto:benjamh2@gmail.com" 

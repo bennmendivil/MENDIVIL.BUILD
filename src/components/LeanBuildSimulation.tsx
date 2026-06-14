@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { useForm, ValidationError } from '@formspree/react';
 
 const LeanBuildSimulation: React.FC = () => {
   const { language } = useLanguage();
   const isEs = language === 'ES';
   const containerRef = useIntersectionObserver({ threshold: 0.1 });
+  const [state, handleSubmit] = useForm('xjgdjgvz');
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -279,17 +281,37 @@ const LeanBuildSimulation: React.FC = () => {
             {t.finalTitle}
           </h3>
           
-          {/* Simple Form Layout */}
-          <form className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left max-w-2xl mx-auto" onSubmit={(e) => e.preventDefault()}>
-            <input type="text" placeholder={t.finalForm.name} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
-            <input type="text" placeholder={t.finalForm.company} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
-            <input type="email" placeholder={t.finalForm.email} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full md:col-span-2" />
-            <textarea placeholder={t.finalForm.message} rows={3} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full md:col-span-2"></textarea>
-            
-            <button type="submit" className="md:col-span-2 bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[16px] rounded-[6px] hover:bg-[#F0F0F0] transition-colors duration-300 uppercase tracking-wide mt-2">
-              {t.finalForm.send}
-            </button>
-          </form>
+          {/* Formspree Form */}
+          {state.succeeded ? (
+            <div className="bg-[#1E4A6E] border border-[#4A9FD4]/30 rounded-[8px] p-8 text-center max-w-2xl mx-auto mb-8">
+              <p className="font-barlow font-bold text-[#4A9FD4] text-[1.5rem] tracking-wide uppercase">
+                ¡Mensaje enviado! Te contactamos en menos de 24 horas.
+              </p>
+            </div>
+          ) : (
+            <form className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 text-left max-w-2xl mx-auto" onSubmit={handleSubmit}>
+              <div className="w-full">
+                <input type="text" name="name" id="name" required placeholder={t.finalForm.name} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full">
+                <input type="text" name="company" id="company" required placeholder={t.finalForm.company} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Company" field="company" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full md:col-span-2">
+                <input type="email" name="email" id="email" required placeholder={t.finalForm.email} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full" />
+                <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              <div className="w-full md:col-span-2">
+                <textarea name="message" id="message" required placeholder={t.finalForm.message} rows={3} className="bg-[#0E0E0E] border border-white/10 rounded-[6px] p-4 text-[#F0F0F0] focus:outline-none focus:border-[#4A9FD4] font-inter text-sm w-full"></textarea>
+                <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+              </div>
+              
+              <button type="submit" disabled={state.submitting} className="md:col-span-2 bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[16px] rounded-[6px] hover:bg-[#F0F0F0] disabled:bg-[#4A9FD4]/50 disabled:cursor-not-allowed transition-colors duration-300 uppercase tracking-wide mt-2">
+                {state.submitting ? "Enviando..." : t.finalForm.send}
+              </button>
+            </form>
+          )}
 
           <div className="flex items-center justify-center my-8">
             <div className="h-px bg-white/10 w-16"></div>
