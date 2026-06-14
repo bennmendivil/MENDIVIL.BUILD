@@ -18,8 +18,8 @@ export const translations = {
       name2: 'MENDÍVIL',
       name3: 'HERNÁNDEZ',
       subtitle: 'Detrás de cada gran proyecto, hay alguien que lo hizo real.',
-      description: 'Proyectos industriales, hospitalarios y residenciales de clase mundial.\nLean Construction aplicado en campo real.\nTecnología e IA al servicio de la obra.',
-      tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'SUPERINTENDENT', 'APPLIED AI'],
+      description: 'Proyectos industriales, hospitalarios y residenciales en México y USA.\nLean Construction aplicado en campo real.\nTecnología e IA al servicio de la obra.',
+      tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'CONSTRUCTION MANAGER', 'APPLIED AI'],
       cta1: 'VER PROYECTOS →',
       cta2: 'DESCARGAR CV'
     },
@@ -126,7 +126,7 @@ export const translations = {
         {
           title: 'PROJECT MANAGEMENT',
           icon: 'HardHat',
-          desc: 'Superintendencia y dirección de proyectos industriales, hospitalarios, aeroportuarios, de infraestructura y residenciales de lujo. De la planeación al cierre de obra.',
+          desc: 'Dirección y superintendencia de proyectos industriales, hospitalarios, aeroportuarios e infraestructura de clase mundial. Control total desde ingeniería hasta cierre de obra.',
           bullets: [
             'Coordinación de contratistas y frentes',
             'Control de avance, calidad y seguridad',
@@ -195,11 +195,11 @@ export const translations = {
       title: 'EL PROYECTO MÁS IMPORTANTE ESTÁ POR CONSTRUIRSE.',
       subtitle: 'Tu proyecto merece al ingeniero correcto.',
       whatsapp: 'ESCRIBIR POR WHATSAPP',
-      note: 'Disponible para proyectos en México y América Latina',
+      note: 'Proyectos en México · USA · Internacional',
       followMe: 'SÍGUEME EN REDES'
     },
     footer: {
-      slogan: '14 años. Obra real. Resultados que permanecen.',
+      slogan: '14+ años. Obra real. Resultados que permanecen.',
       available: '● DISPONIBLE PARA PROYECTOS',
       degree: 'Ing. Civil — Universidad Autónoma de Sinaloa',
       copyright: '© 2026 Benjamín Mendívil Hernández · mendivil.build'
@@ -222,8 +222,8 @@ export const translations = {
       name2: 'MENDÍVIL',
       name3: 'HERNÁNDEZ',
       subtitle: "Behind every great project, there's someone who made it real.",
-      description: 'World-class industrial, healthcare and residential projects.\nLean Construction applied in the real field.\nTechnology and AI at the service of construction.',
-      tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'SUPERINTENDENT', 'APPLIED AI'],
+      description: 'Industrial, healthcare and residential projects in Mexico and the USA.\nLean Construction applied in the real field.\nTechnology and AI at the service of construction.',
+      tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'CONSTRUCTION MANAGER', 'APPLIED AI'],
       cta1: 'VIEW PROJECTS →',
       cta2: 'DOWNLOAD CV'
     },
@@ -330,7 +330,7 @@ export const translations = {
         {
           title: 'PROJECT MANAGEMENT',
           icon: 'HardHat',
-          desc: 'Superintendence and management of industrial, healthcare, airport, infrastructure and luxury residential projects. From planning to closeout.',
+          desc: 'Direction and superintendence of industrial, healthcare, airport and world-class infrastructure projects. Full control from engineering through project closeout.',
           bullets: [
             'Contractor and work front coordination',
             'Progress, quality and safety control',
@@ -399,11 +399,11 @@ export const translations = {
       title: 'THE MOST IMPORTANT PROJECT IS YET TO BE BUILT.',
       subtitle: 'Your project deserves the right engineer.',
       whatsapp: 'MESSAGE ON WHATSAPP',
-      note: 'Available for projects in Mexico and Latin America',
+      note: 'Projects in Mexico · USA · International',
       followMe: 'FOLLOW ME'
     },
     footer: {
-      slogan: '14 years. Real work. Results that last.',
+      slogan: '14+ years. Real work. Results that last.',
       available: '● AVAILABLE FOR PROJECTS',
       degree: 'Civil Engineer — Universidad Autónoma de Sinaloa',
       copyright: '© 2026 Benjamín Mendívil Hernández · mendivil.build'

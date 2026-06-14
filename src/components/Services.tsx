@@ -13,11 +13,21 @@ const Services: React.FC = () => {
     badge: isEs ? "ALIANZA GASAVE" : "GASAVE ALLIANCE",
     title: isEs ? "CONTROL DE CALIDAD" : "QUALITY CONTROL",
     desc: isEs 
-      ? "Verificación de resistencia de concreto, mecánica de suelos y control de compactación en campo. En alianza con GASAVE Laboratorio, Torreón."
-      : "Concrete strength verification, soil mechanics and field compaction control. In alliance with GASAVE Laboratory, Torreón.",
+      ? "Servicios de laboratorio geotécnico y de materiales de construcción: resistencia a la compresión en probetas cilíndricas, sondeos geotécnicos, granulometría y densidades de campo. En alianza con GASAVE Laboratorio, Torreón, Coahuila."
+      : "Geotechnical and construction materials laboratory services: compressive strength in cylindrical specimens, geotechnical borings, granulometry and field densities. In alliance with GASAVE Laboratory, Torreón, Coahuila.",
     bullets: isEs
-      ? ["Resistencia de concreto (cilindros y núcleos)", "Mecánica de suelos y sondeos", "Control de compactación en campo", "Ensayes de materiales para infraestructura"]
-      : ["Concrete strength testing", "Soil mechanics and borings", "Field compaction control", "Materials testing for infrastructure"],
+      ? [
+          "Resistencia f'c en cilindros y núcleos diamantinos (ASTM C39 / NMX)",
+          "Estudios geotécnicos, SPT y perfiles estratigráficos",
+          "Densidad de campo: cono de arena y nuclear (ASTM D1556 / D6938)",
+          "Granulometría, Límites de Atterberg, Proctor y CBR (NOM / ASTM)"
+        ]
+      : [
+          "Compressive strength f'c on cylinders and diamond cores (ASTM C39 / NMX)",
+          "Geotechnical studies, SPT and stratigraphic profiles",
+          "Field density: sand cone and nuclear methods (ASTM D1556 / D6938)",
+          "Gradation, Atterberg Limits, Proctor and CBR (NOM / ASTM)"
+        ],
     cta: isEs ? "Ver laboratorio →" : "Visit lab →",
     link: "https://gasavelaboratorio.com/"
   };

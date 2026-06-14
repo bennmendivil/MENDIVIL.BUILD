@@ -14,22 +14,22 @@ const LeanConstruction: React.FC = () => {
     subtitle: isEs ? "No en el salón de clases.\nEn obra. Con resultados medibles." : "Not in the classroom.\nOn site. With measurable results.",
     
     // 2 Left
-    badge: isEs ? "4 AÑOS DE IMPLEMENTACIÓN REAL" : "4 YEARS OF REAL IMPLEMENTATION",
+    badge: isEs ? "5+ AÑOS DE IMPLEMENTACIÓN EN CAMPO" : "5+ YEARS OF FIELD IMPLEMENTATION",
     paragraph: isEs 
-      ? "Implementé Last Planner® System y metodología Lean Edge en proyectos industriales de clase mundial durante 4 años consecutivos, coordinando contratistas, superintendentes y equipos multidisciplinarios en proyectos con presupuestos de hasta $75.9M USD."
-      : "I implemented Last Planner® System and Lean Edge methodology in world-class industrial projects for 4 consecutive years, coordinating contractors, superintendents and multidisciplinary teams in projects with budgets of up to $75.9M USD.",
+      ? "Implementé Last Planner® System, TAKT Planning y metodología Kanban en proyectos industriales de clase mundial desde 2021, coordinando contratistas, superintendentes y equipos multidisciplinarios de hasta 200+ personas en proyectos con presupuestos de hasta $75.9M USD."
+      : "Implemented Last Planner® System, TAKT Planning and Kanban methodology on world-class industrial projects since 2021, coordinating contractors, superintendents and multidisciplinary teams of 200+ people on projects with budgets up to $75.9M USD.",
     metrics: [
       {
         num: "+85%",
         desc: isEs ? "PPC promedio en mis obras" : "Average PPC on my projects"
       },
       {
-        num: "4 años",
+        num: "5+ años",
         desc: isEs ? "Implementación continua en campo" : "Continuous field implementation"
       },
       {
-        num: "daily",
-        desc: isEs ? "Reuniones diarias (daily huddle)" : "Daily huddles on LPS board"
+        num: "TAKT + LPS",
+        desc: isEs ? "Metodologías activas en simultáneo" : "Methodologies active simultaneously"
       },
       {
         num: "$75.9M",
