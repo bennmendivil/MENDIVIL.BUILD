@@ -369,7 +369,7 @@ const LeanConstruction: React.FC = () => {
           </p>
           
           <a 
-            href="https://wa.me/524441418709" 
+            href="https://calendly.com/benjamh2/new-meeting" 
             target="_blank" 
             rel="noopener noreferrer"
             className="inline-block bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1rem] py-[14px] px-[32px] rounded-[6px] hover:bg-[#1E4A6E] hover:border-[#4A9FD4] hover:text-white border-[2px] border-transparent transition-all duration-300 uppercase tracking-wide"
