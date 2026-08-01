@@ -143,15 +143,27 @@ const Services: React.FC = () => {
                   ))}
                 </ul>
                 
-                {isGasave || index === 4 || index === 5 ? (
-                  <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className={`font-jetbrains text-sm transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300 ${isGasave ? 'text-[#4A9FD4] hover:text-white' : 'text-matteGold hover:text-white'}`}>
-                    {card.cta}
-                  </a>
-                ) : (
-                  <a href="#contact" className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors mt-auto inline-flex items-center group-hover:translate-x-1 duration-300">
-                    {card.cta}
-                  </a>
-                )}
+                <div className="mt-auto flex flex-col items-start gap-5 w-full">
+                  {index === 5 && (
+                    <a 
+                      href="https://mendivil-build-studio.higgsfield.app" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex justify-center items-center w-full bg-[#4A9FD4] text-[#F0F0F0] font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-[#3b8dbf] transition-colors uppercase font-bold"
+                    >
+                      {isEs ? "Genera tu render con IA →" : "Try our AI render tool →"}
+                    </a>
+                  )}
+                  {isGasave || index === 4 || index === 5 ? (
+                    <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className={`font-jetbrains text-sm transition-colors inline-flex items-center group-hover:translate-x-1 duration-300 ${isGasave ? 'text-[#4A9FD4] hover:text-white' : 'text-matteGold hover:text-white'}`}>
+                      {card.cta}
+                    </a>
+                  ) : (
+                    <a href="#contact" className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
+                      {card.cta}
+                    </a>
+                  )}
+                </div>
               </div>
             );
           })}
