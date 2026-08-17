@@ -147,7 +147,7 @@ const Contact: React.FC = () => {
 
             {/* WhatsApp */}
             <a 
-              href="https://wa.me/524441418709" 
+              href="https://wa.me/message/OMVEQBVAUTQLM1" 
               target="_blank" 
               rel="noopener noreferrer"
               className="w-full md:w-auto flex items-center justify-center space-x-3 px-8 py-4 border-2 border-[#25D366] text-[#25D366] font-barlow font-bold text-lg tracking-wider hover:bg-[#25D366] hover:text-deepBlack transition-colors"
@@ -173,7 +173,7 @@ const Contact: React.FC = () => {
                 <a href="https://www.tiktok.com/@mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white transition-all duration-300 hover:scale-110">
                   <TikTokIcon size={24} />
                 </a>
-                <a href="https://wa.me/524441418709" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
+                <a href="https://wa.me/message/OMVEQBVAUTQLM1" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
                   <MessageCircle size={24} />
                 </a>
                 <a href="https://www.youtube.com/channel/UCqH3-iUphsyJJ_31JretqoQ" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#FF0000] transition-all duration-300 hover:scale-110">

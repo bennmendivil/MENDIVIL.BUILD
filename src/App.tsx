@@ -11,9 +11,12 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LeanBuildSimulation from './components/LeanBuildSimulation';
+import TorreNazas from './components/TorreNazas';
 
 function App() {
   const isSimulationRoute = window.location.pathname === '/lean-build-simulation';
+  const isTorreNazasRoute = window.location.pathname === '/servicios/ia-construccion/torre-nazas';
+
   return (
     <LanguageProvider>
       <div className="bg-deepBlack min-h-screen font-inter text-titaniumWhite overflow-x-hidden">
@@ -21,6 +24,8 @@ function App() {
         <main>
           {isSimulationRoute ? (
             <LeanBuildSimulation />
+          ) : isTorreNazasRoute ? (
+            <TorreNazas />
           ) : (
             <>
               <Hero />

@@ -77,7 +77,7 @@ const Footer: React.FC = () => {
               <a href="https://www.tiktok.com/@mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white transition-all duration-300 hover:scale-110">
                 <TikTokIcon size={24} />
               </a>
-              <a href="https://wa.me/524441418709" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
+              <a href="https://wa.me/message/OMVEQBVAUTQLM1" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
                 <MessageCircle size={24} />
               </a>
               <a href="https://linkedin.com/in/benjamín-mendívil-hernández-4a0065158" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#0077B5] transition-all duration-300 hover:scale-110">
