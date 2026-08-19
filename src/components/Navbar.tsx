@@ -52,7 +52,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* CTA */}
-          <a href="https://calendly.com/benjamh2/30min" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-block px-5 py-2 border-2 border-matteGold text-matteGold font-jetbrains text-sm font-bold hover:bg-matteGold hover:text-deepBlack transition-all">
+          <a href="https://calendly.com/benjamh2/new-meeting" target="_blank" rel="noopener noreferrer" className="hidden lg:inline-block px-5 py-2 border-2 border-matteGold text-matteGold font-jetbrains text-sm font-bold hover:bg-matteGold hover:text-deepBlack transition-all">
             {t.nav.cta}
           </a>
 
@@ -101,7 +101,7 @@ const Navbar: React.FC = () => {
           </div>
 
           <div className="px-6 pb-2">
-            <a href="https://calendly.com/benjamh2/30min" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#4A9FD4] text-white font-barlow font-bold text-[1.2rem] py-3 rounded-sm">
+            <a href="https://calendly.com/benjamh2/new-meeting" target="_blank" rel="noopener noreferrer" onClick={() => setIsMobileMenuOpen(false)} className="block w-full text-center bg-[#4A9FD4] text-white font-barlow font-bold text-[1.2rem] py-3 rounded-sm">
               TRABAJEMOS JUNTOS / LET'S WORK TOGETHER
             </a>
           </div>

@@ -165,10 +165,12 @@ const TorreNazas: React.FC = () => {
             ¿Tienes un terreno o proyecto que necesita visualizarse así?
           </h2>
           <a 
-            href="/#contact" 
+            href="https://calendly.com/benjamh2/new-meeting"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center justify-center border-2 border-electricBlue text-electricBlue hover:bg-electricBlue hover:text-deepBlack transition-all duration-300 px-10 py-4 rounded font-inter uppercase tracking-[0.15em] text-sm font-bold"
           >
-            Contactar
+            Agenda una llamada
           </a>
         </div>
 

@@ -124,7 +124,7 @@ const LeanBuildSimulation: React.FC = () => {
           </div>
 
           <a 
-            href="https://calendly.com/benjamh2/30min" 
+            href="https://calendly.com/benjamh2/new-meeting" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#4A9FD4] text-[#0E0E0E] font-barlow font-bold text-[1.1rem] py-[16px] px-[40px] rounded-[6px] hover:bg-[#1E4A6E] hover:border-[#4A9FD4] hover:text-white border-[2px] border-transparent transition-all duration-300 uppercase tracking-wide shadow-lg"
@@ -257,7 +257,7 @@ const LeanBuildSimulation: React.FC = () => {
                 </div>
                 <div className="mt-auto pt-6 text-center">
                   <a 
-                    href="https://calendly.com/benjamh2/30min" 
+                    href="https://calendly.com/benjamh2/new-meeting" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className={`inline-block font-barlow font-bold text-[0.95rem] py-3 px-8 rounded-[6px] transition-all uppercase tracking-wide w-full ${
@@ -319,7 +319,7 @@ const LeanBuildSimulation: React.FC = () => {
           </div>
 
           <a 
-            href="https://calendly.com/benjamh2/30min" 
+            href="https://calendly.com/benjamh2/new-meeting" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-[#1E4A6E] text-[#F0F0F0] font-barlow font-bold text-[1rem] py-[14px] px-[32px] rounded-[6px] hover:bg-[#4A9FD4] hover:text-[#0E0E0E] border border-[#4A9FD4]/30 transition-all duration-300 uppercase tracking-wide"
