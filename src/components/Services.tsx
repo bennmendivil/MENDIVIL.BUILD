@@ -167,7 +167,7 @@ const Services: React.FC = () => {
                       {card.cta}
                     </a>
                   ) : (
-                    <a href="#contact" className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
+                    <a href={index === 2 ? "/web-aec" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
                       {card.cta}
                     </a>
                   )}

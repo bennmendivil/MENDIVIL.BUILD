@@ -12,20 +12,46 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LeanBuildSimulation from './components/LeanBuildSimulation';
 import TorreNazas from './components/TorreNazas';
+import WebAEC from './components/WebAEC';
+import VertexaDemo from './components/demos/VertexaDemo';
+import NovaProject from './components/demos/NovaProject';
+import StratumLabs from './components/demos/StratumLabs';
+import NexoraEngineering from './components/demos/NexoraEngineering';
+import AzuraDevelopments from './components/demos/AzuraDevelopments';
 
 function App() {
   const isSimulationRoute = window.location.pathname === '/lean-build-simulation';
   const isTorreNazasRoute = window.location.pathname === '/servicios/ia-construccion/torre-nazas';
+  const isWebAecRoute = window.location.pathname === '/web-aec';
+  const isVertexaRoute = window.location.pathname === '/web-aec/demos/vertexa';
+  const isNovaRoute = window.location.pathname === '/web-aec/demos/vertexa/proyectos/nova-manufacturing-plant';
+  const isStratumRoute = window.location.pathname === '/web-aec/demos/stratum-labs';
+  const isNexoraRoute = window.location.pathname === '/web-aec/demos/nexora-engineering';
+  const isAzuraRoute = window.location.pathname === '/web-aec/demos/azura-developments';
+
+  const isDemoRoute = isVertexaRoute || isNovaRoute || isStratumRoute || isNexoraRoute || isAzuraRoute;
 
   return (
     <LanguageProvider>
       <div className="bg-deepBlack min-h-screen font-inter text-titaniumWhite overflow-x-hidden">
-        <Navbar />
+        {isDemoRoute ? null : <Navbar />}
         <main>
-          {isSimulationRoute ? (
+          {isAzuraRoute ? (
+            <AzuraDevelopments />
+          ) : isNexoraRoute ? (
+            <NexoraEngineering />
+          ) : isStratumRoute ? (
+            <StratumLabs />
+          ) : isNovaRoute ? (
+            <NovaProject />
+          ) : isVertexaRoute ? (
+            <VertexaDemo />
+          ) : isSimulationRoute ? (
             <LeanBuildSimulation />
           ) : isTorreNazasRoute ? (
             <TorreNazas />
+          ) : isWebAecRoute ? (
+            <WebAEC />
           ) : (
             <>
               <Hero />
@@ -40,7 +66,7 @@ function App() {
             </>
           )}
         </main>
-        <Footer />
+        {isDemoRoute ? null : <Footer />}
       </div>
     </LanguageProvider>
   );
