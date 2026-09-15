@@ -198,6 +198,41 @@ export const translations = {
       note: 'Proyectos en México · USA · Internacional',
       followMe: 'SÍGUEME EN REDES'
     },
+    webAecContact: {
+      eyebrow: 'WEB AEC · INICIEMOS TU PROYECTO',
+      title: 'TU EMPRESA YA CONSTRUYE.\nAHORA HAGAMOS QUE SE VEA.',
+      desc: 'Cuéntame sobre tu empresa y el tipo de sitio que necesitas. Podemos comenzar con una landing profesional, un sitio corporativo, un portafolio de proyectos o una solución digital más completa.',
+      name: 'NOMBRE COMPLETO *',
+      company: 'EMPRESA *',
+      email: 'EMAIL *',
+      phone: 'TELÉFONO / WHATSAPP',
+      type: 'TIPO DE EMPRESA',
+      typeOptions: [
+        'Constructora',
+        'Ingeniería / Consultoría',
+        'Laboratorio',
+        'Contratista especializado',
+        'Arquitectura',
+        'Desarrolladora inmobiliaria',
+        'Otro'
+      ],
+      need: '¿QUÉ NECESITAS?',
+      needOptions: [
+        'Landing Page',
+        'Sitio corporativo',
+        'Portafolio de proyectos',
+        'Web + automatización',
+        'Rediseño de sitio existente',
+        'No estoy seguro'
+      ],
+      message: 'MENSAJE',
+      placeholder: 'Cuéntame brevemente sobre tu empresa, proyectos y qué te gustaría lograr con tu sitio web.',
+      submit: 'ENVIAR SOLICITUD',
+      sending: 'ENVIANDO...',
+      success: '¡Mensaje enviado! Te contactamos en menos de 24 horas.',
+      orDirectly: 'O CONTÁCTAME DIRECTAMENTE',
+      whatsappMsg: 'Hola Benjamín, vi los demos de WEB AEC en MENDIVIL.BUILD y me interesa desarrollar un sitio web para mi empresa.'
+    },
     footer: {
       slogan: '14+ años. Obra real. Resultados que permanecen.',
       available: '● DISPONIBLE PARA PROYECTOS',
@@ -401,6 +436,41 @@ export const translations = {
       whatsapp: 'MESSAGE ON WHATSAPP',
       note: 'Projects in Mexico · USA · International',
       followMe: 'FOLLOW ME'
+    },
+    webAecContact: {
+      eyebrow: 'WEB AEC · LET\'S START YOUR PROJECT',
+      title: 'YOUR COMPANY ALREADY BUILDS.\nNOW LET\'S MAKE IT VISIBLE.',
+      desc: 'Tell me about your company and the type of website you need. We can start with a professional landing page, corporate website, project portfolio or a more complete digital solution.',
+      name: 'FULL NAME *',
+      company: 'COMPANY *',
+      email: 'EMAIL *',
+      phone: 'PHONE / WHATSAPP',
+      type: 'COMPANY TYPE',
+      typeOptions: [
+        'Construction Company',
+        'Engineering / Consulting',
+        'Laboratory',
+        'Specialized Contractor',
+        'Architecture',
+        'Real Estate Developer',
+        'Other'
+      ],
+      need: 'WHAT DO YOU NEED?',
+      needOptions: [
+        'Landing Page',
+        'Corporate Website',
+        'Project Portfolio',
+        'Web + Automation',
+        'Existing Site Redesign',
+        'I\'m not sure'
+      ],
+      message: 'MESSAGE',
+      placeholder: 'Tell me briefly about your company, projects and what you would like to achieve with your website.',
+      submit: 'SEND REQUEST',
+      sending: 'SENDING...',
+      success: 'Message sent! We will contact you in less than 24 hours.',
+      orDirectly: 'OR CONTACT ME DIRECTLY',
+      whatsappMsg: 'Hi Benjamin, I saw the WEB AEC demos on MENDIVIL.BUILD and I\'m interested in developing a website for my company.'
     },
     footer: {
       slogan: '14+ years. Real work. Results that last.',
