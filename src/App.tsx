@@ -18,6 +18,7 @@ import NovaProject from './components/demos/NovaProject';
 import StratumLabs from './components/demos/StratumLabs';
 import NexoraEngineering from './components/demos/NexoraEngineering';
 import AzuraDevelopments from './components/demos/AzuraDevelopments';
+import AiProjectReporter from './components/AiProjectReporter';
 
 function App() {
   const isSimulationRoute = window.location.pathname === '/lean-build-simulation';
@@ -28,6 +29,7 @@ function App() {
   const isStratumRoute = window.location.pathname === '/web-aec/demos/stratum-labs';
   const isNexoraRoute = window.location.pathname === '/web-aec/demos/nexora-engineering';
   const isAzuraRoute = window.location.pathname === '/web-aec/demos/azura-developments';
+  const isAiReporterRoute = window.location.pathname === '/ai-project-reporter';
 
   const isDemoRoute = isVertexaRoute || isNovaRoute || isStratumRoute || isNexoraRoute || isAzuraRoute;
 
@@ -50,6 +52,8 @@ function App() {
             <LeanBuildSimulation />
           ) : isTorreNazasRoute ? (
             <TorreNazas />
+          ) : isAiReporterRoute ? (
+            <AiProjectReporter />
           ) : isWebAecRoute ? (
             <WebAEC />
           ) : (

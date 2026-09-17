@@ -58,6 +58,7 @@ const Services: React.FC = () => {
   };
 
   const aiCard = {
+    badge: isEs ? "NUEVO" : "NEW",
     icon: 'Cpu',
     title: isEs ? "IA APLICADA A CONSTRUCCIÓN" : "AI FOR CONSTRUCTION",
     desc: isEs
@@ -78,8 +79,8 @@ const Services: React.FC = () => {
           "RFI, minutes and progress control automation",
           "Custom tools built for your project"
         ],
-    cta: isEs ? "Ver aplicaciones →" : "See applications →",
-    link: "#lean" // Adjust link later if needed, assuming #lean for AI applications
+    cta: isEs ? "Explorar AI Project Reporter →" : "Explore AI Project Reporter →",
+    link: "/ai-project-reporter"
   };
 
   const allCards = [...t.services.cards, gasaveCard, ownersRepCard, aiCard];
