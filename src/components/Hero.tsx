@@ -47,7 +47,7 @@ const Hero: React.FC = () => {
           </div>
 
           {/* Subtitle */}
-          <p className={`font-inter text-concreteGray text-[1.1rem] md:text-[1.25rem] leading-relaxed mb-6 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <p className={`font-inter text-[#F0F0F0]/90 drop-shadow-md text-[1.1rem] md:text-[1.25rem] leading-relaxed mb-6 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {t.hero.subtitle}
           </p>
 
@@ -78,8 +78,8 @@ const Hero: React.FC = () => {
           </div>
 
           <div className={`flex sm:justify-start transition-all duration-1000 delay-[700ms] transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-             <a href="#services" className="font-inter text-concreteGray hover:text-white text-[0.85rem] uppercase tracking-wider underline underline-offset-4 transition-colors">
-               {language === 'ES' ? 'Ver servicios de ingeniería →' : 'View engineering services →'}
+             <a href="/web-aec" className="font-inter text-[#F0F0F0]/80 hover:text-white text-[0.85rem] uppercase tracking-wider underline underline-offset-4 transition-colors">
+               {language === 'ES' ? 'VER WEB AEC →' : 'VIEW WEB AEC →'}
              </a>
           </div>
         </div>

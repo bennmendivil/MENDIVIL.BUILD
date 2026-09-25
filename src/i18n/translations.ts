@@ -217,6 +217,11 @@ export const translations = {
         'PL&EE Kanban Training'
       ]
     },
+    webAecBanner: {
+      title: 'WEB AEC',
+      desc: 'Sitios web para ingenieros, constructoras, laboratorios y desarrolladores que necesitan una presencia digital a la altura de sus proyectos.',
+      cta: 'VER DEMOS →'
+    },
     contact: {
       title: '¿TIENES UN PROYECTO QUE NECESITA MÁS CONTROL?',
       subtitle: 'Cuéntame dónde estás teniendo problemas con plazo, coordinación, producción o información de campo y revisemos cómo podemos ayudarte.',
@@ -556,6 +561,11 @@ export const translations = {
         'Revit — Integral Construction Project BIM',
         'PL&EE Kanban Training'
       ]
+    },
+    webAecBanner: {
+      title: 'WEB AEC',
+      desc: 'Websites for engineers, construction companies, labs, and developers who need a digital presence that matches the quality of their projects.',
+      cta: 'VIEW DEMOS →'
     },
     contact: {
       title: 'DO YOU HAVE A PROJECT THAT NEEDS MORE CONTROL?',
