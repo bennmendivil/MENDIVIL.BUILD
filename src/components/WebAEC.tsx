@@ -139,63 +139,89 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 8. EJEMPLOS / DEMOS */}
-      <section id="ejemplos" className="py-24 bg-[#0A131F]" ref={demosRef}>
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+      <section id="ejemplos" className="py-24 relative z-10 bg-[#0A131F]" ref={demosRef}>
+        <div className="container mx-auto px-6 max-w-7xl fade-in-section">
           <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
-              ¿Cómo podría verse <span className="text-matteGold">tu empresa?</span>
-            </h2>
-            <p className="text-concreteGray text-lg max-w-2xl mx-auto">
-              Estamos desarrollando diferentes conceptos digitales especializados para empresas del sector AEC.
-            </p>
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">¿CÓMO PODRÍA VERSE TU EMPRESA?</h2>
+            <p className="font-inter text-lg text-[#5A8FA8]">Explora ejemplos conceptuales diseñados para distintos perfiles del sector AEC.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                title: "CONSTRUCTORA",
-                desc: "Sitio web para una empresa constructora industrial.",
-                icon: HardHat
-              },
-              {
-                title: "LABORATORIO",
-                desc: "Sitio web para un laboratorio de concreto y materiales.",
-                icon: Microscope
-              },
-              {
-                title: "INGENIERÍA",
-                desc: "Sitio web para una firma de ingeniería y consultoría.",
-                icon: Map
-              },
-              {
-                title: "DESARROLLADORA",
-                desc: "Sitio web para un desarrollador inmobiliario.",
-                icon: Building
-              }
-            ].map((demo, i) => (
-              <div key={i} className="group bg-deepBlack border border-steelBlue/30 overflow-hidden flex flex-col">
-                <div className="aspect-[16/9] bg-[#0F2236] relative flex items-center justify-center p-8">
-                  <span className="absolute top-4 left-4 bg-black/50 text-white/50 text-[10px] font-jetbrains px-2 py-1 uppercase tracking-widest border border-white/10 z-10">Demo Conceptual</span>
-                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                  
-                  <div className="text-center z-10">
-                    <demo.icon size={48} className="text-steelBlue mx-auto mb-4 group-hover:text-electricBlue transition-colors duration-500" strokeWidth={1} />
-                    <div className="font-barlow text-2xl text-white/50 group-hover:text-white transition-colors duration-500 uppercase tracking-widest">
-                      {demo.title}
-                    </div>
-                  </div>
-                </div>
-                <div className="p-6 flex flex-col flex-grow justify-between bg-deepBlack">
-                  <div>
-                    <h3 className="font-barlow font-bold text-xl text-titaniumWhite uppercase tracking-wide mb-2">{demo.title}</h3>
-                    <p className="text-concreteGray text-sm mb-6">{demo.desc}</p>
-                  </div>
-                  <a href={demo.title === "CONSTRUCTORA" ? "/web-aec/demos/vertexa" : demo.title === "LABORATORIO" ? "/web-aec/demos/stratum-labs" : demo.title === "INGENIERÍA" ? "/web-aec/demos/nexora-engineering" : demo.title === "DESARROLLADORA" ? "/web-aec/demos/azura-developments" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
-                    VER DEMO <ArrowRight size={16} className="ml-2" />
-                  </a>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+            {/* TARJETA 1 */}
+            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
+                <img src="/web-aec/demos/demo_vertexa_desktop.webp" alt="Vertexa Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
               </div>
-            ))}
+              <div className="p-8 flex flex-col flex-grow">
+                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Constructora</span>
+                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">VERTEXA</h3>
+                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
+                  Una presencia digital sólida para mostrar capacidad técnica, proyectos y experiencia en obra.
+                </p>
+                <a href="/web-aec/demos/vertexa" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
+                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+
+            {/* TARJETA 2 */}
+            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
+                <img src="/web-aec/demos/demo_stratumlabs_desktop.webp" alt="Stratum Labs Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Laboratorio</span>
+                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">STRATUM LABS</h3>
+                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
+                  Un sitio técnico y profesional para comunicar servicios geotécnicos, ensayes y experiencia de campo.
+                </p>
+                <a href="/web-aec/demos/stratum-labs" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
+                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+
+            {/* TARJETA 3 */}
+            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
+                <img src="/web-aec/demos/demo_nexora_desktop.webp" alt="Nexora Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Firma de Ingeniería</span>
+                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">NEXORA ENGINEERING</h3>
+                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
+                  Una estructura clara para presentar especialidades, experiencia y proyectos relevantes.
+                </p>
+                <a href="/web-aec/demos/nexora-engineering" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
+                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+
+            {/* TARJETA 4 */}
+            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
+                <img src="/web-aec/demos/demo_azura_desktop.webp" alt="Azura Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
+              </div>
+              <div className="p-8 flex flex-col flex-grow">
+                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Desarrolladora</span>
+                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">AZURA</h3>
+                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
+                  Una experiencia visual y comercial para presentar desarrollos, atraer prospectos y fortalecer la percepción de marca.
+                </p>
+                <a href="/web-aec/demos/azura-developments" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
+                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </a>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-8 text-center">
+            <p className="font-inter text-xs text-[#5A8FA8]">*Ejemplos conceptuales creados para mostrar posibilidades visuales y estratégicas.</p>
           </div>
         </div>
       </section>
