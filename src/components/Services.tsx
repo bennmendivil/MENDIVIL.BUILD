@@ -93,7 +93,7 @@ const Services: React.FC = () => {
         </div>
 
         {/* Web AEC Horizontal Block */}
-        <div className="mt-12 bg-deepBlack border border-white/10 p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 fade-in-section delay-400">
+        <div className="mt-12 bg-[#0F2236] border-t-4 border-[#4A9FD4] p-6 md:p-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 fade-in-section delay-400">
           <div className="flex-1">
             <h3 className="font-barlow font-bold text-[#F0F0F0] text-[1.5rem] tracking-wide uppercase mb-2">
               {(t as any).webAecBanner?.title || 'WEB AEC'}
@@ -104,7 +104,7 @@ const Services: React.FC = () => {
           </div>
           <a 
             href="/web-aec" 
-            className="group/webaec shrink-0 inline-flex justify-center w-full md:w-auto items-center text-electricBlue border border-electricBlue hover:bg-electricBlue hover:text-deepBlack font-barlow font-bold text-sm tracking-widest px-8 py-3.5 transition-colors uppercase"
+            className="group/webaec shrink-0 inline-flex justify-center w-full md:w-auto items-center bg-[#4A9FD4] text-deepBlack hover:bg-white font-barlow font-bold text-[15px] tracking-wider px-8 py-3.5 transition-colors uppercase"
           >
             {(t as any).webAecBanner?.cta || 'VER DEMOS →'}
           </a>
