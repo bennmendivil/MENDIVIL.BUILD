@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section id="hero" className="relative min-h-[85vh] flex items-center pt-28 pb-16 overflow-hidden">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -33,28 +33,21 @@ const Hero: React.FC = () => {
             <span className="font-jetbrains text-xs tracking-wider text-titaniumWhite uppercase">{t.hero.available.replace('● ', '')}</span>
           </div>
 
-          {/* Name */}
-          <div className="mb-6 flex flex-col items-start">
-            <h1 className={`font-barlow font-black text-[3rem] md:text-[4.5rem] leading-none text-titaniumWhite tracking-[-1px] mb-0 transition-all duration-1000 delay-100 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              {t.hero.name1}
+          {/* Main Headline */}
+          <div className="mb-6 md:mb-8 flex flex-col items-start mt-4">
+            <h1 className={`font-barlow font-black text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] leading-[0.9] text-[#F0F0F0] tracking-[-1px] transition-all duration-1000 delay-100 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              {(t.hero as any).headlineP1}
             </h1>
-            <h1 className={`font-barlow font-black text-[5rem] md:text-[9rem] leading-[0.9] text-electricBlue tracking-[-3px] transition-all duration-1000 delay-200 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              {t.hero.name2}
+            <h1 className={`font-barlow font-black text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] leading-[0.9] text-[#4A9FDA] tracking-[-1px] transition-all duration-1000 delay-200 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              {(t.hero as any).headlineP2}
             </h1>
-            <h1 className={`font-barlow font-normal text-[1.5rem] md:text-[2.8rem] leading-none text-concreteGray tracking-[6px] mt-[4px] transition-all duration-1000 delay-300 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              {t.hero.name3}
+            <h1 className={`font-barlow font-black text-[2.5rem] sm:text-[3.5rem] md:text-[4rem] lg:text-[5rem] leading-[0.9] text-[#5A8FA8] tracking-[-1px] transition-all duration-1000 delay-300 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              {(t.hero as any).headlineP3}
             </h1>
           </div>
 
-          {/* Main Headline */}
-          {(t.hero as any).headline && (
-            <h2 className={`font-barlow font-black text-[2rem] md:text-[2.8rem] leading-[1.15] text-titaniumWhite tracking-wide mb-6 whitespace-pre-line transition-all duration-1000 delay-[350ms] transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-              {(t.hero as any).headline}
-            </h2>
-          )}
-
           {/* Subtitle */}
-          <p className={`font-inter text-concreteGray text-[1.1rem] md:text-[1.25rem] leading-relaxed mb-8 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <p className={`font-inter text-concreteGray text-[1.1rem] md:text-[1.25rem] leading-relaxed mb-6 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {t.hero.subtitle}
           </p>
 
@@ -66,7 +59,7 @@ const Hero: React.FC = () => {
           )}
 
           {/* Tags */}
-          <div className={`flex flex-wrap gap-3 mb-12 transition-all duration-1000 delay-500 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className={`flex flex-wrap gap-3 mb-8 transition-all duration-1000 delay-500 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {t.hero.tags.map((tag, index) => (
               <span key={index} className="px-3 py-1 border border-electricBlue text-titaniumWhite bg-transparent font-barlow uppercase text-sm tracking-widest backdrop-blur-sm">
                 [{tag}]
