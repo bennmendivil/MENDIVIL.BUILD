@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 type Tab = 'INDUSTRIAL' | 'HOSPITALARIO' | 'COMERCIAL';
 
@@ -13,7 +12,6 @@ interface Project {
 const Portfolio: React.FC = () => {
   const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<Tab>('INDUSTRIAL');
-  const containerRef = useIntersectionObserver({ threshold: 0.1 });
 
   const tabs: Record<Tab, string> = {
     INDUSTRIAL: 'INDUSTRIAL',
@@ -85,9 +83,9 @@ const Portfolio: React.FC = () => {
 
   return (
     <section id="projects" className="py-24 bg-deepBlack relative w-full overflow-hidden">
-      <div className="container mx-auto px-6 max-w-6xl" ref={containerRef}>
+      <div className="container mx-auto px-6 max-w-6xl">
         
-        <div className="mb-12 text-center md:text-left fade-in-section">
+        <div className="mb-12 text-center md:text-left">
           <h2 className="font-barlow font-black text-[2.5rem] md:text-5xl text-titaniumWhite uppercase tracking-wide leading-tight mb-4">
             {t.experience.title}
           </h2>
@@ -97,7 +95,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Tabs */}
-        <div className="flex overflow-x-auto whitespace-nowrap mb-16 gap-4 pb-4 md:pb-0 scrollbar-hide fade-in-section delay-100">
+        <div className="flex overflow-x-auto whitespace-nowrap mb-16 gap-4 pb-4 md:pb-0 scrollbar-hide">
           {(Object.keys(tabs) as Tab[]).map((tabKey) => (
             <button
               key={tabKey}
@@ -115,7 +113,7 @@ const Portfolio: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="space-y-24 fade-in-section delay-200">
+        <div className="space-y-24">
           {activeProjects.map((project, idx) => {
             const job = t.experience.jobs.find(j => j.id === project.jobId);
             if (!job) return null;
@@ -155,6 +153,7 @@ const Portfolio: React.FC = () => {
                       <img 
                         src={img} 
                         alt={`${project.title} photo ${i + 1}`} 
+                        loading={idx === 0 && i < 3 ? "eager" : "lazy"}
                         className="w-full h-[200px] lg:h-[260px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                       <div className="absolute inset-0 bg-[#4A9FD4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

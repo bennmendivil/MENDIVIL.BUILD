@@ -115,42 +115,63 @@ export const translations = {
       title: '¿EN QUÉ PUEDO AYUDARTE?',
       cards: [
         {
-          title: 'PROJECT MANAGEMENT',
+          title: 'CONTROL Y EJECUCIÓN DE PROYECTOS',
+          subtitle: 'Para Owners, Developers y Contractors',
           icon: 'HardHat',
-          desc: 'Dirección y superintendencia de proyectos industriales, hospitalarios, aeroportuarios e infraestructura de clase mundial. Control total desde ingeniería hasta cierre de obra.',
+          desc: 'Recupera visibilidad sobre costo, plazo, contratistas y decisiones críticas antes de que el proyecto pierda el control.',
           bullets: [
-            'Coordinación de contratistas y frentes',
-            'Control de avance, calidad y seguridad',
-            'Sectores: automotriz, cervecero, hospitalario, residencial lujo',
-            'Equipos de 5 a 200+ personas'
+            'Project Management / Construction Management',
+            'Owner’s Rep',
+            'Coordinación de contratistas / General Contractor',
+            'Control de cambios, estimaciones y presupuesto'
           ],
-          cta: 'Hablemos de tu proyecto →'
+          mainCta: {
+            text: 'HABLEMOS DE TU PROYECTO →',
+            link: '#contact'
+          },
+          secondaryLinks: [
+            { text: 'Ver proyectos reales →', link: '#projects' }
+          ]
         },
         {
-          title: 'LEAN CONSTRUCTION',
+          title: 'LEAN CONSTRUCTION EN CAMPO REAL',
+          subtitle: 'Para equipos que necesitan construir con mayor confiabilidad',
           icon: 'BarChart2',
-          desc: 'Implementación de Last Planner® System, TAKT Planning y metodología Kanban en obra. Resultados medibles desde la primera semana.',
+          desc: 'Implementamos sistemas de planificación y control que ayudan a detectar restricciones antes de que afecten la producción.',
           bullets: [
-            'Last Planner® System en obra',
-            'TAKT Planning para proyectos repetitivos',
-            'Tableros LPS y reuniones diarias',
-            'Métricas PPC y análisis de varianzas',
-            'Mapeo de flujo de valor'
+            'Last Planner® System',
+            'TAKT Planning',
+            'Visual Management',
+            'Constraint Log + Action Item Tracking',
+            'PPC y cumplimiento de compromisos'
           ],
-          cta: 'Agenda una consultoría →'
+          mainCta: {
+            text: 'CONOCER IMPLEMENTACIÓN LEAN →',
+            link: '#lean'
+          },
+          secondaryLinks: [
+            { text: 'Ver Lean Build Simulation →', link: '/lean-build-simulation' }
+          ]
         },
         {
-          title: 'WEBS PARA INGENIEROS',
-          icon: 'Monitor',
-          desc: 'Diseño y desarrollo de landing pages y sitios web para ingenieros, constructoras y laboratorios — con IA, criterio técnico y estética de primer nivel.',
+          title: 'IA PARA TOMAR DECISIONES MÁS RÁPIDO EN OBRA',
+          subtitle: 'Para PMs, Superintendentes, Developers y Contractors',
+          icon: 'Cpu',
+          desc: 'Automatiza reportes, organiza información de campo y convierte datos dispersos en información lista para decidir.',
           bullets: [
-            'Portafolios para ingenieros civiles',
-            'Webs para constructoras y desarrolladores',
-            'Sitios para laboratorios de suelos y concreto',
-            'Integración de herramientas de IA',
-            'Plantillas especializadas sector AEC'
+            'Reportes automáticos desde campo',
+            'Automatización de minutas y seguimiento',
+            'Herramientas personalizadas para proyectos',
+            'Visualización y renders con IA'
           ],
-          cta: 'Ver ejemplos →'
+          mainCta: {
+            text: 'EXPLORAR AI PROJECT REPORTER →',
+            link: '/ai-project-reporter'
+          },
+          secondaryLinks: [
+            { text: 'Ver caso de estudio: Torre Nazas →', link: '/servicios/ia-construccion/torre-nazas' },
+            { text: 'Probar render con IA →', link: 'https://mendivil-build-studio.higgsfield.app' }
+          ]
         }
       ]
     },
@@ -414,42 +435,63 @@ export const translations = {
       title: 'HOW CAN I HELP YOU?',
       cards: [
         {
-          title: 'PROJECT MANAGEMENT',
+          title: 'PROJECT CONTROL & EXECUTION',
+          subtitle: 'For Owners, Developers and Contractors',
           icon: 'HardHat',
-          desc: 'Direction and superintendence of industrial, healthcare, airport and world-class infrastructure projects. Full control from engineering through project closeout.',
+          desc: 'Regain visibility on cost, schedule, contractors and critical decisions before the project loses control.',
           bullets: [
-            'Contractor and work front coordination',
-            'Progress, quality and safety control',
-            'Sectors: automotive, brewery, healthcare, luxury residential',
-            'Teams of 5 to 200+ people'
+            'Project Management / Construction Management',
+            "Owner's Rep",
+            'Contractor coordination / General Contractor',
+            'Change order, estimates and budget control'
           ],
-          cta: "Let's talk about your project →"
+          mainCta: {
+            text: "LET'S TALK ABOUT YOUR PROJECT →",
+            link: '#contact'
+          },
+          secondaryLinks: [
+            { text: 'View real projects →', link: '#projects' }
+          ]
         },
         {
-          title: 'LEAN CONSTRUCTION',
+          title: 'REAL FIELD LEAN CONSTRUCTION',
+          subtitle: 'For teams that need to build with higher reliability',
           icon: 'BarChart2',
-          desc: 'Implementation of Last Planner® System, TAKT Planning and Kanban methodology on site. Measurable results from week one.',
+          desc: 'We implement planning and control systems that help detect constraints before they impact production.',
           bullets: [
-            'Last Planner® System on site',
-            'TAKT Planning for repetitive projects',
-            'LPS boards and daily huddles',
-            'PPC metrics and variance analysis',
-            'Value stream mapping'
+            'Last Planner® System',
+            'TAKT Planning',
+            'Visual Management',
+            'Constraint Log + Action Item Tracking',
+            'PPC and commitment fulfillment'
           ],
-          cta: 'Schedule a consultation →'
+          mainCta: {
+            text: 'EXPLORE LEAN IMPLEMENTATION →',
+            link: '#lean'
+          },
+          secondaryLinks: [
+            { text: 'View Lean Build Simulation →', link: '/lean-build-simulation' }
+          ]
         },
         {
-          title: 'WEBSITES FOR ENGINEERS',
-          icon: 'Monitor',
-          desc: 'Design and development of landing pages and websites for engineers, contractors and labs — with AI, technical expertise and premium aesthetics.',
+          title: 'AI FOR FASTER ON-SITE DECISIONS',
+          subtitle: 'For PMs, Superintendents, Developers and Contractors',
+          icon: 'Cpu',
+          desc: 'Automate reports, organize field information and turn scattered data into actionable intelligence.',
           bullets: [
-            'Portfolios for civil engineers',
-            'Websites for contractors and developers',
-            'Sites for soil and concrete labs',
-            'AI tools integration',
-            'Specialized AEC sector templates'
+            'Automatic field reports',
+            'Minutes and follow-up automation',
+            'Custom built tools for projects',
+            'AI rendering and visualization'
           ],
-          cta: 'See examples →'
+          mainCta: {
+            text: 'EXPLORE AI PROJECT REPORTER →',
+            link: '/ai-project-reporter'
+          },
+          secondaryLinks: [
+            { text: 'Case study: Torre Nazas →', link: '/servicios/ia-construccion/torre-nazas' },
+            { text: 'Try AI render tool →', link: 'https://mendivil-build-studio.higgsfield.app' }
+          ]
         }
       ]
     },

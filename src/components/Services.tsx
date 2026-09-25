@@ -1,105 +1,23 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ArrowRight, HardHat, BarChart2, Monitor, Microscope, Building, Cpu } from 'lucide-react';
+import { ArrowRight, HardHat, BarChart2, Cpu } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Services: React.FC = () => {
-  const { t, language } = useLanguage();
-  const isEs = language === 'ES';
+  const { t } = useLanguage();
   const containerRef = useIntersectionObserver({ threshold: 0.1 });
 
-  const gasaveCard = {
-    icon: 'Microscope',
-    badge: isEs ? "ALIANZA GASAVE" : "GASAVE ALLIANCE",
-    title: isEs ? "CONTROL DE CALIDAD" : "QUALITY CONTROL",
-    desc: isEs 
-      ? "Servicios de laboratorio geotécnico y de materiales de construcción: resistencia a la compresión en probetas cilíndricas, sondeos geotécnicos, granulometría y densidades de campo. En alianza con GASAVE Laboratorio, Torreón, Coahuila."
-      : "Geotechnical and construction materials laboratory services: compressive strength in cylindrical specimens, geotechnical borings, granulometry and field densities. In alliance with GASAVE Laboratory, Torreón, Coahuila.",
-    bullets: isEs
-      ? [
-          "Resistencia f'c en cilindros y núcleos diamantinos (ASTM C39 / NMX)",
-          "Estudios geotécnicos, SPT y perfiles estratigráficos",
-          "Densidad de campo: cono de arena y nuclear (ASTM D1556 / D6938)",
-          "Granulometría, Límites de Atterberg, Proctor y CBR (NOM / ASTM)"
-        ]
-      : [
-          "Compressive strength f'c on cylinders and diamond cores (ASTM C39 / NMX)",
-          "Geotechnical studies, SPT and stratigraphic profiles",
-          "Field density: sand cone and nuclear methods (ASTM D1556 / D6938)",
-          "Gradation, Atterberg Limits, Proctor and CBR (NOM / ASTM)"
-        ],
-    cta: isEs ? "Ver laboratorio →" : "Visit lab →",
-    link: "https://gasavelaboratorio.com/"
-  };
+  const cleanCta = (text: string) => text.replace(/\s*→$/, '');
 
-  const ownersRepCard = {
-    icon: 'Building',
-    title: "OWNER'S REP",
-    desc: isEs
-      ? "Representación del dueño o desarrollador frente a contratistas, arquitectos y gobierno durante todas las etapas del proyecto."
-      : "Owner representation before contractors, architects and authorities throughout all project phases.",
-    bullets: isEs
-      ? [
-          "Supervisión de contratistas en nombre del cliente",
-          "Revisión de contratos y estimaciones de obra",
-          "Control de cambios y presupuesto del proyecto",
-          "Coordinación con autoridades y gestión de permisos",
-          "Reportes ejecutivos directos al dueño del proyecto"
-        ]
-      : [
-          "Contractor supervision on behalf of the client",
-          "Contract and estimate review",
-          "Change order and budget control",
-          "Authority coordination and permit management",
-          "Executive reports directly to the project owner"
-        ],
-    cta: isEs ? "Hablemos de tu proyecto →" : "Let's talk about your project →",
-    link: "#contact"
-  };
-
-  const aiCard = {
-    badge: isEs ? "NUEVO" : "NEW",
-    icon: 'Cpu',
-    title: isEs ? "IA APLICADA A CONSTRUCCIÓN" : "AI FOR CONSTRUCTION",
-    desc: isEs
-      ? "Automatizaciones, agentes de campo y visualización arquitectónica con inteligencia artificial para proyectos de construcción."
-      : "Automations, field agents and architectural visualization with artificial intelligence for construction projects.",
-    bullets: isEs
-      ? [
-          "Reportes automáticos generados desde fotos de obra",
-          "Agentes de IA asistentes para Superintendentes y PMs",
-          "Renders y videos con IA para licitaciones y ventas",
-          "Automatización de RFIs, minutas y control de avance",
-          "Herramientas personalizadas para tu proyecto"
-        ]
-      : [
-          "Automatic reports generated from site photos",
-          "AI field agents for Superintendents and PMs",
-          "AI renders and videos for bids and sales",
-          "RFI, minutes and progress control automation",
-          "Custom tools built for your project"
-        ],
-    cta: isEs ? "Explorar AI Project Reporter →" : "Explore AI Project Reporter →",
-    link: "/ai-project-reporter"
-  };
-
-  const allCards = [...t.services.cards, gasaveCard, ownersRepCard, aiCard];
-
-  const getIcon = (iconName: string, isGasave: boolean = false) => {
-    const colorClass = isGasave ? "text-[#4A9FD4] mb-6" : "text-matteGold mb-6";
+  const getIcon = (iconName: string) => {
+    const colorClass = "text-matteGold mb-6";
     switch (iconName) {
       case 'HardHat': return <HardHat size={32} className={colorClass} strokeWidth={1.5} />;
       case 'BarChart2': return <BarChart2 size={32} className={colorClass} strokeWidth={1.5} />;
-      case 'Monitor': return <Monitor size={32} className={colorClass} strokeWidth={1.5} />;
-      case 'Microscope': return <Microscope size={32} className={colorClass} strokeWidth={1.5} />;
-      case 'Building': return <Building size={32} className={colorClass} strokeWidth={1.5} />;
       case 'Cpu': return <Cpu size={32} className={colorClass} strokeWidth={1.5} />;
       default: return null;
     }
   };
-
-  
-  const cleanCta = (text: string) => text.replace(/\s*→$/, '');
 
   return (
     <section id="services" className="py-24 bg-deepBlack">
@@ -112,73 +30,62 @@ const Services: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {allCards.map((card, index) => {
-            const isGasave = index === 3;
+          {t.services.cards.map((card: any, index: number) => {
             return (
               <div 
                 key={index} 
-                className={`border-t-4 p-8 flex flex-col group hover:-translate-y-2 transition-transform duration-300 fade-in-section delay-${(index + 1) * 100} ${isGasave ? 'bg-[#1E4A6E] border-[#4A9FD4]' : 'bg-[#0F2236] border-matteGold'}`}
+                className={`border-t-4 p-8 flex flex-col group hover:-translate-y-2 transition-transform duration-300 fade-in-section delay-${(index + 1) * 100} bg-[#0F2236] border-matteGold`}
               >
-                {/* Badge if exists */}
-                {'badge' in card && (
-                  <div className="mb-4">
-                    <span className="inline-block bg-[#4A9FD4]/20 border border-[#4A9FD4]/50 rounded-[3px] py-[2px] px-[8px] font-jetbrains text-[#F0F0F0] text-[0.6rem] tracking-[2px] uppercase">
-                      {(card as any).badge}
-                    </span>
-                  </div>
-                )}
+                {getIcon(card.icon)}
                 
-                {getIcon(card.icon, isGasave)}
-                
-                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase mb-4">
+                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase mb-1">
                   {card.title}
                 </h3>
+                
+                {card.subtitle && (
+                  <h4 className="font-jetbrains text-[#4A9FD4] text-xs uppercase tracking-wider mb-4">
+                    {card.subtitle}
+                  </h4>
+                )}
                 
                 <p className="font-inter text-titaniumWhite/80 text-sm leading-relaxed mb-8 flex-grow">
                   {card.desc}
                 </p>
                 
                 <ul className="space-y-3 mb-8">
-                  {card.bullets.map((bullet, idx) => (
+                  {card.bullets.map((bullet: string, idx: number) => (
                     <li key={idx} className="flex items-start">
-                      <span className={`mr-2 mt-1 ${isGasave ? 'text-[#F0F0F0]' : 'text-electricBlue'}`}>▸</span>
+                      <span className="mr-2 mt-1 text-electricBlue">▸</span>
                       <span className="font-inter text-sm text-concreteGray leading-tight">{bullet}</span>
                     </li>
                   ))}
                 </ul>
                 
-                <div className="mt-auto flex flex-col items-start gap-4 w-full">
-                  {index === 5 && (
-                    <>
-                      <a 
-                        href="/servicios/ia-construccion/torre-nazas" 
-                        className="group/link inline-flex justify-center items-center w-full border border-matteGold text-matteGold font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-matteGold hover:text-[#0F2236] transition-colors uppercase font-bold"
-                      >
-                        {isEs ? "Caso de estudio: Torre Nazas" : "Case study: Torre Nazas"}
-                        <ArrowRight className="ml-2 w-4 h-4 text-[#4A9FD4] transition-transform duration-200 group-hover/link:translate-x-1" />
-                      </a>
-                      <a 
-                        href="https://mendivil-build-studio.higgsfield.app" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="group/link inline-flex justify-center items-center w-full bg-[#4A9FD4] text-[#F0F0F0] font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-[#3b8dbf] transition-colors uppercase font-bold"
-                      >
-                        {isEs ? "Genera tu render con IA" : "Try our AI render tool"}
-                        <ArrowRight className="ml-2 w-4 h-4 text-[#4A9FD4] transition-transform duration-200 group-hover/link:translate-x-1" />
-                      </a>
-                    </>
-                  )}
-                  {isGasave || index === 4 || index === 5 ? (
-                    <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className="group/link inline-flex items-center font-jetbrains text-base font-bold text-[#4A9FD4] px-5 py-2.5 rounded-full bg-[#4A9FD4]/10 border border-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-[#F0F0F0] transition-all duration-200 w-fit">
-                      {cleanCta(card.cta)}
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
-                    </a>
-                  ) : (
-                    <a href={index === 2 ? "/web-aec" : "#contact"} className="group/link inline-flex items-center font-jetbrains text-base font-bold text-[#4A9FD4] px-5 py-2.5 rounded-full bg-[#4A9FD4]/10 border border-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-[#F0F0F0] transition-all duration-200 w-fit">
-                      {cleanCta(card.cta)}
-                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
+                <div className="mt-auto flex flex-col items-start gap-3 w-full">
+                  {/* Main CTA - Visually dominant */}
+                  {card.mainCta && (
+                    <a 
+                      href={card.mainCta.link}
+                      className="group/main inline-flex justify-center items-center w-full bg-matteGold text-deepBlack font-barlow font-bold text-[15px] tracking-wider py-3.5 px-6 hover:bg-white transition-colors uppercase"
+                    >
+                      {cleanCta(card.mainCta.text)}
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover/main:translate-x-1" />
                     </a>
                   )}
+                  
+                  {/* Secondary Links - Discrete */}
+                  {card.secondaryLinks && card.secondaryLinks.map((secLink: any, idx: number) => (
+                    <a 
+                      key={idx}
+                      href={secLink.link}
+                      target={secLink.link.startsWith('http') ? '_blank' : '_self'}
+                      rel={secLink.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                      className="group/sec inline-flex items-center text-[#5A8FA8] hover:text-[#4A9FD4] font-inter text-sm transition-colors mt-2"
+                    >
+                      {cleanCta(secLink.text)}
+                      <ArrowRight className="ml-1.5 w-3.5 h-3.5 transition-transform duration-200 group-hover/sec:translate-x-1" />
+                    </a>
+                  ))}
                 </div>
               </div>
             );
