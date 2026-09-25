@@ -1,21 +1,14 @@
 import React, { useEffect } from 'react';
-import { useLanguage } from '../context/LanguageContext';
+
 import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { 
-  Monitor, Building, Microscope, Cpu, 
+  Building, Microscope, 
   HardHat, Map, Wrench, CheckCircle2, ChevronDown, 
   ArrowRight, ShieldCheck, Check, Ruler, MessageCircle, Mail
 } from 'lucide-react';
 
 
-const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-    <rect x="2" y="9" width="4" height="12"></rect>
-    <circle cx="4" cy="4" r="2"></circle>
-  </svg>
-);
 
 const WebAEC: React.FC = () => {
   // Add page title and meta description
@@ -33,9 +26,7 @@ const WebAEC: React.FC = () => {
   }, []);
 
   
-  const { t, language } = useLanguage();
   const [state, handleSubmit] = useForm('xjgdjgvz');
-  const isEs = language === 'ES';
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -234,35 +225,30 @@ const WebAEC: React.FC = () => {
               EL DIFERENCIADOR MENDIVIL.BUILD
             </div>
             <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
-              No somos una agencia de marketing.<br />
-              <span className="text-electricBlue">Conocemos la industria que estás construyendo.</span>
+              NO ES SOLO DISEÑO.<br />
+              <span className="text-electricBlue">ES ENTENDER TU INDUSTRIA.</span>
             </h2>
             <p className="text-concreteGray text-lg mb-4">
-              MENDIVIL.BUILD nace desde la ingeniería y la construcción. Trabajamos con tecnología, inteligencia artificial, Lean Construction y gestión de proyectos.
+              MENDIVIL.BUILD nace desde la ingeniería, la construcción y la ejecución real de proyectos.
             </p>
             <p className="text-concreteGray text-lg">
-              Por eso entendemos conceptos, servicios, procesos y necesidades que una agencia de diseño web tradicional muchas veces tiene que aprender desde cero.
+              Eso nos permite entender mejor cómo presentar servicios, experiencia, portafolio y credibilidad para empresas AEC.
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-16">
             {[
-              { title: "INGENIERÍA", icon: Wrench },
-              { title: "CONSTRUCCIÓN", icon: HardHat },
-              { title: "TECNOLOGÍA", icon: Monitor },
-              { title: "IA", icon: Cpu }
-            ].map((pillar, i) => (
-              <div key={i} className="bg-deepBlack border border-steelBlue/40 p-8 flex flex-col items-center justify-center text-center group hover:border-electricBlue transition-colors">
-                <pillar.icon size={40} className="text-steelBlue group-hover:text-electricBlue mb-4 transition-colors" strokeWidth={1.5} />
-                <h3 className="font-jetbrains text-sm font-bold tracking-widest text-titaniumWhite">{pillar.title}</h3>
+              "Lenguaje de la industria",
+              "Enfoque técnico y comercial",
+              "Sitios claros, rápidos y profesionales",
+              "Diseño alineado con tu tipo de cliente",
+              "Posibilidad de integrar automatización e IA"
+            ].map((punto, i) => (
+              <div key={i} className="bg-deepBlack border border-steelBlue/40 p-6 flex flex-col items-center justify-center text-center group hover:border-electricBlue transition-colors">
+                <CheckCircle2 size={32} className="text-steelBlue group-hover:text-electricBlue mb-4 transition-colors" strokeWidth={1.5} />
+                <h3 className="font-inter text-sm text-titaniumWhite">{punto}</h3>
               </div>
             ))}
-          </div>
-
-          <div className="text-center">
-            <p className="font-barlow font-bold text-3xl md:text-4xl text-matteGold uppercase tracking-wider">
-              "No necesitas explicarnos tu industria."
-            </p>
           </div>
         </div>
       </section>
@@ -522,7 +508,7 @@ const WebAEC: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
             <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-steelBlue transition-colors">
-              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">PAQUETE 01</div>
+              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">EMPEZAR</div>
               <h3 className="font-barlow font-bold text-3xl text-titaniumWhite uppercase mb-2">LANDING AEC</h3>
               <div className="font-jetbrains text-xl text-white mb-6">Desde $10,000 MXN</div>
               <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que necesitan comenzar o mejorar rápidamente su presencia digital.</p>
@@ -542,7 +528,7 @@ const WebAEC: React.FC = () => {
 
             <div className="bg-[#0F2236] border border-electricBlue p-8 flex flex-col h-full transform md:-translate-y-4 shadow-2xl relative">
               <div className="absolute top-0 left-0 w-full h-1 bg-electricBlue"></div>
-              <div className="font-jetbrains text-xs text-electricBlue mb-4 tracking-widest">PAQUETE 02</div>
+              <div className="font-jetbrains text-xs text-electricBlue mb-4 tracking-widest">CRECER</div>
               <h3 className="font-barlow font-bold text-3xl text-white uppercase mb-2">SITIO CORPORATIVO</h3>
               <div className="font-jetbrains text-xl text-white mb-6">Desde $15,000 MXN</div>
               <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Constructoras, ingenierías, laboratorios y empresas que necesitan presentar múltiples servicios y proyectos.</p>
@@ -561,8 +547,8 @@ const WebAEC: React.FC = () => {
             </div>
 
             <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-matteGold transition-colors">
-              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">PAQUETE 03</div>
-              <h3 className="font-barlow font-bold text-3xl text-matteGold uppercase mb-2">WEB + DIGITAL</h3>
+              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">DIGITALIZAR</div>
+              <h3 className="font-barlow font-bold text-3xl text-matteGold uppercase mb-2">WEB + AUTOMATIZACIÓN</h3>
               <div className="font-jetbrains text-xl text-white mb-6">Desde $25,000 MXN</div>
               <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que quieren conectar su sitio web con procesos digitales y automatización.</p>
               
@@ -587,6 +573,30 @@ const WebAEC: React.FC = () => {
             </p>
           </div>
           
+          {/* TIEMPOS ESTIMADOS */}
+          <div className="mt-16 bg-[#0A131F] border border-steelBlue/30 p-8 md:p-12 max-w-4xl mx-auto text-center shadow-xl">
+            <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-8">
+              Tiempos Estimados
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+              <div>
+                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Landing AEC</h4>
+                <p className="font-inter text-white font-medium text-lg">Desde 3–5 días</p>
+              </div>
+              <div>
+                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Sitio Corporativo</h4>
+                <p className="font-inter text-white font-medium text-lg">Desde 1–2 semanas</p>
+              </div>
+              <div>
+                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Web + Automatización</h4>
+                <p className="font-inter text-white font-medium text-lg">Según alcance y complejidad</p>
+              </div>
+            </div>
+            <p className="font-inter text-xs text-concreteGray/80 mt-6 pt-6 border-t border-white/10">
+              Nota: Los tiempos pueden variar según contenido, revisiones e integraciones requeridas.
+            </p>
+          </div>
+
           <div className="mt-16 bg-deepBlack border border-steelBlue/30 p-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
             <div>
               <h4 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-2">
@@ -659,25 +669,16 @@ const WebAEC: React.FC = () => {
         <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
         <div className="container mx-auto px-6 max-w-4xl relative z-10 fade-in-section text-center">
           <h2 className="font-barlow font-bold text-5xl md:text-6xl text-white uppercase tracking-wide mb-8">
-            Tu próximo proyecto merece una mejor presencia digital.
+            TU EMPRESA YA CONSTRUYE.<br/>AHORA HAGAMOS QUE SE VEA.
           </h2>
           
-          <div className="font-jetbrains text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-bold">
-            <p className="mb-2">Ya construyes.</p>
-            <p className="mb-2">Ya tienes experiencia.</p>
-            <p className="mb-6">Ya tienes proyectos.</p>
-            <p className="text-2xl text-deepBlack bg-white inline-block px-4 py-2 uppercase">Ahora hagamos que todo eso pueda verse.</p>
+          <div className="font-inter text-lg md:text-xl text-white/90 mb-10 leading-relaxed max-w-2xl mx-auto">
+            Cuéntame qué tipo de empresa tienes y qué necesitas mostrar. Podemos ayudarte a convertir tu experiencia en una presencia digital más clara, sólida y profesional.
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-deepBlack text-white font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold shadow-2xl" > QUIERO MI SITIO WEB
-            </a>
-            <a 
-              href="#ejemplos" 
-              className="inline-flex justify-center items-center border-2 border-deepBlack text-deepBlack font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-deepBlack hover:text-white transition-colors uppercase font-bold"
-            >
-              VER EJEMPLOS
+              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-deepBlack text-white font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold shadow-2xl" > SOLICITAR PROPUESTA →
             </a>
           </div>
         </div>
@@ -694,30 +695,21 @@ const WebAEC: React.FC = () => {
             {/* LEFT COLUMN: TEXT & DIRECT CONTACT */}
             <div>
               <span className="font-jetbrains text-electricBlue text-xs tracking-[0.2em] uppercase block mb-4">
-                {t.webAecContact.eyebrow}
+                INICIA TU PROYECTO
               </span>
               <h2 className="font-barlow font-bold text-4xl md:text-5xl lg:text-6xl text-titaniumWhite uppercase tracking-wide mb-6 whitespace-pre-line">
-                {t.webAecContact.title}
+                ¿QUÉ NECESITA<br/>TU EMPRESA?
               </h2>
               <p className="font-inter text-concreteGray text-lg mb-12 max-w-xl">
-                {t.webAecContact.desc}
+                Completa el formulario y me pondré en contacto contigo para entender mejor tus objetivos.
               </p>
 
               <div className="mb-8">
-                <span className="font-jetbrains text-electricBlue text-xs uppercase tracking-widest block mb-6">{t.webAecContact.orDirectly}</span>
+                <span className="font-jetbrains text-electricBlue text-xs uppercase tracking-widest block mb-6">O DIRECTAMENTE A TRAVÉS DE</span>
                 <div className="flex flex-col gap-4">
-                  {/* Email */}
-                  <a 
-                    href="mailto:benjamin@mendivil.build" 
-                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-electricBlue hover:bg-white/5 transition-all group"
-                  >
-                    <Mail size={24} className="text-concreteGray group-hover:text-electricBlue transition-colors" />
-                    <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">benjamin@mendivil.build</span>
-                  </a>
-
                   {/* WhatsApp */}
                   <a 
-                    href={"https://wa.me/message/OMVEQBVAUTQLM1?text=" + encodeURIComponent(isEs ? "Hola Benjamín, vi los demos de WEB AEC en MENDIVIL.BUILD y me interesa desarrollar un sitio web para mi empresa." : "Hi Benjamin, I saw the WEB AEC demos on MENDIVIL.BUILD and I'm interested in developing a website for my company.")} 
+                    href={"https://wa.me/message/OMVEQBVAUTQLM1?text=" + encodeURIComponent("Hola Benjamín, estoy interesado en crear un sitio web para mi empresa.")} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-[#25D366] hover:bg-white/5 transition-all group"
@@ -728,17 +720,16 @@ const WebAEC: React.FC = () => {
                       <span className="font-inter text-concreteGray text-xs mt-1">+52 871 217 3821</span>
                     </div>
                   </a>
-
-                  {/* LinkedIn */}
+                  
+                  {/* Email */}
                   <a 
-                    href="https://linkedin.com/in/benjamín-mendívil-hernández-4a0065158" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-titaniumWhite hover:bg-white/5 transition-all group"
+                    href="mailto:benjamin@mendivil.build" 
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-electricBlue hover:bg-white/5 transition-all group"
                   >
-                    <LinkedinIcon size={24} />
-                    <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">LinkedIn</span>
+                    <Mail size={24} className="text-concreteGray group-hover:text-electricBlue transition-colors" />
+                    <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">benjamin@mendivil.build</span>
                   </a>
+
                 </div>
               </div>
             </div>
@@ -754,55 +745,38 @@ const WebAEC: React.FC = () => {
               {state.succeeded ? (
                 <div className="bg-[#1E4A6E] border border-[#4A9FD4]/30 p-8 text-center">
                   <p className="font-barlow font-bold text-[#4A9FD4] text-xl tracking-wide uppercase">
-                    {t.webAecContact.success}
+                    MENSAJE ENVIADO CORRECTAMENTE
                   </p>
                 </div>
               ) : (
-                <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
+                <form className="grid grid-cols-1 gap-4" onSubmit={handleSubmit}>
                   <input type="hidden" name="Source" value="WEB AEC" />
                   <input type="hidden" name="Subject" value="Nueva solicitud WEB AEC" />
                   
                   <div className="w-full">
-                    <input type="text" name="name" required placeholder={t.webAecContact.name} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <input type="text" name="name" required placeholder="Nombre" className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
                     <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
                   </div>
                   <div className="w-full">
-                    <input type="text" name="company" required placeholder={t.webAecContact.company} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <input type="text" name="company" required placeholder="Empresa" className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
                     <ValidationError prefix="Company" field="company" errors={state.errors} className="text-red-500 text-xs mt-1" />
                   </div>
                   <div className="w-full">
-                    <input type="email" name="email" required placeholder={t.webAecContact.email} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
-                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
-                  </div>
-                  <div className="w-full">
-                    <input type="tel" name="phone" placeholder={t.webAecContact.phone} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
-                    <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                    <input type="text" name="contact" required placeholder="WhatsApp o Email" className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <ValidationError prefix="Contact" field="contact" errors={state.errors} className="text-red-500 text-xs mt-1" />
                   </div>
                   
-                  <div className="w-full">
-                    <select name="companyType" required className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full appearance-none transition-colors">
-                      <option value="" disabled selected>{t.webAecContact.type}</option>
-                      {t.webAecContact.typeOptions.map((opt, i) => (
-                        <option key={i} value={opt}>{opt}</option>
-                      ))}
-                    </select>
-                  </div>
                   <div className="w-full">
                     <select name="needs" required className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full appearance-none transition-colors">
-                      <option value="" disabled selected>{t.webAecContact.need}</option>
-                      {t.webAecContact.needOptions.map((opt, i) => (
+                      <option value="" disabled selected>¿Qué necesitas?</option>
+                      {["Landing AEC", "Sitio Corporativo", "Portafolio", "Web + Automatización", "No estoy seguro"].map((opt, i) => (
                         <option key={i} value={opt}>{opt}</option>
                       ))}
                     </select>
                   </div>
-
-                  <div className="w-full md:col-span-2">
-                    <textarea name="message" required placeholder={t.webAecContact.placeholder} rows={5} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors resize-none"></textarea>
-                    <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
-                  </div>
                   
-                  <button type="submit" disabled={state.submitting} className="md:col-span-2 bg-electricBlue text-white font-jetbrains font-bold text-sm tracking-widest py-5 hover:bg-white hover:text-deepBlack disabled:bg-electricBlue/50 disabled:cursor-not-allowed transition-colors duration-300 uppercase mt-4">
-                    {state.submitting ? t.webAecContact.sending : t.webAecContact.submit + ' →'}
+                  <button type="submit" disabled={state.submitting} className="w-full bg-electricBlue text-white font-jetbrains font-bold text-sm tracking-widest py-5 hover:bg-white hover:text-deepBlack disabled:bg-electricBlue/50 disabled:cursor-not-allowed transition-colors duration-300 uppercase mt-4">
+                    {state.submitting ? "ENVIANDO..." : "SOLICITAR PROPUESTA →"}
                   </button>
                 </form>
               )}
