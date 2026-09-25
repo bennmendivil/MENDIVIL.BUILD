@@ -268,66 +268,55 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 7. CASO REAL - GASAVE */}
-      <section className="py-24 bg-deepBlack border-y border-steelBlue/30 relative overflow-hidden" ref={caseRef}>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1E4A6E]/10 via-deepBlack to-deepBlack z-0"></div>
-        <div className="container mx-auto px-6 max-w-6xl relative z-10 fade-in-section">
-          
-          <div className="flex flex-col md:flex-row items-center gap-12">
-            <div className="flex-1">
-              <div className="inline-block border border-matteGold text-matteGold font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-matteGold/10 uppercase">
-                UN CASO REAL
+      <section className="py-24" ref={caseRef}>
+        <div className="container mx-auto px-6 max-w-7xl fade-in-section">
+          <div className="mb-12 text-center">
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">CASO REAL: GASAVE LABORATORIO</h2>
+            <p className="font-inter text-xl text-[#4A9FD4]">Presencia digital profesional + automatización de procesos.</p>
+          </div>
+
+          <div className="bg-[#0F2236] border border-white/10 p-2 shadow-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+              <div className="md:col-span-2 relative h-64 md:h-96 overflow-hidden bg-[#0A1624]">
+                <img src="/web-aec/gasave/gasave_home_desktop.webp" alt="Gasave Home" className="w-full h-full object-cover object-top" />
               </div>
-              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-4">
-                GASAVE — <br/><span className="text-concreteGray">Sitio web + automatización</span>
-              </h2>
-              <p className="text-concreteGray text-lg mb-8 leading-relaxed">
-                Desarrollamos un sitio web para un laboratorio especializado en control de calidad y ensayos para la industria de la construcción.
-              </p>
-              <div className="bg-[#0A131F] border border-steelBlue p-6 mb-8">
-                <h4 className="font-jetbrains text-sm text-titaniumWhite font-bold mb-4 uppercase">Pero el sitio web fue sólo una parte del proyecto.</h4>
-                <p className="text-concreteGray text-sm mb-6">
-                  También automatizamos un proceso de generación y envío de reportes semanales que anteriormente requería gran parte de la jornada del lunes.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-6">
-                  <div className="flex-1 border-l-2 border-red-500/50 pl-4">
-                    <div className="text-xs font-jetbrains text-red-400 mb-1">ANTES (Proceso manual)</div>
-                    <div className="font-barlow text-xl text-white">Varias horas de trabajo</div>
-                  </div>
-                  <div className="flex-1 border-l-2 border-electricBlue pl-4">
-                    <div className="text-xs font-jetbrains text-electricBlue mb-1">DESPUÉS (Automatizado)</div>
-                    <div className="font-barlow text-xl text-white">~20 minutos</div>
-                  </div>
+              <div className="flex flex-col gap-2 h-64 md:h-96">
+                <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
+                  <img src="/web-aec/gasave/gasave_press_photo.webp" alt="Gasave Press" className="w-full h-full object-cover" />
+                </div>
+                <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
+                  <img src="/web-aec/gasave/gasave_sieves_photo.webp" alt="Gasave Sieves" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </div>
+            
+            <div className="p-8 md:p-12 bg-[#0F2236] mt-2 border border-white/5">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+                <div>
+                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">ANTES:</h4>
+                  <p className="font-inter text-[#F0F0F0]/90">Procesos semanales que requerían varias horas de trabajo manual.</p>
+                </div>
+                <div>
+                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">DESPUÉS:</h4>
+                  <p className="font-inter text-[#F0F0F0]/90">Un flujo optimizado que reduce ese proceso a aproximadamente 20 minutos.</p>
+                </div>
+                <div>
+                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">RESULTADO:</h4>
+                  <p className="font-inter text-[#F0F0F0] font-medium text-lg text-[#4A9FD4]">Una presencia digital más profesional y un proceso operativo más ágil.</p>
                 </div>
               </div>
               
-              <p className="font-barlow font-bold text-2xl text-matteGold uppercase tracking-wide mb-2">
-                "WEB + AUTOMATIZACIÓN"
-              </p>
-              <p className="text-white italic opacity-80">
-                Cuando el sitio web se conecta con los procesos de tu empresa, deja de ser solamente una página y comienza a convertirse en una herramienta de trabajo.
-              </p>
-            </div>
-            
-            <div className="flex-1 w-full">
-              <div className="bg-[#0A131F] rounded-lg border border-steelBlue/40 overflow-hidden shadow-2xl">
-                <div className="h-8 bg-[#111] border-b border-steelBlue/40 flex items-center px-4 gap-2">
-                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
-                  <div className="mx-auto bg-deepBlack text-[10px] font-jetbrains text-concreteGray py-1 px-4 rounded border border-steelBlue/20">gasavelaboratorio.com</div>
-                </div>
-                <div className="aspect-[4/3] bg-gradient-to-br from-[#1E4A6E]/20 to-deepBlack p-8 flex items-center justify-center relative overflow-hidden">
-                   <div className="text-center z-10 relative">
-                     <Microscope className="w-16 h-16 text-electricBlue mx-auto mb-4 opacity-50" />
-                     <div className="font-barlow text-3xl text-white font-bold tracking-widest uppercase mb-2">GASAVE</div>
-                     <div className="text-concreteGray text-sm uppercase tracking-widest">Laboratorio de Control de Calidad</div>
-                   </div>
-                   <div className="absolute inset-0 bg-hero-gradient opacity-50"></div>
-                </div>
+              <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 border-t border-white/10">
+                <a href="https://gasavelaboratorio.com" target="_blank" rel="noreferrer" className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+                  VER SITIO REAL →
+                </a>
+                <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+                  <span className="relative z-10">QUIERO ALGO SIMILAR →</span>
+                  <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
+                </a>
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
