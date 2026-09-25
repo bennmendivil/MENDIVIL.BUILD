@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Hero: React.FC = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -52,9 +52,11 @@ const Hero: React.FC = () => {
           </p>
 
           {/* Description */}
-          <p className={`font-inter text-concreteGray text-[0.95rem] leading-[1.7] max-w-[480px] mb-8 whitespace-pre-line transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            {(t.hero as any).description}
-          </p>
+          {t.hero.description && (
+            <p className={`font-inter text-concreteGray text-[0.95rem] leading-[1.7] max-w-[480px] mb-8 whitespace-pre-line transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              {(t.hero as any).description}
+            </p>
+          )}
 
           {/* Tags */}
           <div className={`flex flex-wrap gap-3 mb-12 transition-all duration-1000 delay-500 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
@@ -67,11 +69,11 @@ const Hero: React.FC = () => {
 
           {/* CTAs */}
           <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-[600ms] transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <a href="#projects" className="px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider text-center hover:bg-white transition-colors">
+            <a href="#contact" className="px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider text-center hover:bg-white transition-colors">
               {t.hero.cta1}
             </a>
-            <a href="/ai-project-reporter" className="px-8 py-4 bg-transparent border-2 border-electricBlue text-electricBlue font-barlow font-bold text-lg tracking-wider text-center hover:bg-electricBlue hover:text-white transition-colors uppercase">
-              {language === 'ES' ? 'PROBAR AI PROJECT REPORTER' : 'TRY AI PROJECT REPORTER'}
+            <a href="#projects" className="px-8 py-4 bg-transparent border-2 border-electricBlue text-electricBlue font-barlow font-bold text-lg tracking-wider text-center hover:bg-electricBlue hover:text-white transition-colors uppercase">
+              {t.hero.cta2}
             </a>
           </div>
         </div>

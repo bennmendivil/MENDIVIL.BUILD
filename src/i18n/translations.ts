@@ -17,11 +17,11 @@ export const translations = {
       name1: 'BENJAMÍN',
       name2: 'MENDÍVIL',
       name3: 'HERNÁNDEZ',
-      subtitle: 'Detrás de cada gran proyecto, hay alguien que lo hizo real.',
-      description: 'Proyectos industriales, hospitalarios y residenciales en México y USA.\nLean Construction aplicado en campo real.\nTecnología e IA al servicio de la obra.',
+      subtitle: 'Ayudo a Owners, Developers & Contractors a mejorar el control de sus proyectos, implementar Lean Construction y usar IA para tomar decisiones más rápidas en obra.',
+      description: '',
       tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'CONSTRUCTION MANAGER', 'APPLIED AI'],
-      cta1: 'VER PROYECTOS →',
-      cta2: 'DESCARGAR CV'
+      cta1: 'HABLEMOS DE TU PROYECTO →',
+      cta2: 'VER PROYECTOS REALES →'
     },
     stats: {
       yoeLabel: 'Años de experiencia en obra',
@@ -45,7 +45,9 @@ export const translations = {
           company: 'Worley',
           date: 'May 2023 – Mar 2025',
           location: 'Veracruz',
-          description: 'Coordinación simultánea de 5 edificios en la nueva Cervecería Constellation Brands Veracruz, con un presupuesto combinado de $75.9M USD bajo mi coordinación. Edificio de Packaging, superestructuras de concreto para tanques CCT y BBT, reuniones LPS diarias y primera entrega exitosa a Ziemann cumpliendo fechas y estándares internacionales de calidad.',
+          reto: 'Coordinación de múltiples contratistas, estructuras e interfaces dentro de un proyecto industrial de gran escala.',
+          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, coordinación diaria y control de cambios.',
+          resultado: 'Entrega de superestructuras conforme a las fechas requeridas para la siguiente fase de construcción.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'
         },
@@ -55,7 +57,9 @@ export const translations = {
           company: 'SSOE Group',
           date: 'Jul 2022 – May 2023',
           location: 'Guanajuato',
-          description: 'Representante del propietario en el proyecto Toyota Motors GT. Coordinación de obra civil, estructura de acero, acabados y arquitectura con metodología Kanban. Control de calidad con laboratorios certificados.',
+          reto: 'Ejecución y control de calidad simultáneo en obra civil, estructura de acero, arquitectura y acabados.',
+          intervencion: 'Representación del propietario (Owner’s Rep), coordinación mediante metodología Kanban y laboratorios certificados.',
+          resultado: 'Cumplimiento de estándares de calidad exigidos por la industria automotriz.',
           badge: 'AUTOMOTIVE',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -65,7 +69,9 @@ export const translations = {
           company: '',
           date: 'Abr 2022 – Jul 2022 · Nogales, Sonora',
           location: '',
-          description: "Gerente de Construcción y Owner's Rep para Stanley Black & Decker en nuevo edificio de motores. Gestión directa de presupuesto de $23M USD bajo contrato Open Book. Supervisión de colados de concreto, estructura de acero, pruebas de soldadura y alineación de vigas de riel.",
+          reto: 'Gestión transparente de un presupuesto de $23M USD bajo la modalidad Open Book.',
+          intervencion: 'Construction Management, supervisión de colados de concreto y alineación milimétrica de vigas de riel.',
+          resultado: 'Ejecución financiera controlada y precisión estructural en tiempo.',
           badge: 'MANUFACTURING',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -75,7 +81,9 @@ export const translations = {
           company: 'Gilbane-Alberici',
           date: 'Aug 2020 – Mar 2022',
           location: 'Obregón, Sonora',
-          description: 'Superintendente Civil en expansión de Cervecería Constellation Brands. Nuevos edificios, calderas, superestructuras de concreto, estructuras de acero, vialidades y vías férreas. Pull Plans, PPC, 6WLA y LPS semanal.',
+          reto: 'Coordinación de múltiples contratistas, estructuras e interfaces dentro de un proyecto industrial de gran escala.',
+          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, coordinación diaria y control de cambios.',
+          resultado: 'Entrega de superestructuras conforme a las fechas requeridas para la siguiente fase de construcción.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'
         },
@@ -85,7 +93,9 @@ export const translations = {
           company: 'Mtorres',
           date: 'Feb 2018 – Aug 2020',
           location: 'Culiacán, Sinaloa',
-          description: 'Superintendente Civil en Plaza Pabellón (centro comercial) y Hospital Infantil de Culiacán (7 niveles, 20,000 m² de construcción, contrato directo con Gobierno Federal).',
+          reto: 'Construcción simultánea de un hospital de 7 niveles (20,000 m²) bajo contrato directo con Gobierno Federal.',
+          intervencion: 'Superintendencia civil, control de contratistas y seguimiento estricto de avance de obra.',
+          resultado: 'Estructura e infraestructura civil ejecutada conforme a normatividad gubernamental.',
           badge: 'COMMERCIAL / HEALTHCARE',
           badgeColor: 'border-purple-500 text-purple-500' // Using standard purple for commercial
         },
@@ -95,7 +105,9 @@ export const translations = {
           company: 'EMYCSA',
           date: 'Oct 2015 – Aug 2016',
           location: 'San Luis Potosí',
-          description: 'Superintendente de Estructuras de Acero en Planta de Expansión MAGNA SLP. Montaje estructural, pintura, paneles metálicos, TPO en cubierta y control de calidad.',
+          reto: 'Montaje estructural de gran volumen para planta de expansión automotriz.',
+          intervencion: 'Superintendencia de estructuras de acero, instalación de paneles, cubierta TPO y control de calidad.',
+          resultado: 'Estructura metálica entregada sin desviaciones de calidad ni seguridad.',
           badge: 'AUTOMOTIVE / STEEL',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -105,7 +117,9 @@ export const translations = {
           company: 'Ferrominio',
           date: 'Jan 2014 – Sep 2015',
           location: 'Culiacán / San Luis Potosí',
-          description: 'Centro de Distribución Coppel Culiacán y Edificio de Producción A — Ronal Group SLP. Montaje estructural, control de torque en pernos y calidad en soldadura.',
+          reto: 'Montaje estructural y control de calidad en proyectos logísticos e industriales simultáneos.',
+          intervencion: 'Superintendencia de acero, control de torque en pernos y validación de calidad en soldadura.',
+          resultado: 'Estructuras montadas y certificadas según especificaciones de ingeniería.',
           badge: 'LOGISTICS / INDUSTRIAL',
           badgeColor: 'border-electricBlue text-electricBlue'
         }
@@ -204,9 +218,24 @@ export const translations = {
       ]
     },
     contact: {
-      title: 'EL PROYECTO MÁS IMPORTANTE ESTÁ POR CONSTRUIRSE.',
-      subtitle: 'Tu proyecto merece al ingeniero correcto.',
-      whatsapp: 'ESCRIBIR POR WHATSAPP',
+      title: '¿TIENES UN PROYECTO QUE NECESITA MÁS CONTROL?',
+      subtitle: 'Cuéntame dónde estás teniendo problemas con plazo, coordinación, producción o información de campo y revisemos cómo podemos ayudarte.',
+      formName: 'Nombre',
+      formCompany: 'Empresa',
+      formContact: 'WhatsApp o Email',
+      formNeed: '¿QUÉ NECESITAS?',
+      formNeedOptions: [
+        'Project Management / Construction Management',
+        'Lean Construction',
+        'Owner’s Rep',
+        'IA aplicada a construcción',
+        'Sitio web / solución digital AEC',
+        'Otro'
+      ],
+      formMessage: 'Cuéntame brevemente sobre tu proyecto',
+      submit: 'SOLICITAR EVALUACIÓN →',
+      orDirectly: '¿Prefieres hablar directamente?',
+      whatsapp: 'WHATSAPP →',
       note: 'Proyectos en México · USA · Internacional',
       followMe: 'SÍGUEME EN REDES'
     },
@@ -328,11 +357,11 @@ export const translations = {
       name1: 'BENJAMÍN',
       name2: 'MENDÍVIL',
       name3: 'HERNÁNDEZ',
-      subtitle: "Behind every great project, there's someone who made it real.",
-      description: 'Industrial, healthcare and residential projects in Mexico and the USA.\nLean Construction applied in the real field.\nTechnology and AI at the service of construction.',
+      subtitle: 'I help Owners, Developers & Contractors improve their project control, implement Lean Construction, and use AI for faster on-site decision making.',
+      description: '',
       tags: ['LEAN CONSTRUCTION', 'CIVIL ENGINEER', 'CONSTRUCTION MANAGER', 'APPLIED AI'],
-      cta1: 'VIEW PROJECTS →',
-      cta2: 'DOWNLOAD CV'
+      cta1: "LET'S TALK ABOUT YOUR PROJECT →",
+      cta2: 'VIEW REAL PROJECTS →'
     },
     stats: {
       yoeLabel: 'Years of field experience',
@@ -349,23 +378,16 @@ export const translations = {
       title: 'WORK THAT SPEAKS FOR ITSELF',
       subtitle: 'World-class projects. High-level clients. Real results.',
       jobs: [
-        {
-          id: 1,
-          title: 'Project Leader · Luxury Residential Development',
-          company: '',
-          date: 'Jun 2025 – Jan 2026 · Los Cabos, BCS',
-          location: '',
-          description: 'Full management of 8 ultra-luxury residential villas at Cabo del Sol, Villas del Mar and Chileno Bay Ridge State. Budgets from USD $1.5M to $9.3M per villa. Earned Value Management, executive coordination with owners and high-end hospitality standards.',
-          badge: 'LUXURY RESIDENTIAL · LOS CABOS',
-          badgeColor: 'border-matteGold text-matteGold'
-        },
+
         {
           id: 2,
           title: 'Manager II Site Construction',
           company: 'Worley',
           date: 'May 2023 – Mar 2025',
           location: 'Veracruz',
-          description: 'Simultaneous coordination of 5 buildings at the new Constellation Brands Brewery Veracruz, with a combined budget of $75.9M USD under my coordination. Packaging building, concrete superstructures for CCT and BBT tanks, daily LPS meetings and successful first delivery to Ziemann meeting schedule and international quality standards.',
+          reto: 'Coordination of multiple contractors, structures and interfaces within a large-scale industrial project.',
+          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, daily coordination and change order control.',
+          resultado: 'Superstructures delivered on schedule for the next construction phase.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'
         },
@@ -375,7 +397,9 @@ export const translations = {
           company: 'SSOE Group',
           date: 'Jul 2022 – May 2023',
           location: 'Guanajuato',
-          description: "Owner's representative at Toyota Motors GT project. Civil, steel structure, finishing and architectural coordination using Kanban methodology. Quality control with certified labs.",
+          reto: 'Simultaneous execution and quality control across civil, steel structure, architecture and finishing trades.',
+          intervencion: "Owner's Rep, coordination using Kanban methodology and certified lab testing.",
+          resultado: 'Compliance with strict automotive industry quality standards.',
           badge: 'AUTOMOTIVE',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -385,7 +409,9 @@ export const translations = {
           company: '',
           date: 'Apr 2022 – Jul 2022 · Nogales, Sonora',
           location: '',
-          description: "Construction Manager and Owner's Rep for Stanley Black & Decker on new engine building. Direct management of $23M USD budget under Open Book contract. Supervision of concrete pours, steel structure, welding tests and rail beam alignment.",
+          reto: 'Transparent management of a $23M USD budget under an Open Book contract.',
+          intervencion: 'Construction Management, concrete pour supervision and millimetric rail beam alignment.',
+          resultado: 'Controlled financial execution and structural precision on time.',
           badge: 'MANUFACTURING',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -395,7 +421,9 @@ export const translations = {
           company: 'Gilbane-Alberici',
           date: 'Aug 2020 – Mar 2022',
           location: 'Obregón, Sonora',
-          description: 'Civil Superintendent at Constellation Brands Brewery expansion. New buildings, boilers, concrete superstructures, steel structures, roads and railways. Pull Plans, PPC, 6WLA and weekly LPS.',
+          reto: 'Coordination of multiple contractors, structures and interfaces within a large-scale industrial project.',
+          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, daily coordination and change order control.',
+          resultado: 'Superstructures delivered on schedule for the next construction phase.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'
         },
@@ -405,7 +433,9 @@ export const translations = {
           company: 'Mtorres',
           date: 'Feb 2018 – Aug 2020',
           location: 'Culiacán, Sinaloa',
-          description: "Civil Superintendent at Plaza Pabellón (shopping center) and Children's Hospital Culiacán (7 floors, 20,000 sqm, direct federal government contract).",
+          reto: 'Simultaneous construction of a 7-story hospital (20,000 sqm) under direct federal government contract.',
+          intervencion: 'Civil superintendence, contractor control and strict progress tracking.',
+          resultado: 'Civil structure and infrastructure executed according to government regulations.',
           badge: 'COMMERCIAL / HEALTHCARE',
           badgeColor: 'border-purple-500 text-purple-500'
         },
@@ -415,7 +445,9 @@ export const translations = {
           company: 'EMYCSA',
           date: 'Oct 2015 – Aug 2016',
           location: 'San Luis Potosí',
-          description: 'Steel Structure Superintendent at MAGNA Expansion Plant SLP. Structural erection, painting, metal panels, TPO roofing and quality control.',
+          reto: 'High-volume structural erection for an automotive expansion plant.',
+          intervencion: 'Steel structure superintendence, metal panel installation, TPO roofing and quality control.',
+          resultado: 'Steel structure delivered without quality or safety deviations.',
           badge: 'AUTOMOTIVE / STEEL',
           badgeColor: 'border-concreteGray text-concreteGray'
         },
@@ -425,7 +457,9 @@ export const translations = {
           company: 'Ferrominio',
           date: 'Jan 2014 – Sep 2015',
           location: 'Culiacán / San Luis Potosí',
-          description: 'Coppel Distribution Center Culiacán and Ronal Group Production Building A SLP. Structural erection, bolt torque control and welding quality.',
+          reto: 'Structural erection and quality control across simultaneous logistics and industrial projects.',
+          intervencion: 'Steel superintendence, bolt torque control and welding quality validation.',
+          resultado: 'Structures erected and certified to engineering specifications.',
           badge: 'LOGISTICS / INDUSTRIAL',
           badgeColor: 'border-electricBlue text-electricBlue'
         }
@@ -524,9 +558,24 @@ export const translations = {
       ]
     },
     contact: {
-      title: 'THE MOST IMPORTANT PROJECT IS YET TO BE BUILT.',
-      subtitle: 'Your project deserves the right engineer.',
-      whatsapp: 'MESSAGE ON WHATSAPP',
+      title: 'DO YOU HAVE A PROJECT THAT NEEDS MORE CONTROL?',
+      subtitle: "Tell me where you are having issues with schedule, coordination, production or field information and let's see how we can help.",
+      formName: 'Name',
+      formCompany: 'Company',
+      formContact: 'WhatsApp or Email',
+      formNeed: 'WHAT DO YOU NEED?',
+      formNeedOptions: [
+        'Project Management / Construction Management',
+        'Lean Construction',
+        "Owner's Rep",
+        'AI applied to construction',
+        'Website / AEC digital solution',
+        'Other'
+      ],
+      formMessage: 'Tell me briefly about your project',
+      submit: 'REQUEST EVALUATION →',
+      orDirectly: 'Prefer to talk directly?',
+      whatsapp: 'WHATSAPP →',
       note: 'Projects in Mexico · USA · International',
       followMe: 'FOLLOW ME'
     },

@@ -10,7 +10,8 @@ interface Project {
 }
 
 const Portfolio: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isEs = language === 'ES';
   const [activeTab, setActiveTab] = useState<Tab>('INDUSTRIAL');
 
   const tabs: Record<Tab, string> = {
@@ -141,9 +142,20 @@ const Portfolio: React.FC = () => {
                     <p>{job.date}</p>
                     <p>{job.location}</p>
                   </div>
-                  <p className="font-inter text-[#F0F0F0]/80 text-[15px] leading-relaxed max-w-4xl">
-                    {job.description}
-                  </p>
+                  <div className="flex flex-col gap-3 font-inter text-[14.5px] leading-relaxed max-w-4xl mt-2">
+                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                      <span className="text-[#4A9FD4] font-bold font-jetbrains uppercase tracking-wide text-xs mt-1 sm:w-32 shrink-0">{isEs ? "RETO:" : "CHALLENGE:"}</span>
+                      <span className="text-[#F0F0F0]/90">{(job as any).reto}</span>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                      <span className="text-matteGold font-bold font-jetbrains uppercase tracking-wide text-xs mt-1 sm:w-32 shrink-0">{isEs ? "INTERVENCIÓN:" : "INTERVENTION:"}</span>
+                      <span className="text-[#F0F0F0]/90">{(job as any).intervencion}</span>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-1 sm:gap-2">
+                      <span className="text-[#27AE60] font-bold font-jetbrains uppercase tracking-wide text-xs mt-1 sm:w-32 shrink-0">{isEs ? "RESULTADO:" : "RESULT:"}</span>
+                      <span className="text-[#F0F0F0]/90">{(job as any).resultado}</span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Photos Grid */}
