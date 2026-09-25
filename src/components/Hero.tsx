@@ -46,8 +46,15 @@ const Hero: React.FC = () => {
             </h1>
           </div>
 
+          {/* Main Headline */}
+          {(t.hero as any).headline && (
+            <h2 className={`font-barlow font-black text-[2rem] md:text-[2.8rem] leading-[1.15] text-titaniumWhite tracking-wide mb-6 whitespace-pre-line transition-all duration-1000 delay-[350ms] transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+              {(t.hero as any).headline}
+            </h2>
+          )}
+
           {/* Subtitle */}
-          <p className={`font-barlow text-titaniumWhite/80 text-[1.4rem] mb-4 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <p className={`font-inter text-concreteGray text-[1.1rem] md:text-[1.25rem] leading-relaxed mb-8 max-w-2xl transition-all duration-1000 delay-400 transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
             {t.hero.subtitle}
           </p>
 
