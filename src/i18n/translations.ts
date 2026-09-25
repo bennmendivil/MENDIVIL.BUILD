@@ -38,16 +38,7 @@ export const translations = {
       title: 'OBRA QUE HABLA POR SÍ SOLA',
       subtitle: 'Proyectos de clase mundial. Clientes de alto nivel. Resultados reales.',
       jobs: [
-        {
-          id: 1,
-          title: 'Project Leader · Desarrollo Residencial de Lujo',
-          company: '',
-          date: 'Jun 2025 – Ene 2026 · Los Cabos, BCS',
-          location: '',
-          description: 'Dirección integral de 8 villas residenciales de ultra lujo en Cabo del Sol, Villas del Mar y Chileno Bay Ridge State. Presupuestos de USD $1.5M a $9.3M por villa. Gestión del Valor Ganado (EV), coordinación ejecutiva con propietarios y estándares hospitality de primer nivel.',
-          badge: 'LUXURY RESIDENTIAL · LOS CABOS',
-          badgeColor: 'border-matteGold text-matteGold'
-        },
+
         {
           id: 2,
           title: 'Manager II Site Construction',

@@ -5,6 +5,17 @@ const Hero: React.FC = () => {
   const { t, language } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
+    if (window.location.pathname === '/') {
+      e.preventDefault();
+      const element = document.querySelector(hash);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        window.history.pushState(null, '', hash);
+      }
+    }
+  };
+
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -67,7 +78,7 @@ const Hero: React.FC = () => {
 
           {/* CTAs */}
           <div className={`flex flex-col sm:flex-row gap-4 transition-all duration-1000 delay-[600ms] transform ${mounted ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
-            <a href="#projects" className="px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider text-center hover:bg-white transition-colors">
+            <a href="#projects" onClick={(e) => handleNavClick(e, '#projects')} className="px-8 py-4 bg-matteGold text-deepBlack font-barlow font-bold text-lg tracking-wider text-center hover:bg-white transition-colors">
               {t.hero.cta1}
             </a>
             <a href="/ai-project-reporter" className="px-8 py-4 bg-transparent border-2 border-electricBlue text-electricBlue font-barlow font-bold text-lg tracking-wider text-center hover:bg-electricBlue hover:text-white transition-colors uppercase">

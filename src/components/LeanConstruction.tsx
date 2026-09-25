@@ -215,7 +215,7 @@ const LeanConstruction: React.FC = () => {
             {/* Metrics Grid */}
             <div className="grid grid-cols-2 gap-4 w-full">
               {t.metrics.map((m, idx) => (
-                <div key={idx} className="bg-[#2A2A2A] rounded-[6px] p-[16px] border-t-[2px] border-[#4A9FD4]">
+                <div key={idx} className="bg-[#1E4A6E] rounded-[6px] p-[16px] border-t-[2px] border-[#4A9FD4]">
                   <div className="font-barlow font-bold text-[#F0F0F0] text-2xl md:text-3xl mb-1">{m.num}</div>
                   <div className="font-inter text-[#5A8FA8] text-sm leading-tight">{m.desc}</div>
                 </div>
@@ -260,7 +260,7 @@ const LeanConstruction: React.FC = () => {
             {t.implementBlocks.map((block, idx) => (
               <div 
                 key={idx} 
-                className={`bg-[#2A2A2A] rounded-[6px] p-[20px] md:px-[24px] border-l-[3px] border-[#4A9FD4] ${idx === 4 ? 'lg:col-span-2' : ''}`}
+                className={`bg-[#1E4A6E] rounded-[6px] p-[20px] md:px-[24px] border-t-[3px] border-[#4A9FD4] ${idx === 4 ? 'lg:col-span-2' : ''}`}
               >
                 <h4 className="font-barlow font-bold text-[#F0F0F0] text-[1.2rem] md:text-[1.3rem] mb-3 leading-tight uppercase">
                   {block.title}
@@ -285,7 +285,7 @@ const LeanConstruction: React.FC = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {t.includes.map((item, idx) => (
-              <div key={idx} className="bg-[#2A2A2A] rounded-[6px] p-[20px] border-t-[3px] border-[#4A9FD4]">
+              <div key={idx} className="bg-[#1E4A6E] rounded-[6px] p-[20px] border-t-[3px] border-[#4A9FD4]">
                 <div className="mb-4">{item.icon}</div>
                 <h4 className="font-barlow font-bold text-[#F0F0F0] text-lg mb-2 tracking-wide uppercase">{item.title}</h4>
                 <p className="font-inter text-[#5A8FA8] text-[0.9rem] leading-relaxed">{renderText(item.desc)}</p>
@@ -379,7 +379,7 @@ const LeanConstruction: React.FC = () => {
         </div>
 
         {/* 5.5 Simulation Workshop */}
-        <div className="w-full bg-[#2A2A2A] border-[2px] border-transparent hover:border-[#4A9FD4]/30 rounded-[8px] p-[32px] md:p-[40px] mt-[32px] fade-in-section delay-300 transition-all duration-300 hover:-translate-y-1 shadow-lg">
+        <div className="w-full bg-[#1E4A6E] border-[2px] border-transparent hover:border-[#4A9FD4]/30 rounded-[8px] p-[32px] md:p-[40px] mt-[32px] fade-in-section delay-300 transition-all duration-300 hover:-translate-y-1 shadow-lg">
           <div className="flex flex-col md:flex-row items-center md:items-start justify-between gap-8">
             <div className="flex-1 text-center md:text-left">
               <div className="inline-block bg-[#4A9FD4]/15 border border-[#4A9FD4]/40 rounded-[3px] py-[3px] px-[10px] mb-[12px]">

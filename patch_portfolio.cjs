@@ -1,4 +1,8 @@
-import React, { useState } from 'react';
+const fs = require('fs');
+
+let portfolioPath = 'src/components/Portfolio.tsx';
+
+const portfolioCode = `import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
@@ -11,7 +15,7 @@ interface Project {
 }
 
 const Portfolio: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<Tab>('INDUSTRIAL');
   const containerRef = useIntersectionObserver({ threshold: 0.1 });
 
@@ -84,7 +88,7 @@ const Portfolio: React.FC = () => {
   const activeProjects = projectsData[activeTab];
 
   return (
-    <section id="projects" className="py-24 bg-deepBlack relative w-full overflow-hidden">
+    <section id="portfolio" className="py-24 bg-deepBlack relative w-full overflow-hidden">
       <div className="container mx-auto px-6 max-w-6xl" ref={containerRef}>
         
         <div className="mb-12 text-center md:text-left fade-in-section">
@@ -102,12 +106,12 @@ const Portfolio: React.FC = () => {
             <button
               key={tabKey}
               onClick={() => setActiveTab(tabKey)}
-              className={`px-8 py-3 font-barlow font-bold uppercase tracking-wider text-sm transition-all duration-300 border
-                ${activeTab === tabKey 
+              className={\`px-8 py-3 font-barlow font-bold uppercase tracking-wider text-sm transition-all duration-300 border
+                \${activeTab === tabKey 
                   ? 'bg-[#4A9FD4] text-[#0E0E0E] border-[#4A9FD4]' 
                   : 'bg-[#2A2A2A] text-[#5A8FA8] border-[#1E4A6E] hover:border-[#4A9FD4]'
                 }
-              `}
+              \`}
             >
               {tabs[tabKey]}
             </button>
@@ -130,11 +134,11 @@ const Portfolio: React.FC = () => {
                         {project.title}
                       </h3>
                       <h4 className="font-barlow font-medium text-lg md:text-xl text-[#4A9FD4] uppercase mt-1">
-                        {job.title} {job.company ? `· ${job.company}` : ''}
+                        {job.title} \${job.company ? \`· \${job.company}\` : ''}
                       </h4>
                     </div>
                     {/* Badge */}
-                    <span className={`px-3 py-1.5 text-xs font-jetbrains uppercase border rounded-sm whitespace-nowrap ${job.badgeColor}`}>
+                    <span className={\`px-3 py-1.5 text-xs font-jetbrains uppercase border rounded-sm whitespace-nowrap \${job.badgeColor}\`}>
                       {job.badge}
                     </span>
                   </div>
@@ -154,7 +158,7 @@ const Portfolio: React.FC = () => {
                     <div key={i} className="group relative overflow-hidden rounded-[6px] cursor-pointer">
                       <img 
                         src={img} 
-                        alt={`${project.title} photo ${i + 1}`} 
+                        alt={\`\${project.title} photo \${i + 1}\`} 
                         className="w-full h-[200px] lg:h-[260px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                       <div className="absolute inset-0 bg-[#4A9FD4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -172,3 +176,7 @@ const Portfolio: React.FC = () => {
 };
 
 export default Portfolio;
+`;
+
+fs.writeFileSync(portfolioPath, portfolioCode);
+console.log('Rewrote Portfolio.tsx');

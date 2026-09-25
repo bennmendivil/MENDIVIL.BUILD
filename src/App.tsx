@@ -3,11 +3,11 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Stats from './components/Stats';
 import Clients from './components/Clients';
-import Experience from './components/Experience';
+
 import Portfolio from './components/Portfolio';
 import Services from './components/Services';
 import LeanConstruction from './components/LeanConstruction';
-import Education from './components/Education';
+
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import LeanBuildSimulation from './components/LeanBuildSimulation';
@@ -61,11 +61,9 @@ function App() {
               <Hero />
               <Stats />
               <Clients />
-              <Experience />
-              <Portfolio />
               <Services />
+              <Portfolio />
               <LeanConstruction />
-              <Education />
               <Contact />
             </>
           )}

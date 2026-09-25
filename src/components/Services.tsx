@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { HardHat, BarChart2, Monitor, Microscope, Building, Cpu } from 'lucide-react';
+import { ArrowRight, HardHat, BarChart2, Monitor, Microscope, Building, Cpu } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 
 const Services: React.FC = () => {
@@ -98,6 +98,9 @@ const Services: React.FC = () => {
     }
   };
 
+  
+  const cleanCta = (text: string) => text.replace(/\s*→$/, '');
+
   return (
     <section id="services" className="py-24 bg-deepBlack">
       <div className="container mx-auto px-6 max-w-6xl" ref={containerRef}>
@@ -149,27 +152,31 @@ const Services: React.FC = () => {
                     <>
                       <a 
                         href="/servicios/ia-construccion/torre-nazas" 
-                        className="inline-flex justify-center items-center w-full border border-matteGold text-matteGold font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-matteGold hover:text-[#0F2236] transition-colors uppercase font-bold"
+                        className="group/link inline-flex justify-center items-center w-full border border-matteGold text-matteGold font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-matteGold hover:text-[#0F2236] transition-colors uppercase font-bold"
                       >
-                        {isEs ? "Caso de estudio: Torre Nazas →" : "Case study: Torre Nazas →"}
+                        {isEs ? "Caso de estudio: Torre Nazas" : "Case study: Torre Nazas"}
+                        <ArrowRight className="ml-2 w-4 h-4 text-[#4A9FD4] transition-transform duration-200 group-hover/link:translate-x-1" />
                       </a>
                       <a 
                         href="https://mendivil-build-studio.higgsfield.app" 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="inline-flex justify-center items-center w-full bg-[#4A9FD4] text-[#F0F0F0] font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-[#3b8dbf] transition-colors uppercase font-bold"
+                        className="group/link inline-flex justify-center items-center w-full bg-[#4A9FD4] text-[#F0F0F0] font-jetbrains text-xs tracking-wider py-3 px-4 hover:bg-[#3b8dbf] transition-colors uppercase font-bold"
                       >
-                        {isEs ? "Genera tu render con IA →" : "Try our AI render tool →"}
+                        {isEs ? "Genera tu render con IA" : "Try our AI render tool"}
+                        <ArrowRight className="ml-2 w-4 h-4 text-[#4A9FD4] transition-transform duration-200 group-hover/link:translate-x-1" />
                       </a>
                     </>
                   )}
                   {isGasave || index === 4 || index === 5 ? (
-                    <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className={`font-jetbrains text-sm transition-colors inline-flex items-center group-hover:translate-x-1 duration-300 ${isGasave ? 'text-[#4A9FD4] hover:text-white' : 'text-matteGold hover:text-white'}`}>
-                      {card.cta}
+                    <a href={(card as any).link} target={isGasave ? "_blank" : "_self"} rel={isGasave ? "noopener noreferrer" : undefined} className="group/link inline-flex items-center font-jetbrains text-base font-bold text-[#4A9FD4] px-5 py-2.5 rounded-full bg-[#4A9FD4]/10 border border-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-[#F0F0F0] transition-all duration-200 w-fit">
+                      {cleanCta(card.cta)}
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
                     </a>
                   ) : (
-                    <a href={index === 2 ? "/web-aec" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
-                      {card.cta}
+                    <a href={index === 2 ? "/web-aec" : "#contact"} className="group/link inline-flex items-center font-jetbrains text-base font-bold text-[#4A9FD4] px-5 py-2.5 rounded-full bg-[#4A9FD4]/10 border border-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-[#F0F0F0] transition-all duration-200 w-fit">
+                      {cleanCta(card.cta)}
+                      <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-200 group-hover/link:translate-x-1" />
                     </a>
                   )}
                 </div>

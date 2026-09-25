@@ -1,4 +1,33 @@
-import React from 'react';
+const fs = require('fs');
+
+// --- 1. Update index.css with marquee animation ---
+let cssPath = 'src/index.css';
+let cssContent = fs.readFileSync(cssPath, 'utf8');
+
+const marqueeCss = `
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 40s linear infinite;
+  display: flex;
+  width: max-content;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+`;
+
+if (!cssContent.includes('animate-marquee')) {
+  cssContent += marqueeCss;
+  fs.writeFileSync(cssPath, cssContent);
+  console.log('Added marquee CSS to index.css');
+}
+
+// --- 2. Rewrite Clients.tsx ---
+let clientsPath = 'src/components/Clients.tsx';
+const clientsCode = `import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 const Clients: React.FC = () => {
@@ -52,3 +81,7 @@ const Clients: React.FC = () => {
 };
 
 export default Clients;
+`;
+
+fs.writeFileSync(clientsPath, clientsCode);
+console.log('Rewrote Clients.tsx');
