@@ -1,18 +1,41 @@
 import React, { useEffect } from 'react';
-import { useForm } from '@formspree/react';
+import { useLanguage } from '../context/LanguageContext';
+import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { ArrowRight, CheckCircle2, ChevronDown } from 'lucide-react';
+import { 
+  Monitor, Building, Microscope, Cpu, 
+  HardHat, Map, Wrench, CheckCircle2, ChevronDown, 
+  ArrowRight, ShieldCheck, Check, Ruler, MessageCircle, Mail
+} from 'lucide-react';
+
+
+const LinkedinIcon = ({ size = 24 }: { size?: number }) => (
+  <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+    <rect x="2" y="9" width="4" height="12"></rect>
+    <circle cx="4" cy="4" r="2"></circle>
+  </svg>
+);
 
 const WebAEC: React.FC = () => {
+  // Add page title and meta description
   useEffect(() => {
     document.title = "Web AEC | Sitios Web para Constructoras e Ingenieros | MENDIVIL.BUILD";
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute("content", "Desarrollamos sitios web profesionales para constructoras, ingenieros, laboratorios, contratistas, arquitectos y desarrolladores inmobiliarios.");
+      metaDescription.setAttribute("content", "Desarrollamos sitios web profesionales para constructoras, ingenieros, laboratorios, contratistas, arquitectos y desarrolladores inmobiliarios. Tecnología, diseño e IA aplicada al sector AEC.");
+    } else {
+      const meta = document.createElement('meta');
+      meta.name = "description";
+      meta.content = "Desarrollamos sitios web profesionales para constructoras, ingenieros, laboratorios, contratistas, arquitectos y desarrolladores inmobiliarios. Tecnología, diseño e IA aplicada al sector AEC.";
+      document.head.appendChild(meta);
     }
   }, []);
 
+  
+  const { t, language } = useLanguage();
   const [state, handleSubmit] = useForm('xjgdjgvz');
+  const isEs = language === 'ES';
 
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
     e.preventDefault();
@@ -29,23 +52,40 @@ const WebAEC: React.FC = () => {
   };
 
   const heroRef = useIntersectionObserver({ threshold: 0.1 });
+  const problemRef = useIntersectionObserver({ threshold: 0.1 });
+  const solutionRef = useIntersectionObserver({ threshold: 0.1 });
+  const diffRef = useIntersectionObserver({ threshold: 0.1 });
+  const whoRef = useIntersectionObserver({ threshold: 0.1 });
+  const buildRef = useIntersectionObserver({ threshold: 0.1 });
+  const caseRef = useIntersectionObserver({ threshold: 0.1 });
+  const demosRef = useIntersectionObserver({ threshold: 0.1 });
+  const processRef = useIntersectionObserver({ threshold: 0.1 });
+  const pricingRef = useIntersectionObserver({ threshold: 0.1 });
+  const faqRef = useIntersectionObserver({ threshold: 0.1 });
+  const ctaRef = useIntersectionObserver({ threshold: 0.1 });
 
   return (
     <div className="bg-deepBlack min-h-screen text-titaniumWhite font-inter">
-      
       {/* 1. HERO */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-[#4A9FD4]/20" ref={heroRef}>
+      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-steelBlue/30" ref={heroRef}>
         <div className="absolute inset-0 bg-hero-gradient opacity-30 z-0"></div>
         <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+        
         <div className="container mx-auto px-6 max-w-6xl relative z-10 fade-in-section">
           <div className="max-w-4xl">
+            <div className="inline-block border border-electricBlue text-electricBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-electricBlue/10 uppercase">
+              WEB AEC — Tecnología digital para la construcción
+            </div>
+            
             <h1 className="font-barlow font-black text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.95] mb-8">
               <span className="text-[#F0F0F0]">TU EMPRESA CONSTRUYE PROYECTOS IMPORTANTES.</span><br/>
               <span className="text-[#4A9FD4]">TU SITIO WEB DEBERÍA DEMOSTRARLO.</span>
             </h1>
+            
             <p className="text-lg md:text-xl text-[#F0F0F0]/90 drop-shadow-md max-w-3xl mb-12 leading-relaxed font-inter">
               Creamos sitios web para empresas AEC que necesitan convertir su experiencia, proyectos y capacidad técnica en una presencia digital que genere confianza y oportunidades.
             </p>
+            
             <div className="flex flex-col sm:flex-row gap-6">
               <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
                 <span className="relative z-10 flex items-center">QUIERO MI SITIO WEB <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" /></span>
@@ -59,137 +99,395 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
-      {/* 2. EL PROBLEMA */}
-      <section className="py-20 bg-[#0F2236]/30 border-b border-white/5">
-        <div className="container mx-auto px-6 max-w-4xl text-center fade-in-section">
-          <h2 className="font-barlow font-bold text-3xl md:text-4xl text-[#F0F0F0] uppercase tracking-wide mb-6 leading-tight">
-            MUCHAS EMPRESAS AEC HACEN BUEN TRABAJO.<br/>
-            <span className="text-[#4A9FD4]">SU SITIO WEB NO SIEMPRE LO REFLEJA.</span>
-          </h2>
-          <p className="font-inter text-lg text-[#F0F0F0]/70 leading-relaxed mb-4">
-            Un sitio desactualizado, lento o genérico puede hacer que una empresa con gran experiencia se vea menos sólida de lo que realmente es.
-          </p>
-          <p className="font-inter text-lg text-[#F0F0F0]/90 font-medium">
-            En arquitectura, ingeniería y construcción, la confianza importa. Tu presencia digital también.
-          </p>
+      {/* 2. PROBLEMA */}
+      <section className="py-24 bg-[#0A131F]" ref={problemRef}>
+        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
+          <div className="text-center mb-16">
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+              Tu empresa puede hacer un gran trabajo.
+              <br className="hidden md:block" />
+              <span className="text-concreteGray">¿Pero tu presencia digital lo demuestra?</span>
+            </h2>
+            <p className="text-concreteGray text-lg max-w-3xl mx-auto">
+              Muchas empresas de construcción e ingeniería tienen años de experiencia, grandes proyectos y equipos capaces, pero su presencia digital no refleja ese nivel profesional.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+            {[
+              "No tienen sitio web.",
+              "Su sitio está desactualizado.",
+              "Sus proyectos están dispersos (IG, FB, LinkedIn).",
+              "Es difícil encontrar sus servicios.",
+              "No transmiten su capacidad real.",
+              "Dependen sólo de redes sociales."
+            ].map((problem, i) => (
+              <div key={i} className="flex items-start gap-4 bg-deepBlack border border-steelBlue/30 p-6">
+                <ShieldCheck className="text-electricBlue shrink-0" size={24} />
+                <p className="text-concreteGray font-inter">{problem}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="bg-electricBlue/10 border-l-4 border-electricBlue p-8 md:p-12 text-center">
+            <p className="font-barlow font-bold text-2xl md:text-3xl text-titaniumWhite uppercase tracking-wide">
+              "Tu sitio web no debería ser sólo una tarjeta de presentación.<br />
+              <span className="text-electricBlue">Debería ser una herramienta para generar confianza."</span>
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* 3. EJEMPLOS */}
-      <section id="ejemplos" className="py-24 relative z-10">
-        <div className="container mx-auto px-6 max-w-7xl fade-in-section">
-          <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">¿CÓMO PODRÍA VERSE TU EMPRESA?</h2>
-            <p className="font-inter text-lg text-[#5A8FA8]">Explora ejemplos conceptuales diseñados para distintos perfiles del sector AEC.</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* TARJETA 1 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_vertexa_desktop.webp" alt="Vertexa Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Constructora</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">VERTEXA</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 h-10">
-                  Una presencia digital sólida para mostrar capacidad técnica, proyectos y experiencia en obra.
-                </p>
-                <a href="/web-aec/demos/vertexa" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
+      {/* 3. SOLUCIÓN */}
+      <section className="py-24 bg-deepBlack border-y border-steelBlue/30" ref={solutionRef}>
+        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+                Un sitio web diseñado <br /><span className="text-matteGold">alrededor de tu negocio.</span>
+              </h2>
+              <p className="text-concreteGray mb-8 leading-relaxed">
+                No utilizamos una plantilla genérica y simplemente cambiamos el logotipo. Diseñamos la estructura del sitio alrededor de lo que tu empresa hace, los proyectos que ejecuta y la forma en que quieres presentarte ante clientes, inversionistas y socios.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Presentación profesional de la empresa",
+                  "Servicios claramente definidos",
+                  "Portafolio de proyectos y Casos de estudio",
+                  "Integración con WhatsApp y Formularios",
+                  "Optimización para dispositivos móviles",
+                  "Preparación para futuras automatizaciones (IA)"
+                ].map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="text-matteGold shrink-0 mt-0.5" size={20} />
+                    <span className="text-titaniumWhite font-inter">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-square bg-steelBlue/10 border border-steelBlue/30 rounded-lg p-6 relative overflow-hidden flex flex-col gap-4">
+                 <div className="w-full h-12 bg-steelBlue/20 rounded-md border border-steelBlue/40 flex items-center px-4">
+                   <div className="w-4 h-4 rounded-full bg-matteGold"></div>
+                   <div className="w-24 h-2 bg-steelBlue/40 ml-4 rounded"></div>
+                 </div>
+                 <div className="flex gap-4 flex-grow">
+                   <div className="w-1/3 h-full bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
+                   <div className="w-2/3 h-full flex flex-col gap-4">
+                     <div className="w-full h-1/2 bg-steelBlue/20 border border-steelBlue/30 rounded-md"></div>
+                     <div className="w-full h-1/2 bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
+                   </div>
+                 </div>
               </div>
             </div>
-
-            {/* TARJETA 2 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_stratumlabs_desktop.webp" alt="Stratum Labs Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Laboratorio</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">STRATUM LABS</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 h-10">
-                  Un sitio técnico y profesional para comunicar servicios geotécnicos, ensayes y experiencia de campo.
-                </p>
-                <a href="/web-aec/demos/stratum-labs" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* TARJETA 3 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_nexora_desktop.webp" alt="Nexora Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Firma de Ingeniería</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">NEXORA ENGINEERING</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 h-10">
-                  Una estructura clara para presentar especialidades, experiencia y proyectos relevantes.
-                </p>
-                <a href="/web-aec/demos/nexora-engineering" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* TARJETA 4 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_azura_desktop.webp" alt="Azura Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Desarrolladora</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">AZURA</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 h-10">
-                  Una experiencia visual y comercial para presentar desarrollos, atraer prospectos y fortalecer la percepción de marca.
-                </p>
-                <a href="/web-aec/demos/azura-developments" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-          </div>
-          
-          <div className="mt-8 text-center">
-            <p className="font-inter text-xs text-[#5A8FA8]">*Ejemplos conceptuales creados para mostrar posibilidades visuales y estratégicas.</p>
           </div>
         </div>
       </section>
 
       {/* 4. DIFERENCIADOR */}
-      <section className="py-24 bg-[#0A1624] border-y border-[#4A9FD4]/20 relative">
-        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
-          <div className="flex flex-col md:flex-row gap-12 items-center">
-            <div className="md:w-1/2">
-              <h2 className="font-barlow font-bold text-3xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-6 leading-tight">
-                NO ES SOLO DISEÑO.<br/>
-                <span className="text-[#4A9FD4]">ES ENTENDER TU INDUSTRIA.</span>
+      <section className="py-24 bg-[#0A131F]" ref={diffRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-block border border-electricBlue text-electricBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-electricBlue/10 uppercase">
+              EL DIFERENCIADOR MENDIVIL.BUILD
+            </div>
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+              No somos una agencia de marketing.<br />
+              <span className="text-electricBlue">Conocemos la industria que estás construyendo.</span>
+            </h2>
+            <p className="text-concreteGray text-lg mb-4">
+              MENDIVIL.BUILD nace desde la ingeniería y la construcción. Trabajamos con tecnología, inteligencia artificial, Lean Construction y gestión de proyectos.
+            </p>
+            <p className="text-concreteGray text-lg">
+              Por eso entendemos conceptos, servicios, procesos y necesidades que una agencia de diseño web tradicional muchas veces tiene que aprender desde cero.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            {[
+              { title: "INGENIERÍA", icon: Wrench },
+              { title: "CONSTRUCCIÓN", icon: HardHat },
+              { title: "TECNOLOGÍA", icon: Monitor },
+              { title: "IA", icon: Cpu }
+            ].map((pillar, i) => (
+              <div key={i} className="bg-deepBlack border border-steelBlue/40 p-8 flex flex-col items-center justify-center text-center group hover:border-electricBlue transition-colors">
+                <pillar.icon size={40} className="text-steelBlue group-hover:text-electricBlue mb-4 transition-colors" strokeWidth={1.5} />
+                <h3 className="font-jetbrains text-sm font-bold tracking-widest text-titaniumWhite">{pillar.title}</h3>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <p className="font-barlow font-bold text-3xl md:text-4xl text-matteGold uppercase tracking-wider">
+              "No necesitas explicarnos tu industria."
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. ¿PARA QUIÉN ES? */}
+      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={whoRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
+            Webs diseñadas para la <span className="text-concreteGray">industria AEC.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "CONSTRUCTORAS",
+                desc: "Presenta tus proyectos, capacidades, servicios y experiencia de forma profesional.",
+                icon: HardHat
+              },
+              {
+                title: "LABORATORIOS",
+                desc: "Comunica tus servicios, ensayos, certificaciones, capacidades técnicas y cobertura.",
+                icon: Microscope
+              },
+              {
+                title: "INGENIERÍA Y CONSULTORÍA",
+                desc: "Convierte tu experiencia técnica y proyectos en una presencia digital profesional.",
+                icon: Map
+              },
+              {
+                title: "DESARROLLADORES",
+                desc: "Presenta proyectos inmobiliarios, conceptos, amenidades y oportunidades de inversión.",
+                icon: Building
+              },
+              {
+                title: "ARQUITECTOS",
+                desc: "Un portafolio minimalista y potente que deje hablar a tus diseños.",
+                icon: Ruler
+              },
+              {
+                title: "CONTRATISTAS",
+                desc: "Destaca tus especialidades, equipo, normativas y certificaciones.",
+                icon: Wrench
+              }
+            ].map((item, i) => (
+              <div key={i} className="border-t-4 border-steelBlue bg-[#0F2236]/30 p-8 hover:border-matteGold transition-colors">
+                <item.icon size={32} className="text-matteGold mb-6" strokeWidth={1.5} />
+                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-concreteGray text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ¿QUÉ PODEMOS CONSTRUIR? */}
+      <section className="py-24 bg-[#0A131F]" ref={buildRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
+            Desde una landing hasta <span className="text-electricBlue">una plataforma digital.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                level: "A",
+                title: "LANDING PAGE",
+                desc: "Para empresas que necesitan una presencia digital profesional y rápida.",
+              },
+              {
+                level: "B",
+                title: "SITIO CORPORATIVO",
+                desc: "Para empresas que necesitan presentar servicios, experiencia, proyectos y equipo.",
+              },
+              {
+                level: "C",
+                title: "PORTAFOLIO",
+                desc: "Para empresas que necesitan mostrar múltiples proyectos, obras y casos de estudio.",
+              },
+              {
+                level: "D",
+                title: "WEB + AUTOMATIZACIÓN",
+                desc: "Para empresas que además quieren conectar su sitio con procesos digitales, formularios, IA u otras herramientas.",
+                highlight: true
+              }
+            ].map((item, i) => (
+              <div key={i} className={`p-8 border flex flex-col h-full ${item.highlight ? 'border-electricBlue bg-electricBlue/5' : 'border-steelBlue/40 bg-deepBlack'}`}>
+                <div className={`font-jetbrains text-xs font-bold mb-6 ${item.highlight ? 'text-electricBlue' : 'text-concreteGray'}`}>
+                  NIVEL {item.level}
+                </div>
+                <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-4 ${item.highlight ? 'text-white' : 'text-titaniumWhite'}`}>
+                  {item.title}
+                </h3>
+                <p className="text-concreteGray text-sm leading-relaxed flex-grow">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. CASO REAL - GASAVE */}
+      <section className="py-24 bg-deepBlack border-y border-steelBlue/30 relative overflow-hidden" ref={caseRef}>
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#1E4A6E]/10 via-deepBlack to-deepBlack z-0"></div>
+        <div className="container mx-auto px-6 max-w-6xl relative z-10 fade-in-section">
+          
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex-1">
+              <div className="inline-block border border-matteGold text-matteGold font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-matteGold/10 uppercase">
+                UN CASO REAL
+              </div>
+              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-4">
+                GASAVE — <br/><span className="text-concreteGray">Sitio web + automatización</span>
               </h2>
-              <p className="font-inter text-lg text-[#F0F0F0]/80 leading-relaxed mb-6">
-                MENDIVIL.BUILD nace desde la ingeniería, la construcción y la ejecución real de proyectos.
+              <p className="text-concreteGray text-lg mb-8 leading-relaxed">
+                Desarrollamos un sitio web para un laboratorio especializado en control de calidad y ensayos para la industria de la construcción.
               </p>
-              <p className="font-inter text-lg text-[#F0F0F0]/80 leading-relaxed">
-                Eso nos permite entender mejor cómo presentar servicios, experiencia, portafolio y credibilidad para empresas AEC.
+              <div className="bg-[#0A131F] border border-steelBlue p-6 mb-8">
+                <h4 className="font-jetbrains text-sm text-titaniumWhite font-bold mb-4 uppercase">Pero el sitio web fue sólo una parte del proyecto.</h4>
+                <p className="text-concreteGray text-sm mb-6">
+                  También automatizamos un proceso de generación y envío de reportes semanales que anteriormente requería gran parte de la jornada del lunes.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-6">
+                  <div className="flex-1 border-l-2 border-red-500/50 pl-4">
+                    <div className="text-xs font-jetbrains text-red-400 mb-1">ANTES (Proceso manual)</div>
+                    <div className="font-barlow text-xl text-white">Varias horas de trabajo</div>
+                  </div>
+                  <div className="flex-1 border-l-2 border-electricBlue pl-4">
+                    <div className="text-xs font-jetbrains text-electricBlue mb-1">DESPUÉS (Automatizado)</div>
+                    <div className="font-barlow text-xl text-white">~20 minutos</div>
+                  </div>
+                </div>
+              </div>
+              
+              <p className="font-barlow font-bold text-2xl text-matteGold uppercase tracking-wide mb-2">
+                "WEB + AUTOMATIZACIÓN"
+              </p>
+              <p className="text-white italic opacity-80">
+                Cuando el sitio web se conecta con los procesos de tu empresa, deja de ser solamente una página y comienza a convertirse en una herramienta de trabajo.
               </p>
             </div>
-            <div className="md:w-1/2 w-full grid grid-cols-1 gap-4">
+            
+            <div className="flex-1 w-full">
+              <div className="bg-[#0A131F] rounded-lg border border-steelBlue/40 overflow-hidden shadow-2xl">
+                <div className="h-8 bg-[#111] border-b border-steelBlue/40 flex items-center px-4 gap-2">
+                  <div className="w-3 h-3 rounded-full bg-red-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                  <div className="w-3 h-3 rounded-full bg-green-500/50"></div>
+                  <div className="mx-auto bg-deepBlack text-[10px] font-jetbrains text-concreteGray py-1 px-4 rounded border border-steelBlue/20">gasavelaboratorio.com</div>
+                </div>
+                <div className="aspect-[4/3] bg-gradient-to-br from-[#1E4A6E]/20 to-deepBlack p-8 flex items-center justify-center relative overflow-hidden">
+                   <div className="text-center z-10 relative">
+                     <Microscope className="w-16 h-16 text-electricBlue mx-auto mb-4 opacity-50" />
+                     <div className="font-barlow text-3xl text-white font-bold tracking-widest uppercase mb-2">GASAVE</div>
+                     <div className="text-concreteGray text-sm uppercase tracking-widest">Laboratorio de Control de Calidad</div>
+                   </div>
+                   <div className="absolute inset-0 bg-hero-gradient opacity-50"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* 8. EJEMPLOS / DEMOS */}
+      <section id="ejemplos" className="py-24 bg-[#0A131F]" ref={demosRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <div className="text-center mb-16">
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+              ¿Cómo podría verse <span className="text-matteGold">tu empresa?</span>
+            </h2>
+            <p className="text-concreteGray text-lg max-w-2xl mx-auto">
+              Estamos desarrollando diferentes conceptos digitales especializados para empresas del sector AEC.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "CONSTRUCTORA",
+                desc: "Sitio web para una empresa constructora industrial.",
+                icon: HardHat
+              },
+              {
+                title: "LABORATORIO",
+                desc: "Sitio web para un laboratorio de concreto y materiales.",
+                icon: Microscope
+              },
+              {
+                title: "INGENIERÍA",
+                desc: "Sitio web para una firma de ingeniería y consultoría.",
+                icon: Map
+              },
+              {
+                title: "DESARROLLADORA",
+                desc: "Sitio web para un desarrollador inmobiliario.",
+                icon: Building
+              }
+            ].map((demo, i) => (
+              <div key={i} className="group bg-deepBlack border border-steelBlue/30 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-[#0F2236] relative flex items-center justify-center p-8">
+                  <span className="absolute top-4 left-4 bg-black/50 text-white/50 text-[10px] font-jetbrains px-2 py-1 uppercase tracking-widest border border-white/10 z-10">Demo Conceptual</span>
+                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                  
+                  <div className="text-center z-10">
+                    <demo.icon size={48} className="text-steelBlue mx-auto mb-4 group-hover:text-electricBlue transition-colors duration-500" strokeWidth={1} />
+                    <div className="font-barlow text-2xl text-white/50 group-hover:text-white transition-colors duration-500 uppercase tracking-widest">
+                      {demo.title}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow justify-between bg-deepBlack">
+                  <div>
+                    <h3 className="font-barlow font-bold text-xl text-titaniumWhite uppercase tracking-wide mb-2">{demo.title}</h3>
+                    <p className="text-concreteGray text-sm mb-6">{demo.desc}</p>
+                  </div>
+                  <a href={demo.title === "CONSTRUCTORA" ? "/web-aec/demos/vertexa" : demo.title === "LABORATORIO" ? "/web-aec/demos/stratum-labs" : demo.title === "INGENIERÍA" ? "/web-aec/demos/nexora-engineering" : demo.title === "DESARROLLADORA" ? "/web-aec/demos/azura-developments" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
+                    VER DEMO <ArrowRight size={16} className="ml-2" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 9. PROCESO */}
+      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={processRef}>
+        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
+          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
+            Del primer mensaje al <span className="text-electricBlue">sitio publicado.</span>
+          </h2>
+
+          <div className="relative">
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-steelBlue/30 -translate-x-1/2"></div>
+            
+            <div className="space-y-12 relative z-10">
               {[
-                "Lenguaje de la industria",
-                "Enfoque técnico y comercial",
-                "Sitios claros, rápidos y profesionales",
-                "Diseño alineado con tu tipo de cliente",
-                "Posibilidad de integrar automatización e IA"
-              ].map((point, i) => (
-                <div key={i} className="flex items-center gap-4 bg-[#0F2236] p-4 border-l-2 border-[#4A9FD4]">
-                  <CheckCircle2 className="w-5 h-5 text-[#4A9FD4] shrink-0" />
-                  <span className="font-inter text-[#F0F0F0]">{point}</span>
+                { num: "01", title: "DESCUBRIMOS", desc: "Entendemos tu empresa, servicios, proyectos y objetivos." },
+                { num: "02", title: "ESTRUCTURAMOS", desc: "Definimos la información y arquitectura del sitio." },
+                { num: "03", title: "DISEÑAMOS", desc: "Creamos una interfaz alineada con tu marca." },
+                { num: "04", title: "DESARROLLAMOS", desc: "Construimos el sitio con tecnología moderna y responsive." },
+                { num: "05", title: "PUBLICAMOS", desc: "Dejamos tu sitio listo para que tus clientes puedan encontrarlo." },
+                { num: "06", title: "EVOLUCIONAMOS", desc: "Podemos agregar nuevas funciones, automatizaciones e inteligencia artificial.", gold: true }
+              ].map((step, i) => (
+                <div key={i} className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
+                  <div className={`md:w-1/2 flex ${i % 2 === 1 ? 'md:justify-start' : 'md:justify-end'} w-full justify-start`}>
+                    <div className={`p-6 border ${step.gold ? 'border-matteGold bg-[#1a1c1a]' : 'border-steelBlue/40 bg-[#0A131F]'} max-w-sm w-full`}>
+                      <div className={`font-jetbrains text-xs font-bold mb-3 ${step.gold ? 'text-matteGold' : 'text-electricBlue'}`}>PASO {step.num}</div>
+                      <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-2 ${step.gold ? 'text-white' : 'text-titaniumWhite'}`}>
+                        {step.title}
+                      </h3>
+                      <p className="text-concreteGray text-sm">
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                  <div className="hidden md:flex w-12 h-12 rounded-full bg-deepBlack border-2 border-steelBlue/50 items-center justify-center shrink-0 z-10">
+                    <span className="font-jetbrains text-xs text-concreteGray">{step.num}</span>
+                  </div>
+                  <div className="hidden md:block md:w-1/2"></div>
                 </div>
               ))}
             </div>
@@ -197,291 +495,307 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. CASO REAL: GASAVE */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 max-w-7xl fade-in-section">
-          <div className="mb-12 text-center">
-            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">CASO REAL: GASAVE LABORATORIO</h2>
-            <p className="font-inter text-xl text-[#4A9FD4]">Presencia digital profesional + automatización de procesos.</p>
+      {/* 10. INVERSIÓN */}
+      <section className="py-24 bg-[#0A131F] border-t border-steelBlue/30" ref={pricingRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <div className="text-center mb-16">
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+              Una presencia digital <span className="text-matteGold">profesional comienza aquí.</span>
+            </h2>
           </div>
 
-          <div className="bg-[#0F2236] border border-white/10 p-2 shadow-2xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
-              <div className="md:col-span-2 relative h-64 md:h-96 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/gasave/gasave_home_desktop.webp" alt="Gasave Home" className="w-full h-full object-cover object-top" />
-              </div>
-              <div className="flex flex-col gap-2 h-64 md:h-96">
-                <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
-                  <img src="/web-aec/gasave/gasave_press_photo.webp" alt="Gasave Press" className="w-full h-full object-cover" />
-                </div>
-                <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
-                  <img src="/web-aec/gasave/gasave_sieves_photo.webp" alt="Gasave Sieves" className="w-full h-full object-cover" />
-                </div>
-              </div>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
-            <div className="p-8 md:p-12 bg-[#0F2236] mt-2 border border-white/5">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
-                <div>
-                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">ANTES:</h4>
-                  <p className="font-inter text-[#F0F0F0]/90">Procesos semanales que requerían varias horas de trabajo manual.</p>
-                </div>
-                <div>
-                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">DESPUÉS:</h4>
-                  <p className="font-inter text-[#F0F0F0]/90">Un flujo optimizado que reduce ese proceso a aproximadamente 20 minutos.</p>
-                </div>
-                <div>
-                  <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-3">RESULTADO:</h4>
-                  <p className="font-inter text-[#F0F0F0] font-medium text-lg text-[#4A9FD4]">Una presencia digital más profesional y un proceso operativo más ágil.</p>
-                </div>
-              </div>
+            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-steelBlue transition-colors">
+              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">PAQUETE 01</div>
+              <h3 className="font-barlow font-bold text-3xl text-titaniumWhite uppercase mb-2">LANDING AEC</h3>
+              <div className="font-jetbrains text-xl text-white mb-6">Desde $10,000 MXN</div>
+              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que necesitan comenzar o mejorar rápidamente su presencia digital.</p>
               
-              <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 border-t border-white/10">
-                <a href="https://gasavelaboratorio.com" target="_blank" rel="noreferrer" className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
-                  VER SITIO REAL →
-                </a>
-                <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
-                  <span className="relative z-10">QUIERO ALGO SIMILAR →</span>
-                  <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
-                </a>
-              </div>
+              <ul className="space-y-3 mb-8 flex-grow">
+                {["Landing page profesional", "Diseño responsive", "Secciones personalizadas", "Integración con WhatsApp", "Formulario de contacto", "Publicación del sitio"].map((item, i) => (
+                  <li key={i} className="flex items-start text-sm text-concreteGray">
+                    <Check size={16} className="text-electricBlue mr-2 mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+              
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-concreteGray text-titaniumWhite font-jetbrains text-sm tracking-wider py-4 hover:border-white transition-colors uppercase">
+                QUIERO UNA LANDING
+              </a>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 6. ¿PARA QUIÉN ES? */}
-      <section className="py-20 bg-[#0A1624] border-y border-white/5">
-        <div className="container mx-auto px-6 max-w-5xl text-center fade-in-section">
-          <h2 className="font-barlow font-bold text-3xl md:text-4xl text-[#F0F0F0] uppercase tracking-wide mb-10">DISEÑADO PARA EMPRESAS AEC COMO:</h2>
-          <div className="flex flex-wrap justify-center gap-4">
-            {["Constructoras", "Laboratorios", "Firmas de ingeniería", "Desarrolladores", "Arquitectos", "Contratistas", "Brokers industriales", "Servicios especializados"].map((tag, i) => (
-              <span key={i} className="px-6 py-3 bg-[#0F2236] border border-[#4A9FD4]/30 text-[#F0F0F0] font-barlow font-medium tracking-wide uppercase text-sm shadow-sm">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+            <div className="bg-[#0F2236] border border-electricBlue p-8 flex flex-col h-full transform md:-translate-y-4 shadow-2xl relative">
+              <div className="absolute top-0 left-0 w-full h-1 bg-electricBlue"></div>
+              <div className="font-jetbrains text-xs text-electricBlue mb-4 tracking-widest">PAQUETE 02</div>
+              <h3 className="font-barlow font-bold text-3xl text-white uppercase mb-2">SITIO CORPORATIVO</h3>
+              <div className="font-jetbrains text-xl text-white mb-6">Desde $15,000 MXN</div>
+              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Constructoras, ingenierías, laboratorios y empresas que necesitan presentar múltiples servicios y proyectos.</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                {["Sitio web corporativo", "Varias secciones/páginas", "Portafolio de proyectos", "Servicios e info empresarial", "Integración con WhatsApp", "Diseño responsive", "Publicación"].map((item, i) => (
+                  <li key={i} className="flex items-start text-sm text-white/80">
+                    <Check size={16} className="text-electricBlue mr-2 mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+              
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center bg-electricBlue text-white font-jetbrains text-sm tracking-wider py-4 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold">
+                QUIERO MI SITIO
+              </a>
+            </div>
 
-      {/* 7. TIPOS DE SOLUCIÓN */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 max-w-7xl fade-in-section">
-          <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">DESDE UNA LANDING HASTA UNA SOLUCIÓN DIGITAL</h2>
+            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-matteGold transition-colors">
+              <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">PAQUETE 03</div>
+              <h3 className="font-barlow font-bold text-3xl text-matteGold uppercase mb-2">WEB + DIGITAL</h3>
+              <div className="font-jetbrains text-xl text-white mb-6">Desde $25,000 MXN</div>
+              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que quieren conectar su sitio web con procesos digitales y automatización.</p>
+              
+              <ul className="space-y-3 mb-8 flex-grow">
+                {["Sitio web personalizado", "Integraciones a medida", "Automatizaciones", "Formularios inteligentes", "Integración de IA", "Funcionalidades especiales"].map((item, i) => (
+                  <li key={i} className="flex items-start text-sm text-concreteGray">
+                    <Check size={16} className="text-matteGold mr-2 mt-0.5 shrink-0" /> {item}
+                  </li>
+                ))}
+              </ul>
+              
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-matteGold text-matteGold font-jetbrains text-sm tracking-wider py-4 hover:bg-matteGold hover:text-deepBlack transition-colors uppercase font-bold">
+                HABLEMOS DE MI PROYECTO
+              </a>
+            </div>
+
+          </div>
+
+          <div className="text-center">
+            <p className="text-concreteGray text-xs font-jetbrains">
+              * Los precios son de referencia y pueden variar dependiendo del alcance, número de páginas, funcionalidades e integraciones requeridas.
+            </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* 1 */}
-            <div className="bg-[#0F2236] p-8 border-t-2 border-white/20 hover:border-[#4A9FD4] transition-colors group">
-              <h3 className="font-barlow font-bold text-xl text-[#4A9FD4] uppercase mb-4 group-hover:text-white transition-colors">LANDING AEC</h3>
-              <p className="font-inter text-[#F0F0F0]/80 text-sm leading-relaxed">Una página clara y profesional para presentar tu empresa, servicios y canales de contacto.</p>
+          <div className="mt-16 bg-deepBlack border border-steelBlue/30 p-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
+            <div>
+              <h4 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-2">
+                ¿Necesitas que alguien mantenga tu sitio?
+              </h4>
+              <p className="text-concreteGray text-sm">
+                Podemos ayudarte con actualizaciones, cambios de contenido, mejoras y evolución continua de tu sitio.
+              </p>
             </div>
-            {/* 2 */}
-            <div className="bg-[#0F2236] p-8 border-t-2 border-white/20 hover:border-[#4A9FD4] transition-colors group">
-              <h3 className="font-barlow font-bold text-xl text-[#4A9FD4] uppercase mb-4 group-hover:text-white transition-colors">SITIO CORPORATIVO</h3>
-              <p className="font-inter text-[#F0F0F0]/80 text-sm leading-relaxed">Para empresas que necesitan mostrar experiencia, proyectos, especialidades y capacidad técnica.</p>
-            </div>
-            {/* 3 */}
-            <div className="bg-[#0F2236] p-8 border-t-2 border-white/20 hover:border-[#4A9FD4] transition-colors group">
-              <h3 className="font-barlow font-bold text-xl text-[#4A9FD4] uppercase mb-4 group-hover:text-white transition-colors">PORTAFOLIO / PRESENCIA COMERCIAL</h3>
-              <p className="font-inter text-[#F0F0F0]/80 text-sm leading-relaxed">Una vitrina digital para presentar proyectos y generar confianza con prospectos, clientes o inversionistas.</p>
-            </div>
-            {/* 4 */}
-            <div className="bg-[#0F2236] p-8 border-t-2 border-[#4A9FD4] shadow-[0_0_15px_rgba(74,159,212,0.15)] group relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-24 h-24 bg-[#4A9FD4]/10 rounded-bl-full z-0 transition-transform duration-500 group-hover:scale-150"></div>
-              <h3 className="relative z-10 font-barlow font-bold text-xl text-[#F0F0F0] uppercase mb-4">WEB + AUTOMATIZACIÓN / IA</h3>
-              <p className="relative z-10 font-inter text-[#F0F0F0]/80 text-sm leading-relaxed">Sitios que además integran herramientas, formularios, automatizaciones o soluciones digitales específicas para tu negocio.</p>
-            </div>
+            <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="shrink-0 font-jetbrains text-sm text-electricBlue hover:text-white transition-colors inline-flex items-center uppercase">
+              CONSULTAR MANTENIMIENTO <ArrowRight size={16} className="ml-2" />
+            </a>
           </div>
-        </div>
-      </section>
 
-      {/* 8. PROCESO */}
-      <section className="py-24 bg-[#0A1624] border-y border-[#4A9FD4]/20">
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl text-[#F0F0F0] uppercase tracking-wide">ASÍ TRABAJAMOS</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-            <div className="hidden md:block absolute top-8 left-0 right-0 h-px bg-[#4A9FD4]/20 z-0"></div>
-            {[
-              { num: "01", title: "Diagnóstico", desc: "Entendemos tu empresa, tus clientes y lo que necesitas comunicar." },
-              { num: "02", title: "Estructura y diseño", desc: "Definimos contenido, jerarquía y dirección visual." },
-              { num: "03", title: "Desarrollo", desc: "Construimos el sitio y ajustamos contigo los detalles." },
-              { num: "04", title: "Publicación", desc: "Entregamos y publicamos tu sitio listo para compartir y vender mejor." }
-            ].map((step, i) => (
-              <div key={i} className="relative z-10 pt-4 md:pt-0">
-                <div className="w-16 h-16 bg-[#0F2236] border-2 border-[#4A9FD4] rounded-full flex items-center justify-center font-barlow font-bold text-xl text-[#4A9FD4] mb-6 mx-auto md:mx-0 shadow-[0_0_15px_rgba(74,159,212,0.3)]">
-                  {step.num}
-                </div>
-                <h3 className="font-barlow font-bold text-xl text-[#F0F0F0] uppercase mb-3 text-center md:text-left">{step.title}</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed text-center md:text-left">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. INVERSIÓN */}
-      <section className="py-24 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#4A9FD4]/5 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl text-[#F0F0F0] uppercase tracking-wide">INVERSIÓN</h2>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              { 
-                tag: "EMPEZAR", title: "Landing AEC", price: "Desde $10,000 MXN", 
-                desc: "Para empresas que necesitan una presencia profesional, clara y rápida."
-              },
-              { 
-                tag: "CRECER", title: "Sitio Corporativo", price: "Desde $15,000 MXN", 
-                desc: "Para empresas que quieren mostrar proyectos, servicios y experiencia con mayor profundidad.",
-                highlight: true
-              },
-              { 
-                tag: "DIGITALIZAR", title: "Web + Automatización", price: "Desde $25,000 MXN", 
-                desc: "Para empresas que quieren integrar presencia digital con herramientas y procesos automatizados."
-              }
-            ].map((plan, i) => (
-              <div key={i} className={`bg-[#0F2236] p-10 flex flex-col h-full transition-transform duration-300 ${plan.highlight ? 'border-t-4 border-[#4A9FD4] shadow-[0_10px_40px_rgba(74,159,212,0.15)] md:-translate-y-4' : 'border border-white/5 hover:border-white/20'}`}>
-                <span className="inline-block text-[#5A8FA8] font-jetbrains text-xs tracking-widest uppercase mb-4">{plan.tag}</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-2">{plan.title}</h3>
-                <div className="font-inter font-medium text-xl text-[#4A9FD4] mb-6 pb-6 border-b border-white/10">{plan.price}</div>
-                <p className="font-inter text-[#F0F0F0]/80 text-sm leading-relaxed mb-8 flex-grow">{plan.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 10. TIEMPOS ESTIMADOS */}
-      <section className="py-16 bg-[#0A1624] border-y border-[#4A9FD4]/20">
-        <div className="container mx-auto px-6 max-w-4xl fade-in-section">
-          <div className="text-center mb-10">
-            <h2 className="font-barlow font-bold text-3xl text-[#F0F0F0] uppercase tracking-wide">TIEMPOS ESTIMADOS</h2>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
-            <div className="bg-[#0F2236] p-6 text-center border border-white/5">
-              <div className="font-inter text-[#F0F0F0]/70 text-sm mb-2">Landing AEC</div>
-              <div className="font-barlow font-bold text-xl text-[#4A9FD4]">Desde 3–5 días</div>
-            </div>
-            <div className="bg-[#0F2236] p-6 text-center border border-white/5">
-              <div className="font-inter text-[#F0F0F0]/70 text-sm mb-2">Sitio Corporativo</div>
-              <div className="font-barlow font-bold text-xl text-[#4A9FD4]">Desde 1–2 semanas</div>
-            </div>
-            <div className="bg-[#0F2236] p-6 text-center border border-white/5">
-              <div className="font-inter text-[#F0F0F0]/70 text-sm mb-2">Web + Automatización</div>
-              <div className="font-barlow font-bold text-xl text-[#4A9FD4]">Según alcance</div>
-            </div>
-          </div>
-          <p className="text-center font-inter text-xs text-[#5A8FA8]">NOTA: Los tiempos pueden variar según contenido, revisiones e integraciones requeridas.</p>
         </div>
       </section>
 
       {/* 11. FAQ */}
-      <section className="py-24">
-        <div className="container mx-auto px-6 max-w-3xl fade-in-section">
-          <div className="text-center mb-12">
-            <h2 className="font-barlow font-bold text-3xl text-[#F0F0F0] uppercase tracking-wide">PREGUNTAS FRECUENTES</h2>
-          </div>
-          <div className="space-y-6">
+      <section className="py-24 bg-deepBlack" ref={faqRef}>
+        <div className="container mx-auto px-6 max-w-4xl fade-in-section">
+          <h2 className="font-barlow font-bold text-4xl text-titaniumWhite uppercase tracking-wide mb-12 text-center">
+            Preguntas Frecuentes
+          </h2>
+
+          <div className="space-y-4">
             {[
-              { q: "¿Necesito tener todo el contenido listo?", a: "No. Podemos ayudarte a organizar y redactar el contenido a partir de la información de tu empresa." },
-              { q: "¿Pueden ayudarme con los textos?", a: "Sí. Podemos estructurar el contenido para que sea claro, técnico y comercial." },
-              { q: "¿Mi sitio se verá bien en celular?", a: "Sí. Todos los sitios se diseñan para funcionar correctamente en desktop, tablet y móvil." },
-              { q: "¿Pueden integrar automatizaciones o IA?", a: "Sí. Dependiendo del proyecto, podemos integrar formularios, reportes, herramientas y flujos automatizados." }
+              {
+                q: "¿Necesito saber programación?",
+                a: "No. Nosotros nos encargamos del desarrollo y de la parte técnica."
+              },
+              {
+                q: "¿Necesito tener fotografías profesionales?",
+                a: "No necesariamente. Podemos trabajar con el material que ya tengas y ayudarte a estructurar visualmente el contenido."
+              },
+              {
+                q: "¿Pueden integrar WhatsApp?",
+                a: "Sí. Podemos integrar WhatsApp, formularios y diferentes herramientas digitales."
+              },
+              {
+                q: "¿Pueden hacer el sitio para una empresa que no sea constructora?",
+                a: "Nuestro enfoque principal es AEC: arquitectura, ingeniería, construcción, laboratorios, contratistas y desarrollo inmobiliario."
+              },
+              {
+                q: "¿Cuánto tarda el desarrollo?",
+                a: "Depende del alcance y de la cantidad de contenido y funcionalidades. Los proyectos sencillos pueden desarrollarse rápidamente."
+              },
+              {
+                q: "¿Pueden automatizar procesos además del sitio web?",
+                a: "Sí. La automatización y la inteligencia artificial forman parte de las soluciones digitales que desarrollamos."
+              }
             ].map((faq, i) => (
-              <div key={i} className="bg-[#0F2236] p-6 border-l-4 border-[#4A9FD4] shadow-sm">
-                <h4 className="font-barlow font-bold text-lg text-[#F0F0F0] mb-2">{faq.q}</h4>
-                <p className="font-inter text-[#F0F0F0]/80 text-sm leading-relaxed">{faq.a}</p>
-              </div>
+              <details key={i} className="group border border-steelBlue/30 bg-[#0A131F] [&_summary::-webkit-details-marker]:hidden">
+                <summary className="flex items-center justify-between cursor-pointer p-6 font-jetbrains text-sm text-titaniumWhite font-bold">
+                  {faq.q}
+                  <span className="transition group-open:rotate-180 text-electricBlue">
+                    <ChevronDown size={20} />
+                  </span>
+                </summary>
+                <div className="px-6 pb-6 text-concreteGray text-sm leading-relaxed">
+                  {faq.a}
+                </div>
+              </details>
             ))}
           </div>
         </div>
       </section>
 
       {/* 12. CTA FINAL */}
-      <section id="contacto-web-aec" className="py-24 bg-[#0A1624] border-t border-[#4A9FD4]/30 relative overflow-hidden">
-        <div className="absolute inset-0 bg-hero-gradient opacity-20 z-0 pointer-events-none"></div>
-        <div className="container mx-auto px-6 max-w-4xl relative z-10 fade-in-section">
-          <div className="text-center mb-12">
-            <h2 className="font-barlow font-black text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-6">
-              TU EMPRESA YA CONSTRUYE.<br/>
-              <span className="text-[#4A9FD4]">AHORA HAGAMOS QUE SE VEA.</span>
-            </h2>
-            <p className="font-inter text-lg text-[#F0F0F0]/80 leading-relaxed max-w-2xl mx-auto">
-              Cuéntame qué tipo de empresa tienes y qué necesitas mostrar. Podemos ayudarte a convertir tu experiencia en una presencia digital más clara, sólida y profesional.
-            </p>
+      <section className="py-24 bg-electricBlue relative overflow-hidden" ref={ctaRef}>
+        <div className="absolute inset-0 z-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+        <div className="container mx-auto px-6 max-w-4xl relative z-10 fade-in-section text-center">
+          <h2 className="font-barlow font-bold text-5xl md:text-6xl text-white uppercase tracking-wide mb-8">
+            Tu próximo proyecto merece una mejor presencia digital.
+          </h2>
+          
+          <div className="font-jetbrains text-lg md:text-xl text-white/90 mb-10 leading-relaxed font-bold">
+            <p className="mb-2">Ya construyes.</p>
+            <p className="mb-2">Ya tienes experiencia.</p>
+            <p className="mb-6">Ya tienes proyectos.</p>
+            <p className="text-2xl text-deepBlack bg-white inline-block px-4 py-2 uppercase">Ahora hagamos que todo eso pueda verse.</p>
           </div>
-
-          <div className="bg-[#0F2236] p-8 md:p-12 border border-white/10 max-w-2xl mx-auto shadow-2xl">
-            {state.succeeded ? (
-              <div className="text-center py-12">
-                <CheckCircle2 className="w-16 h-16 text-[#4A9FD4] mx-auto mb-6" />
-                <h3 className="font-barlow font-bold text-2xl text-white mb-2 uppercase tracking-wide">Mensaje Enviado</h3>
-                <p className="text-[#F0F0F0]/70">Gracias por tu interés. Me pondré en contacto contigo a la brevedad.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label htmlFor="name" className="block font-jetbrains text-xs text-[#5A8FA8] tracking-widest uppercase mb-2">Nombre</label>
-                  <input id="name" type="text" name="name" required className="w-full bg-[#0A1624] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#4A9FD4] transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="company" className="block font-jetbrains text-xs text-[#5A8FA8] tracking-widest uppercase mb-2">Empresa</label>
-                  <input id="company" type="text" name="company" required className="w-full bg-[#0A1624] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#4A9FD4] transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="contact" className="block font-jetbrains text-xs text-[#5A8FA8] tracking-widest uppercase mb-2">WhatsApp o Email</label>
-                  <input id="contact" type="text" name="contact" required className="w-full bg-[#0A1624] border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-[#4A9FD4] transition-colors" />
-                </div>
-                <div>
-                  <label htmlFor="need" className="block font-jetbrains text-xs text-[#5A8FA8] tracking-widest uppercase mb-2">¿Qué necesitas?</label>
-                  <div className="relative">
-                    <select id="need" name="need" required className="w-full bg-[#0A1624] border border-white/10 text-white px-4 py-3 appearance-none focus:outline-none focus:border-[#4A9FD4] transition-colors">
-                      <option value="">Selecciona una opción</option>
-                      <option value="Landing AEC">Landing AEC</option>
-                      <option value="Sitio Corporativo">Sitio Corporativo</option>
-                      <option value="Portafolio">Portafolio</option>
-                      <option value="Web + Automatización">Web + Automatización</option>
-                      <option value="No estoy seguro">No estoy seguro</option>
-                    </select>
-                    <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-[#5A8FA8]">
-                      <ChevronDown className="w-4 h-4" />
-                    </div>
-                  </div>
-                </div>
-                
-                <button type="submit" disabled={state.submitting} className="group relative overflow-hidden w-full bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 transition-colors uppercase mt-4 disabled:opacity-50">
-                  <span className="relative z-10 flex items-center justify-center">
-                    {state.submitting ? 'ENVIANDO...' : 'SOLICITAR PROPUESTA →'}
-                  </span>
-                  <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
-                </button>
-              </form>
-            )}
-            
-            <div className="mt-12 pt-8 border-t border-white/10 text-center">
-              <p className="font-inter text-sm text-[#F0F0F0]/60 mb-4">¿Prefieres contacto directo?</p>
-              <div className="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/526442582885" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center text-[#27AE60] hover:text-[#27AE60]/80 font-barlow font-bold text-sm tracking-widest transition-colors uppercase">
-                  WhatsApp →
-                </a>
-                <span className="hidden sm:inline text-white/20">|</span>
-                <a href="mailto:benjamin@mendivil.build" className="inline-flex justify-center items-center text-[#4A9FD4] hover:text-[#4A9FD4]/80 font-barlow font-bold text-sm tracking-widest transition-colors uppercase">
-                  benjamin@mendivil.build
-                </a>
-              </div>
-            </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-deepBlack text-white font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold shadow-2xl" > QUIERO MI SITIO WEB
+            </a>
+            <a 
+              href="#ejemplos" 
+              className="inline-flex justify-center items-center border-2 border-deepBlack text-deepBlack font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-deepBlack hover:text-white transition-colors uppercase font-bold"
+            >
+              VER EJEMPLOS
+            </a>
           </div>
         </div>
       </section>
 
+
+      {/* 13. WEB AEC CONTACT */}
+      <section id="contacto-web-aec" className="py-16 md:py-24 bg-deepBlack border-t border-white/5 relative overflow-hidden">
+        <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
+        <div className="container mx-auto px-6 max-w-7xl relative z-10">
+          
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+            
+            {/* LEFT COLUMN: TEXT & DIRECT CONTACT */}
+            <div>
+              <span className="font-jetbrains text-electricBlue text-xs tracking-[0.2em] uppercase block mb-4">
+                {t.webAecContact.eyebrow}
+              </span>
+              <h2 className="font-barlow font-bold text-4xl md:text-5xl lg:text-6xl text-titaniumWhite uppercase tracking-wide mb-6 whitespace-pre-line">
+                {t.webAecContact.title}
+              </h2>
+              <p className="font-inter text-concreteGray text-lg mb-12 max-w-xl">
+                {t.webAecContact.desc}
+              </p>
+
+              <div className="mb-8">
+                <span className="font-jetbrains text-electricBlue text-xs uppercase tracking-widest block mb-6">{t.webAecContact.orDirectly}</span>
+                <div className="flex flex-col gap-4">
+                  {/* Email */}
+                  <a 
+                    href="mailto:benjamin@mendivil.build" 
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-electricBlue hover:bg-white/5 transition-all group"
+                  >
+                    <Mail size={24} className="text-concreteGray group-hover:text-electricBlue transition-colors" />
+                    <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">benjamin@mendivil.build</span>
+                  </a>
+
+                  {/* WhatsApp */}
+                  <a 
+                    href={"https://wa.me/message/OMVEQBVAUTQLM1?text=" + encodeURIComponent(isEs ? "Hola Benjamín, vi los demos de WEB AEC en MENDIVIL.BUILD y me interesa desarrollar un sitio web para mi empresa." : "Hi Benjamin, I saw the WEB AEC demos on MENDIVIL.BUILD and I'm interested in developing a website for my company.")} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-[#25D366] hover:bg-white/5 transition-all group"
+                  >
+                    <MessageCircle size={24} className="text-concreteGray group-hover:text-[#25D366] transition-colors" />
+                    <div className="flex flex-col">
+                      <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">WhatsApp Business</span>
+                      <span className="font-inter text-concreteGray text-xs mt-1">+52 871 217 3821</span>
+                    </div>
+                  </a>
+
+                  {/* LinkedIn */}
+                  <a 
+                    href="https://linkedin.com/in/benjamín-mendívil-hernández-4a0065158" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-titaniumWhite hover:bg-white/5 transition-all group"
+                  >
+                    <LinkedinIcon size={24} />
+                    <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">LinkedIn</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: FORM */}
+            <div className="bg-[#0A0A0A] border border-white/10 p-8 md:p-10 shadow-2xl relative">
+              {/* Technical accents */}
+              <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-electricBlue"></div>
+              <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-electricBlue"></div>
+              <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-electricBlue"></div>
+              <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-electricBlue"></div>
+
+              {state.succeeded ? (
+                <div className="bg-[#1E4A6E] border border-[#4A9FD4]/30 p-8 text-center">
+                  <p className="font-barlow font-bold text-[#4A9FD4] text-xl tracking-wide uppercase">
+                    {t.webAecContact.success}
+                  </p>
+                </div>
+              ) : (
+                <form className="grid grid-cols-1 md:grid-cols-2 gap-4" onSubmit={handleSubmit}>
+                  <input type="hidden" name="Source" value="WEB AEC" />
+                  <input type="hidden" name="Subject" value="Nueva solicitud WEB AEC" />
+                  
+                  <div className="w-full">
+                    <input type="text" name="name" required placeholder={t.webAecContact.name} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
+                  <div className="w-full">
+                    <input type="text" name="company" required placeholder={t.webAecContact.company} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <ValidationError prefix="Company" field="company" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
+                  <div className="w-full">
+                    <input type="email" name="email" required placeholder={t.webAecContact.email} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
+                  <div className="w-full">
+                    <input type="tel" name="phone" placeholder={t.webAecContact.phone} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors" />
+                    <ValidationError prefix="Phone" field="phone" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
+                  
+                  <div className="w-full">
+                    <select name="companyType" required className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full appearance-none transition-colors">
+                      <option value="" disabled selected>{t.webAecContact.type}</option>
+                      {t.webAecContact.typeOptions.map((opt, i) => (
+                        <option key={i} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="w-full">
+                    <select name="needs" required className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full appearance-none transition-colors">
+                      <option value="" disabled selected>{t.webAecContact.need}</option>
+                      {t.webAecContact.needOptions.map((opt, i) => (
+                        <option key={i} value={opt}>{opt}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="w-full md:col-span-2">
+                    <textarea name="message" required placeholder={t.webAecContact.placeholder} rows={5} className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full transition-colors resize-none"></textarea>
+                    <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
+                  </div>
+                  
+                  <button type="submit" disabled={state.submitting} className="md:col-span-2 bg-electricBlue text-white font-jetbrains font-bold text-sm tracking-widest py-5 hover:bg-white hover:text-deepBlack disabled:bg-electricBlue/50 disabled:cursor-not-allowed transition-colors duration-300 uppercase mt-4">
+                    {state.submitting ? t.webAecContact.sending : t.webAecContact.submit + ' →'}
+                  </button>
+                </form>
+              )}
+            </div>
+
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
