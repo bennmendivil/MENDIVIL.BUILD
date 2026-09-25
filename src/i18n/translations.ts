@@ -81,8 +81,8 @@ export const translations = {
           company: 'Gilbane-Alberici',
           date: 'Aug 2020 – Mar 2022',
           location: 'Obregón, Sonora',
-          reto: 'Coordinación de múltiples contratistas, estructuras e interfaces dentro de un proyecto industrial de gran escala.',
-          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, coordinación diaria y control de cambios.',
+          reto: 'Coordinación de múltiples contratistas, estructuras e interfaces dentro de un proyecto de expansión industrial de gran escala.',
+          intervencion: "Coordination with General Contractor, LEAN EDGE, Look Ahead Planning, Daily Huddles & PCI's.",
           resultado: 'Entrega de superestructuras conforme a las fechas requeridas para la siguiente fase de construcción.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'
@@ -421,8 +421,8 @@ export const translations = {
           company: 'Gilbane-Alberici',
           date: 'Aug 2020 – Mar 2022',
           location: 'Obregón, Sonora',
-          reto: 'Coordination of multiple contractors, structures and interfaces within a large-scale industrial project.',
-          intervencion: 'Project Management, Last Planner® System, Look Ahead Planning, daily coordination and change order control.',
+          reto: 'Coordination of multiple contractors, structures and interfaces within a large-scale industrial expansion project.',
+          intervencion: "Coordination with General Contractor, LEAN EDGE, Look Ahead Planning, Daily Huddles & PCI's.",
           resultado: 'Superstructures delivered on schedule for the next construction phase.',
           badge: 'INDUSTRIAL / BREWERY',
           badgeColor: 'border-electricBlue text-electricBlue'

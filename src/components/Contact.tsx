@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { useForm, ValidationError } from '@formspree/react';
-import { MessageCircle } from 'lucide-react';
+import { MessageCircle, Mail } from 'lucide-react';
 import Logo from './Logo';
 
 
@@ -88,7 +88,7 @@ const Contact: React.FC = () => {
             {t.contact.title}
           </h2>
           
-          <p className="font-inter italic text-electricBlue text-[1.4rem] mb-12">
+          <p className="font-inter text-[#F0F0F0] text-[1.4rem] mb-12 drop-shadow-md">
             {t.contact.subtitle}
           </p>
 
@@ -138,15 +138,24 @@ const Contact: React.FC = () => {
 
           <div className="flex flex-col items-center justify-center my-12 mb-16 fade-in-section delay-200">
             <span className="font-inter text-[#F0F0F0]/80 text-sm mb-4">{(t.contact as any).orDirectly}</span>
-            <a 
-              href="https://wa.me/message/OMVEQBVAUTQLM1" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="inline-flex items-center text-[#25D366] hover:text-white font-jetbrains font-bold text-sm tracking-widest transition-colors uppercase border border-[#25D366] hover:bg-[#25D366] hover:border-transparent rounded-full px-8 py-3"
-            >
-              <MessageCircle size={18} className="mr-2" />
-              {(t.contact as any).whatsapp}
-            </a>
+            <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <a 
+                href="https://wa.me/message/OMVEQBVAUTQLM1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-[#25D366] hover:text-white font-jetbrains font-bold text-sm tracking-widest transition-colors uppercase border border-[#25D366] hover:bg-[#25D366] hover:border-transparent rounded-full px-8 py-3"
+              >
+                <MessageCircle size={18} className="mr-2" />
+                {(t.contact as any).whatsapp}
+              </a>
+              <a 
+                href="mailto:benjamin@mendivil.build" 
+                className="inline-flex items-center text-titaniumWhite hover:text-deepBlack font-jetbrains font-bold text-sm tracking-widest transition-colors border border-titaniumWhite/50 hover:bg-titaniumWhite hover:border-transparent rounded-full px-8 py-3"
+              >
+                <Mail size={18} className="mr-2" />
+                benjamin@mendivil.build
+              </a>
+            </div>
           </div>
 
           {/* Social Networks */}
