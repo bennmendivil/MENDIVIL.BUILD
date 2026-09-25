@@ -138,49 +138,64 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. SOLUCIÓN */}
-      <section className="py-24 bg-deepBlack border-y border-steelBlue/30" ref={solutionRef}>
-        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
-                Un sitio web diseñado <br /><span className="text-matteGold">alrededor de tu negocio.</span>
-              </h2>
-              <p className="text-concreteGray mb-8 leading-relaxed">
-                No utilizamos una plantilla genérica y simplemente cambiamos el logotipo. Diseñamos la estructura del sitio alrededor de lo que tu empresa hace, los proyectos que ejecuta y la forma en que quieres presentarte ante clientes, inversionistas y socios.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Presentación profesional de la empresa",
-                  "Servicios claramente definidos",
-                  "Portafolio de proyectos y Casos de estudio",
-                  "Integración con WhatsApp y Formularios",
-                  "Optimización para dispositivos móviles",
-                  "Preparación para futuras automatizaciones (IA)"
-                ].map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-matteGold shrink-0 mt-0.5" size={20} />
-                    <span className="text-titaniumWhite font-inter">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="relative">
-              <div className="aspect-square bg-steelBlue/10 border border-steelBlue/30 rounded-lg p-6 relative overflow-hidden flex flex-col gap-4">
-                 <div className="w-full h-12 bg-steelBlue/20 rounded-md border border-steelBlue/40 flex items-center px-4">
-                   <div className="w-4 h-4 rounded-full bg-matteGold"></div>
-                   <div className="w-24 h-2 bg-steelBlue/40 ml-4 rounded"></div>
-                 </div>
-                 <div className="flex gap-4 flex-grow">
-                   <div className="w-1/3 h-full bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
-                   <div className="w-2/3 h-full flex flex-col gap-4">
-                     <div className="w-full h-1/2 bg-steelBlue/20 border border-steelBlue/30 rounded-md"></div>
-                     <div className="w-full h-1/2 bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
-                   </div>
-                 </div>
+      {/* 8. EJEMPLOS / DEMOS */}
+      <section id="ejemplos" className="py-24 bg-[#0A131F]" ref={demosRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <div className="text-center mb-16">
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+              ¿Cómo podría verse <span className="text-matteGold">tu empresa?</span>
+            </h2>
+            <p className="text-concreteGray text-lg max-w-2xl mx-auto">
+              Estamos desarrollando diferentes conceptos digitales especializados para empresas del sector AEC.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {[
+              {
+                title: "CONSTRUCTORA",
+                desc: "Sitio web para una empresa constructora industrial.",
+                icon: HardHat
+              },
+              {
+                title: "LABORATORIO",
+                desc: "Sitio web para un laboratorio de concreto y materiales.",
+                icon: Microscope
+              },
+              {
+                title: "INGENIERÍA",
+                desc: "Sitio web para una firma de ingeniería y consultoría.",
+                icon: Map
+              },
+              {
+                title: "DESARROLLADORA",
+                desc: "Sitio web para un desarrollador inmobiliario.",
+                icon: Building
+              }
+            ].map((demo, i) => (
+              <div key={i} className="group bg-deepBlack border border-steelBlue/30 overflow-hidden flex flex-col">
+                <div className="aspect-[16/9] bg-[#0F2236] relative flex items-center justify-center p-8">
+                  <span className="absolute top-4 left-4 bg-black/50 text-white/50 text-[10px] font-jetbrains px-2 py-1 uppercase tracking-widest border border-white/10 z-10">Demo Conceptual</span>
+                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
+                  
+                  <div className="text-center z-10">
+                    <demo.icon size={48} className="text-steelBlue mx-auto mb-4 group-hover:text-electricBlue transition-colors duration-500" strokeWidth={1} />
+                    <div className="font-barlow text-2xl text-white/50 group-hover:text-white transition-colors duration-500 uppercase tracking-widest">
+                      {demo.title}
+                    </div>
+                  </div>
+                </div>
+                <div className="p-6 flex flex-col flex-grow justify-between bg-deepBlack">
+                  <div>
+                    <h3 className="font-barlow font-bold text-xl text-titaniumWhite uppercase tracking-wide mb-2">{demo.title}</h3>
+                    <p className="text-concreteGray text-sm mb-6">{demo.desc}</p>
+                  </div>
+                  <a href={demo.title === "CONSTRUCTORA" ? "/web-aec/demos/vertexa" : demo.title === "LABORATORIO" ? "/web-aec/demos/stratum-labs" : demo.title === "INGENIERÍA" ? "/web-aec/demos/nexora-engineering" : demo.title === "DESARROLLADORA" ? "/web-aec/demos/azura-developments" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
+                    VER DEMO <ArrowRight size={16} className="ml-2" />
+                  </a>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -222,107 +237,6 @@ const WebAEC: React.FC = () => {
             <p className="font-barlow font-bold text-3xl md:text-4xl text-matteGold uppercase tracking-wider">
               "No necesitas explicarnos tu industria."
             </p>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. ¿PARA QUIÉN ES? */}
-      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={whoRef}>
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
-            Webs diseñadas para la <span className="text-concreteGray">industria AEC.</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              {
-                title: "CONSTRUCTORAS",
-                desc: "Presenta tus proyectos, capacidades, servicios y experiencia de forma profesional.",
-                icon: HardHat
-              },
-              {
-                title: "LABORATORIOS",
-                desc: "Comunica tus servicios, ensayos, certificaciones, capacidades técnicas y cobertura.",
-                icon: Microscope
-              },
-              {
-                title: "INGENIERÍA Y CONSULTORÍA",
-                desc: "Convierte tu experiencia técnica y proyectos en una presencia digital profesional.",
-                icon: Map
-              },
-              {
-                title: "DESARROLLADORES",
-                desc: "Presenta proyectos inmobiliarios, conceptos, amenidades y oportunidades de inversión.",
-                icon: Building
-              },
-              {
-                title: "ARQUITECTOS",
-                desc: "Un portafolio minimalista y potente que deje hablar a tus diseños.",
-                icon: Ruler
-              },
-              {
-                title: "CONTRATISTAS",
-                desc: "Destaca tus especialidades, equipo, normativas y certificaciones.",
-                icon: Wrench
-              }
-            ].map((item, i) => (
-              <div key={i} className="border-t-4 border-steelBlue bg-[#0F2236]/30 p-8 hover:border-matteGold transition-colors">
-                <item.icon size={32} className="text-matteGold mb-6" strokeWidth={1.5} />
-                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-concreteGray text-sm leading-relaxed">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. ¿QUÉ PODEMOS CONSTRUIR? */}
-      <section className="py-24 bg-[#0A131F]" ref={buildRef}>
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
-            Desde una landing hasta <span className="text-electricBlue">una plataforma digital.</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              {
-                level: "A",
-                title: "LANDING PAGE",
-                desc: "Para empresas que necesitan una presencia digital profesional y rápida.",
-              },
-              {
-                level: "B",
-                title: "SITIO CORPORATIVO",
-                desc: "Para empresas que necesitan presentar servicios, experiencia, proyectos y equipo.",
-              },
-              {
-                level: "C",
-                title: "PORTAFOLIO",
-                desc: "Para empresas que necesitan mostrar múltiples proyectos, obras y casos de estudio.",
-              },
-              {
-                level: "D",
-                title: "WEB + AUTOMATIZACIÓN",
-                desc: "Para empresas que además quieren conectar su sitio con procesos digitales, formularios, IA u otras herramientas.",
-                highlight: true
-              }
-            ].map((item, i) => (
-              <div key={i} className={`p-8 border flex flex-col h-full ${item.highlight ? 'border-electricBlue bg-electricBlue/5' : 'border-steelBlue/40 bg-deepBlack'}`}>
-                <div className={`font-jetbrains text-xs font-bold mb-6 ${item.highlight ? 'text-electricBlue' : 'text-concreteGray'}`}>
-                  NIVEL {item.level}
-                </div>
-                <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-4 ${item.highlight ? 'text-white' : 'text-titaniumWhite'}`}>
-                  {item.title}
-                </h3>
-                <p className="text-concreteGray text-sm leading-relaxed flex-grow">
-                  {item.desc}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -391,62 +305,148 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
-      {/* 8. EJEMPLOS / DEMOS */}
-      <section id="ejemplos" className="py-24 bg-[#0A131F]" ref={demosRef}>
+      {/* 5. ¿PARA QUIÉN ES? */}
+      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={whoRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <div className="text-center mb-16">
-            <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
-              ¿Cómo podría verse <span className="text-matteGold">tu empresa?</span>
-            </h2>
-            <p className="text-concreteGray text-lg max-w-2xl mx-auto">
-              Estamos desarrollando diferentes conceptos digitales especializados para empresas del sector AEC.
-            </p>
-          </div>
+          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
+            Webs diseñadas para la <span className="text-concreteGray">industria AEC.</span>
+          </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: "CONSTRUCTORA",
-                desc: "Sitio web para una empresa constructora industrial.",
+                title: "CONSTRUCTORAS",
+                desc: "Presenta tus proyectos, capacidades, servicios y experiencia de forma profesional.",
                 icon: HardHat
               },
               {
-                title: "LABORATORIO",
-                desc: "Sitio web para un laboratorio de concreto y materiales.",
+                title: "LABORATORIOS",
+                desc: "Comunica tus servicios, ensayos, certificaciones, capacidades técnicas y cobertura.",
                 icon: Microscope
               },
               {
-                title: "INGENIERÍA",
-                desc: "Sitio web para una firma de ingeniería y consultoría.",
+                title: "INGENIERÍA Y CONSULTORÍA",
+                desc: "Convierte tu experiencia técnica y proyectos en una presencia digital profesional.",
                 icon: Map
               },
               {
-                title: "DESARROLLADORA",
-                desc: "Sitio web para un desarrollador inmobiliario.",
+                title: "DESARROLLADORES",
+                desc: "Presenta proyectos inmobiliarios, conceptos, amenidades y oportunidades de inversión.",
                 icon: Building
+              },
+              {
+                title: "ARQUITECTOS",
+                desc: "Un portafolio minimalista y potente que deje hablar a tus diseños.",
+                icon: Ruler
+              },
+              {
+                title: "CONTRATISTAS",
+                desc: "Destaca tus especialidades, equipo, normativas y certificaciones.",
+                icon: Wrench
               }
-            ].map((demo, i) => (
-              <div key={i} className="group bg-deepBlack border border-steelBlue/30 overflow-hidden flex flex-col">
-                <div className="aspect-[16/9] bg-[#0F2236] relative flex items-center justify-center p-8">
-                  <span className="absolute top-4 left-4 bg-black/50 text-white/50 text-[10px] font-jetbrains px-2 py-1 uppercase tracking-widest border border-white/10 z-10">Demo Conceptual</span>
-                  <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-                  
-                  <div className="text-center z-10">
-                    <demo.icon size={48} className="text-steelBlue mx-auto mb-4 group-hover:text-electricBlue transition-colors duration-500" strokeWidth={1} />
-                    <div className="font-barlow text-2xl text-white/50 group-hover:text-white transition-colors duration-500 uppercase tracking-widest">
-                      {demo.title}
-                    </div>
-                  </div>
+            ].map((item, i) => (
+              <div key={i} className="border-t-4 border-steelBlue bg-[#0F2236]/30 p-8 hover:border-matteGold transition-colors">
+                <item.icon size={32} className="text-matteGold mb-6" strokeWidth={1.5} />
+                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-3">
+                  {item.title}
+                </h3>
+                <p className="text-concreteGray text-sm leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. SOLUCIÓN */}
+      <section className="py-24 bg-deepBlack border-y border-steelBlue/30" ref={solutionRef}>
+        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
+            <div>
+              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
+                Un sitio web diseñado <br /><span className="text-matteGold">alrededor de tu negocio.</span>
+              </h2>
+              <p className="text-concreteGray mb-8 leading-relaxed">
+                No utilizamos una plantilla genérica y simplemente cambiamos el logotipo. Diseñamos la estructura del sitio alrededor de lo que tu empresa hace, los proyectos que ejecuta y la forma en que quieres presentarte ante clientes, inversionistas y socios.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Presentación profesional de la empresa",
+                  "Servicios claramente definidos",
+                  "Portafolio de proyectos y Casos de estudio",
+                  "Integración con WhatsApp y Formularios",
+                  "Optimización para dispositivos móviles",
+                  "Preparación para futuras automatizaciones (IA)"
+                ].map((benefit, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="text-matteGold shrink-0 mt-0.5" size={20} />
+                    <span className="text-titaniumWhite font-inter">{benefit}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            
+            <div className="relative">
+              <div className="aspect-square bg-steelBlue/10 border border-steelBlue/30 rounded-lg p-6 relative overflow-hidden flex flex-col gap-4">
+                 <div className="w-full h-12 bg-steelBlue/20 rounded-md border border-steelBlue/40 flex items-center px-4">
+                   <div className="w-4 h-4 rounded-full bg-matteGold"></div>
+                   <div className="w-24 h-2 bg-steelBlue/40 ml-4 rounded"></div>
+                 </div>
+                 <div className="flex gap-4 flex-grow">
+                   <div className="w-1/3 h-full bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
+                   <div className="w-2/3 h-full flex flex-col gap-4">
+                     <div className="w-full h-1/2 bg-steelBlue/20 border border-steelBlue/30 rounded-md"></div>
+                     <div className="w-full h-1/2 bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
+                   </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. ¿QUÉ PODEMOS CONSTRUIR? */}
+      <section className="py-24 bg-[#0A131F]" ref={buildRef}>
+        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
+          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
+            Desde una landing hasta <span className="text-electricBlue">una plataforma digital.</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              {
+                level: "A",
+                title: "LANDING PAGE",
+                desc: "Para empresas que necesitan una presencia digital profesional y rápida.",
+              },
+              {
+                level: "B",
+                title: "SITIO CORPORATIVO",
+                desc: "Para empresas que necesitan presentar servicios, experiencia, proyectos y equipo.",
+              },
+              {
+                level: "C",
+                title: "PORTAFOLIO",
+                desc: "Para empresas que necesitan mostrar múltiples proyectos, obras y casos de estudio.",
+              },
+              {
+                level: "D",
+                title: "WEB + AUTOMATIZACIÓN",
+                desc: "Para empresas que además quieren conectar su sitio con procesos digitales, formularios, IA u otras herramientas.",
+                highlight: true
+              }
+            ].map((item, i) => (
+              <div key={i} className={`p-8 border flex flex-col h-full ${item.highlight ? 'border-electricBlue bg-electricBlue/5' : 'border-steelBlue/40 bg-deepBlack'}`}>
+                <div className={`font-jetbrains text-xs font-bold mb-6 ${item.highlight ? 'text-electricBlue' : 'text-concreteGray'}`}>
+                  NIVEL {item.level}
                 </div>
-                <div className="p-6 flex flex-col flex-grow justify-between bg-deepBlack">
-                  <div>
-                    <h3 className="font-barlow font-bold text-xl text-titaniumWhite uppercase tracking-wide mb-2">{demo.title}</h3>
-                    <p className="text-concreteGray text-sm mb-6">{demo.desc}</p>
-                  </div>
-                  <a href={demo.title === "CONSTRUCTORA" ? "/web-aec/demos/vertexa" : demo.title === "LABORATORIO" ? "/web-aec/demos/stratum-labs" : demo.title === "INGENIERÍA" ? "/web-aec/demos/nexora-engineering" : demo.title === "DESARROLLADORA" ? "/web-aec/demos/azura-developments" : "#contact"} className="font-jetbrains text-sm text-matteGold hover:text-white transition-colors inline-flex items-center group-hover:translate-x-1 duration-300">
-                    VER DEMO <ArrowRight size={16} className="ml-2" />
-                  </a>
-                </div>
+                <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-4 ${item.highlight ? 'text-white' : 'text-titaniumWhite'}`}>
+                  {item.title}
+                </h3>
+                <p className="text-concreteGray text-sm leading-relaxed flex-grow">
+                  {item.desc}
+                </p>
               </div>
             ))}
           </div>
