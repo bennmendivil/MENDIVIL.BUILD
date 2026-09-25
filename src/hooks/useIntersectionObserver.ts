@@ -13,7 +13,14 @@ export const useIntersectionObserver = (options = { threshold: 0.1 }) => {
     }, { threshold: options.threshold });
 
     const elements = containerRef.current?.querySelectorAll('.fade-in-section');
-    elements?.forEach((el) => observer.observe(el));
+    elements?.forEach((el) => {
+      observer.observe(el);
+      // Fallback for iOS Safari: check visibility manually on mount
+      const rect = el.getBoundingClientRect();
+      if (rect.top <= (window.innerHeight || document.documentElement.clientHeight)) {
+        el.classList.add('is-visible');
+      }
+    });
 
     return () => {
       elements?.forEach((el) => observer.unobserve(el));
