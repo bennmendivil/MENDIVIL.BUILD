@@ -8,10 +8,9 @@ export const useIntersectionObserver = (options = { threshold: 0.1 }) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('is-visible');
-          // Optional: observer.unobserve(entry.target) if you only want it to animate once
         }
       });
-    }, options);
+    }, { threshold: options.threshold });
 
     const elements = containerRef.current?.querySelectorAll('.fade-in-section');
     elements?.forEach((el) => observer.observe(el));
@@ -20,7 +19,7 @@ export const useIntersectionObserver = (options = { threshold: 0.1 }) => {
       elements?.forEach((el) => observer.unobserve(el));
       observer.disconnect();
     };
-  }, [options]);
+  }, [options.threshold]);
 
   return containerRef;
 };

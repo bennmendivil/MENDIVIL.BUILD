@@ -8,17 +8,7 @@ const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, hash: string) => {
-    if (window.location.pathname === '/') {
-      e.preventDefault();
-      const element = document.querySelector(hash);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-        window.history.pushState(null, '', hash);
-      }
-      setIsMobileMenuOpen(false);
-    }
-  };
+
 
   useEffect(() => {
     const handleScroll = () => {
@@ -38,11 +28,11 @@ const Navbar: React.FC = () => {
 
         {/* Desktop Links */}
         <div className="hidden md:flex items-center space-x-8">
-          <a href="/#hero" onClick={(e) => handleNavClick(e, '#hero')} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.home}</a>
-          <a href="/#services" onClick={(e) => handleNavClick(e, '#services')} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.services}</a>
-          <a href="/#projects" onClick={(e) => handleNavClick(e, '#projects')} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.projects}</a>
-          <a href="/#lean" onClick={(e) => handleNavClick(e, '#lean')} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.leanAi}</a>
-          <a href="/#contact" onClick={(e) => handleNavClick(e, '#contact')} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.contact}</a>
+          <a href="/#hero" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.home}</a>
+          <a href="/#services" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.services}</a>
+          <a href="/#projects" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.projects}</a>
+          <a href="/#lean" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.leanAi}</a>
+          <a href="/#contact" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.contact}</a>
         </div>
 
         {/* Actions */}
@@ -90,11 +80,11 @@ const Navbar: React.FC = () => {
         }`}
       >
         <div className="flex flex-col py-4">
-          <a href="/#hero" onClick={(e) => handleNavClick(e, '#hero')} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.home}</a>
-          <a href="/#services" onClick={(e) => handleNavClick(e, '#services')} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.services}</a>
-          <a href="/#projects" onClick={(e) => handleNavClick(e, '#projects')} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.projects}</a>
-          <a href="/#lean" onClick={(e) => handleNavClick(e, '#lean')} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.leanAi}</a>
-          <a href="/#contact" onClick={(e) => handleNavClick(e, '#contact')} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.contact}</a>
+          <a href="/#hero" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.home}</a>
+          <a href="/#services" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.services}</a>
+          <a href="/#projects" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.projects}</a>
+          <a href="/#lean" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.leanAi}</a>
+          <a href="/#contact" onClick={() => setIsMobileMenuOpen(false)} className="px-6 py-4 border-b border-[#2A2A2A] font-barlow font-bold text-white text-[1.2rem] hover:text-[#4A9FD4] transition-colors">{t.nav.contact}</a>
           
           {/* Mobile Language Toggle */}
           <div className="flex items-center justify-center space-x-4 font-jetbrains text-[0.9rem] my-[16px]">
