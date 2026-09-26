@@ -75,11 +75,11 @@ const WebAEC: React.FC = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-6">
-              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
                 <span className="relative z-10 flex items-center">QUIERO MI SITIO WEB <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" /></span>
                 <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
               </a>
-              <a href="#ejemplos" onClick={(e) => scrollToSection(e, "ejemplos")} className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+              <a href="#ejemplos" onClick={(e) => scrollToSection(e, "ejemplos")} className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
                 VER EJEMPLOS →
               </a>
             </div>
@@ -107,7 +107,7 @@ const WebAEC: React.FC = () => {
               "Sus proyectos y servicios no están claros.",
               "Su presencia digital no transmite su capacidad real."
             ].map((problem, i) => (
-              <div key={i} className="flex items-start gap-4 bg-deepBlack border border-steelBlue/30 p-6">
+              <div key={i} className="flex items-start gap-4 bg-deepBlack border border-steelBlue/30 p-6 card-premium">
                 <ShieldCheck className="text-electricBlue shrink-0" size={24} />
                 <p className="text-concreteGray font-inter text-sm">{problem}</p>
               </div>
@@ -133,7 +133,7 @@ const WebAEC: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* TARJETA 1 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
               <div className="relative h-64 overflow-hidden bg-[#0A1624]">
                 <img src="/web-aec/demos/demo_vertexa_desktop.webp" alt="Vertexa Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
@@ -151,7 +151,7 @@ const WebAEC: React.FC = () => {
             </div>
 
             {/* TARJETA 2 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
               <div className="relative h-64 overflow-hidden bg-[#0A1624]">
                 <img src="/web-aec/demos/demo_stratumlabs_desktop.webp" alt="Stratum Labs Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
@@ -169,7 +169,7 @@ const WebAEC: React.FC = () => {
             </div>
 
             {/* TARJETA 3 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
               <div className="relative h-64 overflow-hidden bg-[#0A1624]">
                 <img src="/web-aec/demos/demo_nexora_desktop.webp" alt="Nexora Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
@@ -187,7 +187,7 @@ const WebAEC: React.FC = () => {
             </div>
 
             {/* TARJETA 4 */}
-            <div className="bg-[#0F2236] border border-white/10 overflow-hidden group hover:border-[#4A9FD4]/50 transition-colors shadow-lg hover:shadow-[#4A9FD4]/10 flex flex-col">
+            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
               <div className="relative h-64 overflow-hidden bg-[#0A1624]">
                 <img src="/web-aec/demos/demo_azura_desktop.webp" alt="Azura Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
@@ -236,7 +236,7 @@ const WebAEC: React.FC = () => {
               "Enfoque técnico + comercial",
               "Posibilidad de integrar automatización e IA"
             ].map((punto, i) => (
-              <div key={i} className="bg-deepBlack border border-steelBlue/40 p-6 flex flex-col items-center justify-center text-center group hover:border-electricBlue transition-colors">
+              <div key={i} className="bg-deepBlack border border-steelBlue/40 p-6 flex flex-col items-center justify-center text-center group hover:border-electricBlue card-premium">
                 <CheckCircle2 size={28} className="text-steelBlue group-hover:text-electricBlue mb-3 transition-colors" strokeWidth={1.5} />
                 <h3 className="font-inter text-sm text-titaniumWhite">{punto}</h3>
               </div>
@@ -285,10 +285,10 @@ const WebAEC: React.FC = () => {
               </div>
               
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8 border-t border-white/10">
-                <a href="https://gasavelaboratorio.com" target="_blank" rel="noreferrer" className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+                <a href="https://gasavelaboratorio.com" target="_blank" rel="noreferrer" className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
                   VER SITIO REAL →
                 </a>
-                <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 transition-colors uppercase">
+                <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
                   <span className="relative z-10">QUIERO ALGO SIMILAR →</span>
                   <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
                 </a>
@@ -333,7 +333,7 @@ const WebAEC: React.FC = () => {
               { num: "03", title: "Diseñamos y desarrollamos", desc: "Creamos una presencia digital alineada con tu marca." },
               { num: "04", title: "Publicamos", desc: "Tu sitio queda listo para compartirse y generar confianza." }
             ].map((step, i) => (
-              <div key={i} className="bg-[#0A131F] border border-steelBlue/30 p-6 flex flex-col h-full hover:border-[#4A9FD4] transition-colors relative">
+              <div key={i} className="bg-[#0A131F] border border-steelBlue/30 p-6 flex flex-col h-full hover:border-[#4A9FD4] relative card-premium">
                 <div className="font-jetbrains text-xs font-bold mb-3 text-[#4A9FD4]">{step.num}</div>
                 <h3 className="font-barlow font-bold text-xl uppercase tracking-wide mb-2 text-titaniumWhite">
                   {step.title}
@@ -358,7 +358,7 @@ const WebAEC: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             
-            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-steelBlue transition-colors">
+            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-steelBlue card-premium">
               <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">EMPEZAR</div>
               <h3 className="font-barlow font-bold text-3xl text-titaniumWhite uppercase mb-2">LANDING AEC</h3>
               <div className="font-jetbrains text-xl text-white mb-2">Desde $10,000 MXN</div>
@@ -372,12 +372,12 @@ const WebAEC: React.FC = () => {
                 ))}
               </ul>
               
-              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-concreteGray text-titaniumWhite font-jetbrains text-sm tracking-wider py-4 hover:border-white transition-colors uppercase">
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-[#4A9FD4]/50 text-titaniumWhite font-jetbrains text-sm tracking-wider py-4 hover:border-[#4A9FD4] uppercase btn-premium">
                 QUIERO UNA LANDING
               </a>
             </div>
 
-            <div className="bg-[#0F2236] border border-electricBlue p-8 flex flex-col h-full transform md:-translate-y-4 shadow-2xl relative">
+            <div className="bg-[#0F2236] border border-electricBlue p-8 flex flex-col h-full transform md:-translate-y-4 shadow-2xl relative card-premium">
               <div className="absolute top-0 left-0 w-full h-1 bg-electricBlue"></div>
               <div className="font-jetbrains text-xs text-electricBlue mb-4 tracking-widest">CRECER</div>
               <h3 className="font-barlow font-bold text-3xl text-white uppercase mb-2">SITIO CORPORATIVO</h3>
@@ -392,12 +392,12 @@ const WebAEC: React.FC = () => {
                 ))}
               </ul>
               
-              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center bg-electricBlue text-white font-jetbrains text-sm tracking-wider py-4 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold">
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center bg-electricBlue text-white font-jetbrains text-sm tracking-wider py-4 hover:bg-white hover:text-deepBlack uppercase font-bold btn-premium">
                 QUIERO MI SITIO
               </a>
             </div>
 
-            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-matteGold transition-colors">
+            <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-matteGold card-premium">
               <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">DIGITALIZAR</div>
               <h3 className="font-barlow font-bold text-3xl text-matteGold uppercase mb-2">WEB + AUTOMATIZACIÓN</h3>
               <div className="font-jetbrains text-xl text-white mb-2">Desde $25,000 MXN</div>
@@ -411,7 +411,7 @@ const WebAEC: React.FC = () => {
                 ))}
               </ul>
               
-              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-matteGold text-matteGold font-jetbrains text-sm tracking-wider py-4 hover:bg-matteGold hover:text-deepBlack transition-colors uppercase font-bold">
+              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="w-full text-center border border-matteGold text-matteGold font-jetbrains text-sm tracking-wider py-4 hover:bg-matteGold hover:text-deepBlack uppercase font-bold btn-premium">
                 HABLEMOS DE MI PROYECTO
               </a>
             </div>
@@ -426,7 +426,7 @@ const WebAEC: React.FC = () => {
           
           {/* TIEMPOS ESTIMADOS */}
           <div className="mt-16 max-w-4xl mx-auto text-center">
-            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-[#0F2236]/30 border border-steelBlue/30 p-6">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-[#0F2236]/30 border border-steelBlue/30 p-6 card-premium">
               <div className="text-left w-full md:w-auto md:text-center">
                 <span className="font-jetbrains text-[#5A8FA8] text-xs tracking-widest uppercase block mb-1">Landing AEC</span>
                 <span className="font-inter text-white text-sm">Desde 3–5 días</span>
@@ -445,7 +445,7 @@ const WebAEC: React.FC = () => {
           </div>
 
           {/* MANTENIMIENTO */}
-          <div className="mt-4 max-w-4xl mx-auto text-center flex flex-col md:flex-row items-center justify-center gap-3 border border-steelBlue/10 p-4 bg-deepBlack/50">
+          <div className="mt-4 max-w-4xl mx-auto text-center flex flex-col md:flex-row items-center justify-center gap-3 border border-steelBlue/30 p-4 bg-deepBlack/80 card-premium">
             <span className="text-concreteGray font-inter text-sm">
               ¿Necesitas mantenimiento o mejoras continuas? También puedo ayudarte después de publicar tu sitio.
             </span>
@@ -513,7 +513,7 @@ const WebAEC: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-deepBlack text-white font-jetbrains text-sm tracking-wider py-4 px-8 hover:bg-white hover:text-deepBlack transition-colors uppercase font-bold shadow-2xl" > SOLICITAR PROPUESTA →
+              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-jetbrains text-sm tracking-wider py-4 px-8 uppercase font-bold shadow-2xl btn-premium" > SOLICITAR PROPUESTA →
             </a>
           </div>
         </div>
@@ -547,9 +547,9 @@ const WebAEC: React.FC = () => {
                     href={"https://wa.me/message/OMVEQBVAUTQLM1?text=" + encodeURIComponent("Hola Benjamín, estoy interesado en crear un sitio web para mi empresa.")} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-[#25D366] hover:bg-white/5 transition-all group"
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-[#4A9FD4]/30 bg-[#0A131F]/60 hover:border-[#4A9FD4] hover:bg-[#0A131F] transition-all group contact-premium"
                   >
-                    <MessageCircle size={24} className="text-concreteGray group-hover:text-[#25D366] transition-colors" />
+                    <MessageCircle size={24} className="text-concreteGray group-hover:text-white transition-colors" />
                     <div className="flex flex-col">
                       <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">WhatsApp Business</span>
                       <span className="font-inter text-concreteGray text-xs mt-1">+52 871 217 3821</span>
@@ -559,7 +559,7 @@ const WebAEC: React.FC = () => {
                   {/* Email */}
                   <a 
                     href="mailto:benjamin@mendivil.build" 
-                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-white/10 hover:border-electricBlue hover:bg-white/5 transition-all group"
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-[#4A9FD4]/30 bg-[#0A131F]/60 hover:border-[#4A9FD4] hover:bg-[#0A131F] transition-all group contact-premium"
                   >
                     <Mail size={24} className="text-concreteGray group-hover:text-electricBlue transition-colors" />
                     <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">benjamin@mendivil.build</span>
@@ -570,7 +570,7 @@ const WebAEC: React.FC = () => {
             </div>
 
             {/* RIGHT COLUMN: FORM */}
-            <div className="bg-[#0A0A0A] border border-white/10 p-8 md:p-10 shadow-2xl relative">
+            <div className="bg-[#0A0A0A] border border-steelBlue/40 p-8 md:p-10 shadow-2xl relative card-premium">
               {/* Technical accents */}
               <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-electricBlue"></div>
               <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-electricBlue"></div>
