@@ -467,20 +467,12 @@ const WebAEC: React.FC = () => {
           <div className="space-y-4">
             {[
               {
-                q: "¿Necesito saber programación?",
-                a: "No. Nosotros nos encargamos del desarrollo y de la parte técnica."
-              },
-              {
                 q: "¿Necesito tener fotografías profesionales?",
                 a: "No necesariamente. Podemos trabajar con el material que ya tengas y ayudarte a estructurar visualmente el contenido."
               },
               {
-                q: "¿Pueden integrar WhatsApp?",
-                a: "Sí. Podemos integrar WhatsApp, formularios y diferentes herramientas digitales."
-              },
-              {
                 q: "¿Pueden hacer el sitio para una empresa que no sea constructora?",
-                a: "Nuestro enfoque principal es AEC: arquitectura, ingeniería, construcción, laboratorios, contratistas y desarrollo inmobiliario."
+                a: "Sí. Aunque nuestro enfoque principal está en empresas AEC —arquitectura, ingeniería, construcción, laboratorios, contratistas y desarrollo inmobiliario— también podemos desarrollar sitios para otros giros cuando el proyecto tenga buen encaje."
               },
               {
                 q: "¿Cuánto tarda el desarrollo?",
@@ -611,7 +603,7 @@ const WebAEC: React.FC = () => {
                   
                   <div className="w-full">
                     <select name="needs" required className="bg-[#0B0B0B] border border-white/10 p-4 text-titaniumWhite focus:outline-none focus:border-electricBlue font-inter text-sm w-full appearance-none transition-colors">
-                      <option value="" disabled selected>¿Qué necesitas?</option>
+                      <option value="" disabled selected>¿Qué deseas?</option>
                       {["Landing AEC", "Sitio Corporativo", "Portafolio", "Web + Automatización", "No estoy seguro"].map((opt, i) => (
                         <option key={i} value={opt}>{opt}</option>
                       ))}
