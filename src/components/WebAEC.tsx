@@ -3,9 +3,8 @@ import React, { useEffect } from 'react';
 import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { 
-  Building, Microscope, 
-  HardHat, Map, Wrench, CheckCircle2, ChevronDown, 
-  ArrowRight, ShieldCheck, Check, Ruler, MessageCircle, Mail
+  CheckCircle2, ChevronDown, 
+  ArrowRight, ShieldCheck, Check, MessageCircle, Mail
 } from 'lucide-react';
 
 
@@ -91,9 +90,9 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 2. PROBLEMA */}
-      <section className="py-24 bg-[#0A131F]" ref={problemRef}>
+      <section className="py-16 bg-[#0A131F]" ref={problemRef}>
         <div className="container mx-auto px-6 max-w-5xl fade-in-section">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
               Tu empresa puede hacer un gran trabajo.
               <br className="hidden md:block" />
@@ -104,26 +103,23 @@ const WebAEC: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
             {[
-              "No tienen sitio web.",
-              "Su sitio está desactualizado.",
-              "Sus proyectos están dispersos (IG, FB, LinkedIn).",
-              "Es difícil encontrar sus servicios.",
-              "No transmiten su capacidad real.",
-              "Dependen sólo de redes sociales."
+              "No tienen sitio web o está desactualizado.",
+              "Sus proyectos y servicios no están claros.",
+              "Su presencia digital no transmite su capacidad real."
             ].map((problem, i) => (
               <div key={i} className="flex items-start gap-4 bg-deepBlack border border-steelBlue/30 p-6">
                 <ShieldCheck className="text-electricBlue shrink-0" size={24} />
-                <p className="text-concreteGray font-inter">{problem}</p>
+                <p className="text-concreteGray font-inter text-sm">{problem}</p>
               </div>
             ))}
           </div>
 
-          <div className="bg-electricBlue/10 border-l-4 border-electricBlue p-8 md:p-12 text-center">
-            <p className="font-barlow font-bold text-2xl md:text-3xl text-titaniumWhite uppercase tracking-wide">
-              "Tu sitio web no debería ser sólo una tarjeta de presentación.<br />
-              <span className="text-electricBlue">Debería ser una herramienta para generar confianza."</span>
+          <div className="bg-electricBlue/10 border-l-4 border-electricBlue p-6 md:p-8 text-center max-w-4xl mx-auto">
+            <p className="font-barlow font-bold text-xl md:text-2xl text-titaniumWhite uppercase tracking-wide">
+              "Tu sitio web no debería ser solo una tarjeta de presentación.<br />
+              <span className="text-electricBlue">Debería ser una herramienta para generar confianza y oportunidades."</span>
             </p>
           </div>
         </div>
@@ -218,9 +214,9 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 4. DIFERENCIADOR */}
-      <section className="py-24 bg-[#0A131F]" ref={diffRef}>
+      <section className="py-16 bg-[#0A131F]" ref={diffRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="text-center max-w-3xl mx-auto mb-10">
             <div className="inline-block border border-electricBlue text-electricBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-electricBlue/10 uppercase">
               EL DIFERENCIADOR MENDIVIL.BUILD
             </div>
@@ -236,16 +232,14 @@ const WebAEC: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {[
               "Lenguaje de la industria",
-              "Enfoque técnico y comercial",
-              "Sitios claros, rápidos y profesionales",
-              "Diseño alineado con tu tipo de cliente",
+              "Enfoque técnico + comercial",
               "Posibilidad de integrar automatización e IA"
             ].map((punto, i) => (
               <div key={i} className="bg-deepBlack border border-steelBlue/40 p-6 flex flex-col items-center justify-center text-center group hover:border-electricBlue transition-colors">
-                <CheckCircle2 size={32} className="text-steelBlue group-hover:text-electricBlue mb-4 transition-colors" strokeWidth={1.5} />
+                <CheckCircle2 size={28} className="text-steelBlue group-hover:text-electricBlue mb-3 transition-colors" strokeWidth={1.5} />
                 <h3 className="font-inter text-sm text-titaniumWhite">{punto}</h3>
               </div>
             ))}
@@ -307,53 +301,22 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 5. ¿PARA QUIÉN ES? */}
-      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={whoRef}>
-        <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
-            Webs diseñadas para la <span className="text-concreteGray">industria AEC.</span>
+      <section className="py-12 bg-deepBlack border-t border-steelBlue/30" ref={whoRef}>
+        <div className="container mx-auto px-6 max-w-5xl fade-in-section text-center">
+          <h2 className="font-inter font-medium text-lg md:text-xl text-concreteGray mb-6">
+            Trabajamos principalmente con:
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4">
             {[
-              {
-                title: "CONSTRUCTORAS",
-                desc: "Presenta tus proyectos, capacidades, servicios y experiencia de forma profesional.",
-                icon: HardHat
-              },
-              {
-                title: "LABORATORIOS",
-                desc: "Comunica tus servicios, ensayos, certificaciones, capacidades técnicas y cobertura.",
-                icon: Microscope
-              },
-              {
-                title: "INGENIERÍA Y CONSULTORÍA",
-                desc: "Convierte tu experiencia técnica y proyectos en una presencia digital profesional.",
-                icon: Map
-              },
-              {
-                title: "DESARROLLADORES",
-                desc: "Presenta proyectos inmobiliarios, conceptos, amenidades y oportunidades de inversión.",
-                icon: Building
-              },
-              {
-                title: "ARQUITECTOS",
-                desc: "Un portafolio minimalista y potente que deje hablar a tus diseños.",
-                icon: Ruler
-              },
-              {
-                title: "CONTRATISTAS",
-                desc: "Destaca tus especialidades, equipo, normativas y certificaciones.",
-                icon: Wrench
-              }
+              "Constructoras",
+              "Laboratorios",
+              "Ingeniería",
+              "Desarrolladores",
+              "Arquitectos"
             ].map((item, i) => (
-              <div key={i} className="border-t-4 border-steelBlue bg-[#0F2236]/30 p-8 hover:border-matteGold transition-colors">
-                <item.icon size={32} className="text-matteGold mb-6" strokeWidth={1.5} />
-                <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-concreteGray text-sm leading-relaxed">
-                  {item.desc}
-                </p>
+              <div key={i} className="bg-[#0F2236] border border-steelBlue/40 px-6 py-3 rounded-full flex items-center justify-center shadow-lg hover:border-[#4A9FD4] transition-colors cursor-default">
+                <span className="font-jetbrains text-sm md:text-base text-titaniumWhite uppercase tracking-widest">{item}</span>
               </div>
             ))}
           </div>
