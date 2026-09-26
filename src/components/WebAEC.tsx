@@ -43,10 +43,8 @@ const WebAEC: React.FC = () => {
 
   const heroRef = useIntersectionObserver({ threshold: 0.1 });
   const problemRef = useIntersectionObserver({ threshold: 0.1 });
-  const solutionRef = useIntersectionObserver({ threshold: 0.1 });
   const diffRef = useIntersectionObserver({ threshold: 0.1 });
   const whoRef = useIntersectionObserver({ threshold: 0.1 });
-  const buildRef = useIntersectionObserver({ threshold: 0.1 });
   const caseRef = useIntersectionObserver({ threshold: 0.1 });
   const demosRef = useIntersectionObserver({ threshold: 0.1 });
   const processRef = useIntersectionObserver({ threshold: 0.1 });
@@ -323,138 +321,28 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
-      {/* 3. SOLUCIÓN */}
-      <section className="py-24 bg-deepBlack border-y border-steelBlue/30" ref={solutionRef}>
-        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
-          <div className="grid md:grid-cols-2 gap-16 items-center">
-            <div>
-              <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">
-                Un sitio web diseñado <br /><span className="text-matteGold">alrededor de tu negocio.</span>
-              </h2>
-              <p className="text-concreteGray mb-8 leading-relaxed">
-                No utilizamos una plantilla genérica y simplemente cambiamos el logotipo. Diseñamos la estructura del sitio alrededor de lo que tu empresa hace, los proyectos que ejecuta y la forma en que quieres presentarte ante clientes, inversionistas y socios.
-              </p>
-              <ul className="space-y-4">
-                {[
-                  "Presentación profesional de la empresa",
-                  "Servicios claramente definidos",
-                  "Portafolio de proyectos y Casos de estudio",
-                  "Integración con WhatsApp y Formularios",
-                  "Optimización para dispositivos móviles",
-                  "Preparación para futuras automatizaciones (IA)"
-                ].map((benefit, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <CheckCircle2 className="text-matteGold shrink-0 mt-0.5" size={20} />
-                    <span className="text-titaniumWhite font-inter">{benefit}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            
-            <div className="relative">
-              <div className="aspect-square bg-steelBlue/10 border border-steelBlue/30 rounded-lg p-6 relative overflow-hidden flex flex-col gap-4">
-                 <div className="w-full h-12 bg-steelBlue/20 rounded-md border border-steelBlue/40 flex items-center px-4">
-                   <div className="w-4 h-4 rounded-full bg-matteGold"></div>
-                   <div className="w-24 h-2 bg-steelBlue/40 ml-4 rounded"></div>
-                 </div>
-                 <div className="flex gap-4 flex-grow">
-                   <div className="w-1/3 h-full bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
-                   <div className="w-2/3 h-full flex flex-col gap-4">
-                     <div className="w-full h-1/2 bg-steelBlue/20 border border-steelBlue/30 rounded-md"></div>
-                     <div className="w-full h-1/2 bg-steelBlue/10 border border-steelBlue/30 rounded-md"></div>
-                   </div>
-                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
-      {/* 6. ¿QUÉ PODEMOS CONSTRUIR? */}
-      <section className="py-24 bg-[#0A131F]" ref={buildRef}>
+
+      {/* 9. PROCESO */}
+      <section className="py-16 bg-deepBlack border-t border-steelBlue/30" ref={processRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
-          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
-            Desde una landing hasta <span className="text-electricBlue">una plataforma digital.</span>
-          </h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {[
-              {
-                level: "A",
-                title: "LANDING PAGE",
-                desc: "Para empresas que necesitan una presencia digital profesional y rápida.",
-              },
-              {
-                level: "B",
-                title: "SITIO CORPORATIVO",
-                desc: "Para empresas que necesitan presentar servicios, experiencia, proyectos y equipo.",
-              },
-              {
-                level: "C",
-                title: "PORTAFOLIO",
-                desc: "Para empresas que necesitan mostrar múltiples proyectos, obras y casos de estudio.",
-              },
-              {
-                level: "D",
-                title: "WEB + AUTOMATIZACIÓN",
-                desc: "Para empresas que además quieren conectar su sitio con procesos digitales, formularios, IA u otras herramientas.",
-                highlight: true
-              }
-            ].map((item, i) => (
-              <div key={i} className={`p-8 border flex flex-col h-full ${item.highlight ? 'border-electricBlue bg-electricBlue/5' : 'border-steelBlue/40 bg-deepBlack'}`}>
-                <div className={`font-jetbrains text-xs font-bold mb-6 ${item.highlight ? 'text-electricBlue' : 'text-concreteGray'}`}>
-                  NIVEL {item.level}
-                </div>
-                <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-4 ${item.highlight ? 'text-white' : 'text-titaniumWhite'}`}>
-                  {item.title}
+              { num: "01", title: "Descubrimos", desc: "Entendemos tu empresa, servicios y objetivos." },
+              { num: "02", title: "Estructuramos", desc: "Definimos la arquitectura del sitio." },
+              { num: "03", title: "Diseñamos y desarrollamos", desc: "Creamos una presencia digital alineada con tu marca." },
+              { num: "04", title: "Publicamos", desc: "Tu sitio queda listo para compartirse y generar confianza." }
+            ].map((step, i) => (
+              <div key={i} className="bg-[#0A131F] border border-steelBlue/30 p-6 flex flex-col h-full hover:border-[#4A9FD4] transition-colors relative">
+                <div className="font-jetbrains text-xs font-bold mb-3 text-[#4A9FD4]">{step.num}</div>
+                <h3 className="font-barlow font-bold text-xl uppercase tracking-wide mb-2 text-titaniumWhite">
+                  {step.title}
                 </h3>
-                <p className="text-concreteGray text-sm leading-relaxed flex-grow">
-                  {item.desc}
+                <p className="text-concreteGray text-sm flex-grow">
+                  {step.desc}
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 9. PROCESO */}
-      <section className="py-24 bg-deepBlack border-t border-steelBlue/30" ref={processRef}>
-        <div className="container mx-auto px-6 max-w-5xl fade-in-section">
-          <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-16 text-center">
-            Del primer mensaje al <span className="text-electricBlue">sitio publicado.</span>
-          </h2>
-
-          <div className="relative">
-            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-px bg-steelBlue/30 -translate-x-1/2"></div>
-            
-            <div className="space-y-12 relative z-10">
-              {[
-                { num: "01", title: "DESCUBRIMOS", desc: "Entendemos tu empresa, servicios, proyectos y objetivos." },
-                { num: "02", title: "ESTRUCTURAMOS", desc: "Definimos la información y arquitectura del sitio." },
-                { num: "03", title: "DISEÑAMOS", desc: "Creamos una interfaz alineada con tu marca." },
-                { num: "04", title: "DESARROLLAMOS", desc: "Construimos el sitio con tecnología moderna y responsive." },
-                { num: "05", title: "PUBLICAMOS", desc: "Dejamos tu sitio listo para que tus clientes puedan encontrarlo." },
-                { num: "06", title: "EVOLUCIONAMOS", desc: "Podemos agregar nuevas funciones, automatizaciones e inteligencia artificial.", gold: true }
-              ].map((step, i) => (
-                <div key={i} className={`flex flex-col md:flex-row items-center gap-8 ${i % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
-                  <div className={`md:w-1/2 flex ${i % 2 === 1 ? 'md:justify-start' : 'md:justify-end'} w-full justify-start`}>
-                    <div className={`p-6 border ${step.gold ? 'border-matteGold bg-[#1a1c1a]' : 'border-steelBlue/40 bg-[#0A131F]'} max-w-sm w-full`}>
-                      <div className={`font-jetbrains text-xs font-bold mb-3 ${step.gold ? 'text-matteGold' : 'text-electricBlue'}`}>PASO {step.num}</div>
-                      <h3 className={`font-barlow font-bold text-2xl uppercase tracking-wide mb-2 ${step.gold ? 'text-white' : 'text-titaniumWhite'}`}>
-                        {step.title}
-                      </h3>
-                      <p className="text-concreteGray text-sm">
-                        {step.desc}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="hidden md:flex w-12 h-12 rounded-full bg-deepBlack border-2 border-steelBlue/50 items-center justify-center shrink-0 z-10">
-                    <span className="font-jetbrains text-xs text-concreteGray">{step.num}</span>
-                  </div>
-                  <div className="hidden md:block md:w-1/2"></div>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </section>
