@@ -361,8 +361,8 @@ const WebAEC: React.FC = () => {
             <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-steelBlue transition-colors">
               <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">EMPEZAR</div>
               <h3 className="font-barlow font-bold text-3xl text-titaniumWhite uppercase mb-2">LANDING AEC</h3>
-              <div className="font-jetbrains text-xl text-white mb-6">Desde $10,000 MXN</div>
-              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que necesitan comenzar o mejorar rápidamente su presencia digital.</p>
+              <div className="font-jetbrains text-xl text-white mb-2">Desde $10,000 MXN</div>
+              <p className="text-concreteGray font-inter text-sm mb-8">Para empezar rápido</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 {["Landing page profesional", "Diseño responsive", "Secciones personalizadas", "Integración con WhatsApp", "Formulario de contacto", "Publicación del sitio"].map((item, i) => (
@@ -381,8 +381,8 @@ const WebAEC: React.FC = () => {
               <div className="absolute top-0 left-0 w-full h-1 bg-electricBlue"></div>
               <div className="font-jetbrains text-xs text-electricBlue mb-4 tracking-widest">CRECER</div>
               <h3 className="font-barlow font-bold text-3xl text-white uppercase mb-2">SITIO CORPORATIVO</h3>
-              <div className="font-jetbrains text-xl text-white mb-6">Desde $15,000 MXN</div>
-              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Constructoras, ingenierías, laboratorios y empresas que necesitan presentar múltiples servicios y proyectos.</p>
+              <div className="font-jetbrains text-xl text-white mb-2">Desde $15,000 MXN</div>
+              <p className="text-concreteGray font-inter text-sm mb-8">Para consolidar tu presencia</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 {["Sitio web corporativo", "Varias secciones/páginas", "Portafolio de proyectos", "Servicios e info empresarial", "Integración con WhatsApp", "Diseño responsive", "Publicación"].map((item, i) => (
@@ -400,8 +400,8 @@ const WebAEC: React.FC = () => {
             <div className="bg-deepBlack border border-steelBlue/30 p-8 flex flex-col h-full hover:border-matteGold transition-colors">
               <div className="font-jetbrains text-xs text-concreteGray mb-4 tracking-widest">DIGITALIZAR</div>
               <h3 className="font-barlow font-bold text-3xl text-matteGold uppercase mb-2">WEB + AUTOMATIZACIÓN</h3>
-              <div className="font-jetbrains text-xl text-white mb-6">Desde $25,000 MXN</div>
-              <p className="text-concreteGray text-sm mb-8 h-12">Ideal para: Empresas que quieren conectar su sitio web con procesos digitales y automatización.</p>
+              <div className="font-jetbrains text-xl text-white mb-2">Desde $25,000 MXN</div>
+              <p className="text-concreteGray font-inter text-sm mb-8">Para digitalizar procesos</p>
               
               <ul className="space-y-3 mb-8 flex-grow">
                 {["Sitio web personalizado", "Integraciones a medida", "Automatizaciones", "Formularios inteligentes", "Integración de IA", "Funcionalidades especiales"].map((item, i) => (
@@ -425,40 +425,32 @@ const WebAEC: React.FC = () => {
           </div>
           
           {/* TIEMPOS ESTIMADOS */}
-          <div className="mt-16 bg-[#0A131F] border border-steelBlue/30 p-8 md:p-12 max-w-4xl mx-auto text-center shadow-xl">
-            <h3 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-8">
-              Tiempos Estimados
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              <div>
-                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Landing AEC</h4>
-                <p className="font-inter text-white font-medium text-lg">Desde 3–5 días</p>
+          <div className="mt-16 max-w-4xl mx-auto text-center">
+            <div className="flex flex-col md:flex-row justify-between items-center gap-4 bg-[#0F2236]/30 border border-steelBlue/30 p-6">
+              <div className="text-left w-full md:w-auto md:text-center">
+                <span className="font-jetbrains text-[#5A8FA8] text-xs tracking-widest uppercase block mb-1">Landing AEC</span>
+                <span className="font-inter text-white text-sm">Desde 3–5 días</span>
               </div>
-              <div>
-                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Sitio Corporativo</h4>
-                <p className="font-inter text-white font-medium text-lg">Desde 1–2 semanas</p>
+              <div className="hidden md:block w-px h-8 bg-steelBlue/30"></div>
+              <div className="text-left w-full md:w-auto md:text-center">
+                <span className="font-jetbrains text-[#5A8FA8] text-xs tracking-widest uppercase block mb-1">Sitio Corporativo</span>
+                <span className="font-inter text-white text-sm">Desde 1–2 semanas</span>
               </div>
-              <div>
-                <h4 className="font-jetbrains text-[#5A8FA8] text-sm tracking-widest uppercase mb-2">Web + Automatización</h4>
-                <p className="font-inter text-white font-medium text-lg">Según alcance y complejidad</p>
+              <div className="hidden md:block w-px h-8 bg-steelBlue/30"></div>
+              <div className="text-left w-full md:w-auto md:text-center">
+                <span className="font-jetbrains text-[#5A8FA8] text-xs tracking-widest uppercase block mb-1">Web + Automatización</span>
+                <span className="font-inter text-white text-sm">Según alcance y complejidad</span>
               </div>
             </div>
-            <p className="font-inter text-xs text-concreteGray/80 mt-6 pt-6 border-t border-white/10">
-              Nota: Los tiempos pueden variar según contenido, revisiones e integraciones requeridas.
-            </p>
           </div>
 
-          <div className="mt-16 bg-deepBlack border border-steelBlue/30 p-8 flex flex-col md:flex-row items-center justify-between gap-6 max-w-4xl mx-auto">
-            <div>
-              <h4 className="font-barlow font-bold text-2xl text-titaniumWhite uppercase tracking-wide mb-2">
-                ¿Necesitas que alguien mantenga tu sitio?
-              </h4>
-              <p className="text-concreteGray text-sm">
-                Podemos ayudarte con actualizaciones, cambios de contenido, mejoras y evolución continua de tu sitio.
-              </p>
-            </div>
-            <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="shrink-0 font-jetbrains text-sm text-electricBlue hover:text-white transition-colors inline-flex items-center uppercase">
-              CONSULTAR MANTENIMIENTO <ArrowRight size={16} className="ml-2" />
+          {/* MANTENIMIENTO */}
+          <div className="mt-4 max-w-4xl mx-auto text-center flex flex-col md:flex-row items-center justify-center gap-3 border border-steelBlue/10 p-4 bg-deepBlack/50">
+            <span className="text-concreteGray font-inter text-sm">
+              ¿Necesitas mantenimiento o mejoras continuas? También puedo ayudarte después de publicar tu sitio.
+            </span>
+            <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="font-jetbrains text-xs text-electricBlue hover:text-white transition-colors inline-flex items-center uppercase font-bold">
+              CONSULTAR MANTENIMIENTO <ArrowRight size={14} className="ml-1" />
             </a>
           </div>
 
