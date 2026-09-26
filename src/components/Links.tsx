@@ -33,7 +33,7 @@ const Links: React.FC = () => {
       <div className="max-w-xl mx-auto px-6 py-12 flex flex-col min-h-screen relative z-10">
         {/* ENCABEZADO */}
         <header className="text-center mb-10 fade-in-section is-visible">
-          <div className="font-barlow font-bold text-xl tracking-[0.2em] text-white/50 mb-6 uppercase">MENDIVIL.BUILD</div>
+          <div className="font-barlow font-bold text-xl tracking-[0.2em] mb-6 uppercase"><span className="text-[#F0F0F0]">MENDIVIL</span><span className="text-[#4A9FD4]">.BUILD</span></div>
           
           <div className="mx-auto w-24 h-24 mb-5 rounded-full overflow-hidden border border-[#4A9FD4]/40 shadow-[0_0_20px_rgba(74,159,212,0.15)] bg-deepBlack">
             <img 
@@ -173,7 +173,7 @@ const Links: React.FC = () => {
         </main>
 
         <footer className="mt-16 pt-8 border-t border-white/5 text-center fade-in-section is-visible delay-400">
-          <div className="font-barlow font-bold text-sm tracking-[0.2em] text-white/40 mb-2 uppercase">MENDIVIL.BUILD</div>
+          <div className="font-barlow font-bold text-sm tracking-[0.2em] mb-2 uppercase"><span className="text-[#F0F0F0]">MENDIVIL</span><span className="text-[#4A9FD4]">.BUILD</span></div>
           <div className="font-jetbrains text-concreteGray/40 text-[10px] tracking-widest uppercase">
             Engineering · Construction · Lean · Applied AI
           </div>
