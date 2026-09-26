@@ -513,7 +513,7 @@ const WebAEC: React.FC = () => {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a 
-              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-jetbrains text-sm tracking-wider py-4 px-8 uppercase font-bold shadow-2xl btn-premium" > SOLICITAR PROPUESTA →
+              href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="inline-flex justify-center items-center bg-[#0F2236] text-white border border-[#4A9FD4]/30 hover:border-[#4A9FD4] hover:bg-deepBlack font-jetbrains text-sm tracking-wider py-4 px-8 uppercase font-bold shadow-2xl btn-premium transition-colors" > SOLICITAR PROPUESTA →
             </a>
           </div>
         </div>
@@ -547,9 +547,9 @@ const WebAEC: React.FC = () => {
                     href={"https://wa.me/message/OMVEQBVAUTQLM1?text=" + encodeURIComponent("Hola Benjamín, estoy interesado en crear un sitio web para mi empresa.")} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-[#4A9FD4]/30 bg-[#0A131F]/60 hover:border-[#4A9FD4] hover:bg-[#0A131F] transition-all group contact-premium"
+                    className="flex items-center justify-start space-x-4 px-6 py-4 border border-[#128C7E]/40 bg-[#0D241E]/80 hover:border-[#25D366] hover:bg-[#12382C] transition-all group contact-premium"
                   >
-                    <MessageCircle size={24} className="text-concreteGray group-hover:text-white transition-colors" />
+                    <MessageCircle size={24} className="text-[#25D366] group-hover:text-white transition-colors" />
                     <div className="flex flex-col">
                       <span className="font-jetbrains text-titaniumWhite text-sm tracking-wider">WhatsApp Business</span>
                       <span className="font-inter text-concreteGray text-xs mt-1">+52 871 217 3821</span>
