@@ -21,11 +21,28 @@ const Links: React.FC = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-deepBlack font-inter text-titaniumWhite overflow-x-hidden selection:bg-electricBlue selection:text-white">
-      <div className="max-w-xl mx-auto px-6 py-12 flex flex-col min-h-screen">
+    <div className="min-h-screen bg-deepBlack font-inter text-titaniumWhite overflow-x-hidden selection:bg-electricBlue selection:text-white relative">
+      
+      {/* FONDO PRINCIPAL Y OVERLAY */}
+      <div 
+        className="fixed inset-0 z-0 bg-cover bg-top bg-no-repeat opacity-40"
+        style={{ backgroundImage: 'url(/links/links_background_crane.webp)' }}
+      ></div>
+      <div className="fixed inset-0 z-0 bg-gradient-to-b from-[#0A131F]/80 via-deepBlack/95 to-deepBlack"></div>
+
+      <div className="max-w-xl mx-auto px-6 py-12 flex flex-col min-h-screen relative z-10">
         {/* ENCABEZADO */}
         <header className="text-center mb-10 fade-in-section is-visible">
-          <div className="font-barlow font-bold text-2xl tracking-[0.2em] text-white mb-2 uppercase">MENDIVIL.BUILD</div>
+          <div className="font-barlow font-bold text-xl tracking-[0.2em] text-white/50 mb-6 uppercase">MENDIVIL.BUILD</div>
+          
+          <div className="mx-auto w-24 h-24 mb-5 rounded-full overflow-hidden border border-[#4A9FD4]/40 shadow-[0_0_20px_rgba(74,159,212,0.15)] bg-deepBlack">
+            <img 
+              src="/links/links_profile_headshot.webp" 
+              alt="Benjamín Mendívil" 
+              className="w-full h-full object-cover"
+            />
+          </div>
+
           <h1 className="font-barlow font-bold text-4xl text-titaniumWhite uppercase tracking-wide mb-3">Benjamín Mendívil</h1>
           <h2 className="font-jetbrains text-electricBlue text-xs tracking-widest uppercase mb-4">Civil Engineer · Construction Manager · Lean + Applied AI</h2>
           <p className="text-concreteGray text-sm max-w-sm mx-auto leading-relaxed">
