@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
@@ -51,6 +51,45 @@ const WebAEC: React.FC = () => {
   const pricingRef = useIntersectionObserver({ threshold: 0.1 });
   const faqRef = useIntersectionObserver({ threshold: 0.1 });
   const ctaRef = useIntersectionObserver({ threshold: 0.1 });
+  const premiumRef = useIntersectionObserver({ threshold: 0.1 });
+  const nazasRef = useIntersectionObserver({ threshold: 0.1 });
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoRef2 = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const video = entry.target as HTMLVideoElement;
+          const sources = video.querySelectorAll('source');
+          let hasChanges = false;
+          sources.forEach(source => {
+            if (source.dataset.src) {
+              source.src = source.dataset.src;
+              source.removeAttribute('data-src');
+              hasChanges = true;
+            }
+          });
+          if (hasChanges) {
+            video.load();
+            if (!prefersReducedMotion) {
+              video.play().catch(e => console.log('Autoplay prevented:', e));
+            }
+          }
+          observer.unobserve(video);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+
+    if (videoRef.current) observer.observe(videoRef.current);
+    if (videoRef2.current) observer.observe(videoRef2.current);
+    
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
 
   return (
     <div className="bg-deepBlack min-h-screen text-titaniumWhite font-inter">
@@ -211,6 +250,66 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
+      {/* 8.5 EFECTOS VISUALES PREMIUM */}
+      <section className="py-24 md:py-32 relative overflow-hidden border-t border-steelBlue/30 min-h-[80vh] flex items-center" ref={premiumRef}>
+        
+        {/* VIDEO BACKGROUND */}
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef}
+            className="w-full h-full object-cover"
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="/web-aec/video/parque-industrial-poster.webp"
+          >
+            <source data-src="/web-aec/video/parque-industrial.webm" type="video/webm" />
+            <source data-src="/web-aec/video/parque-industrial.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* OVERLAYS */}
+        <div className="absolute inset-0 z-10 bg-[#050A10]/40 mix-blend-multiply"></div>
+        <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#0A131F] via-[#0A131F]/95 md:via-[#0A131F]/80 to-[#0A131F]/30 md:to-transparent"></div>
+
+        <div className="container mx-auto px-6 max-w-7xl relative z-20 fade-in-section">
+          <div className="max-w-2xl">
+            <div className="inline-block border border-electricBlue text-electricBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-[#0A131F]/80 backdrop-blur-sm uppercase">
+              EFECTOS VISUALES PREMIUM
+            </div>
+            
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl lg:text-6xl text-titaniumWhite uppercase tracking-wide mb-6 leading-[1.1] drop-shadow-xl">
+              TU SITIO PUEDE VERSE TAN SÓLIDO COMO <br className="hidden md:block" /><span className="text-steelBlue">TUS PROYECTOS.</span>
+            </h2>
+            
+            <p className="font-inter text-white/90 text-lg md:text-xl mb-10 leading-relaxed drop-shadow-md">
+              Integramos recursos visuales de alto impacto para que tu presencia digital no solo informe, sino también proyecte nivel, confianza y aspiración.
+            </p>
+            
+            <ul className="space-y-4 mb-10">
+              {[
+                "Videos de alto impacto",
+                "Motion sections elegantes",
+                "Presentación visual más premium",
+                "Mejor percepción de marca"
+              ].map((item, i) => (
+                <li key={i} className="flex items-center text-white drop-shadow-md">
+                  <CheckCircle2 size={22} className="text-steelBlue mr-3 shrink-0" />
+                  <span className="font-inter text-base md:text-lg font-medium tracking-wide">{item}</span>
+                </li>
+              ))}
+            </ul>
+            
+            <div className="inline-flex bg-[#0A131F]/50 backdrop-blur-md border border-white/10 px-5 py-3 rounded-full shadow-2xl">
+              <p className="font-inter text-xs md:text-sm text-concreteGray">
+                * Disponibles como complemento premium según alcance del proyecto.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 4. DIFERENCIADOR */}
       <section className="py-16 bg-[#0A131F]" ref={diffRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
@@ -347,6 +446,69 @@ const WebAEC: React.FC = () => {
         </div>
       </section>
 
+      {/* 9.5 PROGRESO VISUAL - NAZAS */}
+      <section className="py-24 md:py-32 relative overflow-hidden border-t border-steelBlue/30 min-h-[80vh] flex items-end md:items-center" ref={nazasRef}>
+        
+        {/* VIDEO BACKGROUND */}
+        <div className="absolute inset-0 z-0">
+          <video
+            ref={videoRef2}
+            className="w-full h-full object-cover object-center md:object-[30%_center]"
+            muted
+            loop
+            playsInline
+            preload="none"
+            poster="/web-aec/video/torre-nazas-poster.webp"
+          >
+            <source data-src="/web-aec/video/torre-nazas.webm" type="video/webm" />
+            <source data-src="/web-aec/video/torre-nazas.mp4" type="video/mp4" />
+          </video>
+        </div>
+
+        {/* OVERLAYS */}
+        <div className="absolute inset-0 z-10 bg-[#050A10]/10 mix-blend-multiply"></div>
+        {/* Mobile: dark bottom. Desktop: clear left, dark right */}
+        <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#0A131F] via-[#0A131F]/90 to-transparent md:hidden"></div>
+        <div className="hidden md:block absolute inset-0 z-10 bg-gradient-to-r from-transparent from-20% via-[#0A131F]/50 via-50% to-[#0A131F] to-90%"></div>
+
+        <div className="container mx-auto px-6 max-w-7xl relative z-20 fade-in-section flex md:justify-end w-full">
+          <div className="max-w-2xl md:text-right w-full mt-32 md:mt-0">
+            <div className="inline-block border border-steelBlue text-steelBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-[#0A131F]/80 backdrop-blur-sm uppercase">
+              PROGRESO VISUAL · MOTION
+            </div>
+            
+            <h2 className="font-barlow font-bold text-4xl md:text-5xl lg:text-6xl text-titaniumWhite uppercase tracking-wide mb-6 leading-[1.1] drop-shadow-xl">
+              DE LA VISIÓN A <br className="hidden md:block" /><span className="text-[#4A9FD4]">LA EJECUCIÓN.</span>
+            </h2>
+            
+            <p className="font-inter text-white/90 text-lg md:text-xl mb-10 leading-relaxed drop-shadow-md">
+              Mostramos la evolución de un proyecto de forma visual para comunicar mejor avance, escala y resultado.
+            </p>
+            
+            <ul className="space-y-4 mb-10 flex flex-col md:items-end w-full">
+              {[
+                "Evolución de obra",
+                "Presentaciones para clientes e inversionistas",
+                "Seguimiento visual de proyectos",
+                "Contenido premium para desarrolladores y empresas AEC"
+              ].map((item, i) => (
+                <li key={i} className="flex items-start md:items-center justify-start md:justify-end text-white drop-shadow-md w-full">
+                  <CheckCircle2 size={22} className="text-[#4A9FD4] mr-3 shrink-0 block md:hidden mt-0.5" />
+                  <span className="font-inter text-base md:text-lg font-medium tracking-wide text-left md:text-right flex-1 md:flex-none">{item}</span>
+                  <CheckCircle2 size={22} className="text-[#4A9FD4] ml-3 shrink-0 hidden md:block" />
+                </li>
+              ))}
+            </ul>
+            
+            <div className="inline-flex bg-[#0A131F]/50 backdrop-blur-md border border-white/10 px-5 py-3 rounded-full shadow-2xl">
+              <p className="font-inter text-xs md:text-sm text-concreteGray text-left md:text-right">
+                * Visualizaciones, motion effects y video integrado disponibles como complementos premium según alcance.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 10. INVERSIÓN */}
       <section className="py-24 bg-[#0A131F] border-t border-steelBlue/30" ref={pricingRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
@@ -418,9 +580,12 @@ const WebAEC: React.FC = () => {
 
           </div>
 
-          <div className="text-center">
+          <div className="text-center space-y-3">
             <p className="text-concreteGray text-xs font-jetbrains">
               * Los precios son de referencia y pueden variar dependiendo del alcance, número de páginas, funcionalidades e integraciones requeridas.
+            </p>
+            <p className="text-[#5A8FA8] text-xs font-jetbrains">
+              * Complementos opcionales: motion visuals, efectos premium, edición de video, recursos visuales avanzados e integraciones especiales.
             </p>
           </div>
           
