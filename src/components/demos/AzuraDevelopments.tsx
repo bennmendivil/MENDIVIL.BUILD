@@ -29,27 +29,27 @@ const dict = {
           id: "azura-cabo",
           name: "AZURA CABO RESIDENCES",
           loc: "Los Cabos, Baja California Sur, México",
-          type: "Luxury Residential",
+          type: "Residencial de lujo",
           concept: "Colección de villas contemporáneas integradas al paisaje desértico y al océano.",
-          prog: ["24 VILLAS", "3–5 BEDROOMS", "320–580 m²", "PRIVATE POOLS", "OCEAN VIEWS"],
+          prog: ["24 VILLAS", "3–5 HABITACIONES", "320–580 m²", "ALBERCAS PRIVADAS", "VISTAS AL MAR"],
           img: "/demos/azura/azura_hero_cabo_1789443796677.png"
         },
         {
           id: "casa-mar",
           name: "CASA MAR CARIBBEAN",
           loc: "Riviera Maya, Quintana Roo, México",
-          type: "Tropical Residential",
+          type: "Residencial tropical",
           concept: "Residencias contemporáneas diseñadas alrededor de vegetación tropical, agua y vida interior/exterior.",
-          prog: ["18 RESIDENCES", "2–4 BEDROOMS", "210–420 m²", "PRIVATE TERRACES", "RESORT AMENITIES"],
+          prog: ["18 RESIDENCIAS", "2–4 HABITACIONES", "210–420 m²", "TERRAZAS PRIVADAS", "AMENIDADES RESORT"],
           img: "/demos/azura/casa-mar-caribbean-villa.webp"
         },
         {
           id: "sierra-valle",
           name: "SIERRA VALLE",
           loc: "Valle de Guadalupe, Baja California, México",
-          type: "Low Density Residential",
+          type: "Baja densidad",
           concept: "Residencias de baja densidad integradas al paisaje natural del valle.",
-          prog: ["14 RESIDENCES", "2–4 BEDROOMS", "240–460 m²", "PRIVATE COURTYARDS", "LANDSCAPE VIEWS"],
+          prog: ["14 RESIDENCIAS", "2–4 HABITACIONES", "240–460 m²", "PATIOS PRIVADOS", "VISTAS AL PAISAJE"],
           img: "/demos/azura/azura_sierra_1789444623454.png"
         }
       ]
@@ -92,12 +92,12 @@ const dict = {
       title: "Desarrollo con disciplina.",
       disclaimer: "Información financiera conceptual utilizada exclusivamente para demostración. No constituye una oferta, recomendación ni oportunidad real de inversión.",
       data: [
-        { label: "DEVELOPMENT COST", val: "$420 M MXN" },
-        { label: "PROJECTED REVENUE", val: "$565 M MXN" },
-        { label: "PROJECTED DEVELOPMENT MARGIN", val: "25.7%" },
-        { label: "AVERAGE RESIDENCE VALUE", val: "$23.5 M MXN" },
-        { label: "PROJECTED ABSORPTION", val: "24 MONTHS" },
-        { label: "CONSTRUCTION PERIOD", val: "20 MONTHS" }
+        { label: "COSTO DE DESARROLLO", val: "$420 M MXN" },
+        { label: "INGRESO PROYECTADO", val: "$565 M MXN" },
+        { label: "MARGEN PROYECTADO", val: "25.7%" },
+        { label: "VALOR PROMEDIO POR RESIDENCIA", val: "$23.5 M MXN" },
+        { label: "ABSORCIÓN PROYECTADA", val: "24 MESES" },
+        { label: "PERIODO DE CONSTRUCCIÓN", val: "20 MESES" }
       ]
     },
     opp: {
@@ -111,7 +111,7 @@ const dict = {
         phone: "TELÉFONO",
         interest: "INTERÉS",
         msg: "MENSAJE",
-        btn: "SOLICITAR INFORMACIÓN →",
+        btn: "SOLICITAR INFORMACIÓN",
         success: "DEMO — En un desarrollo real esta solicitud sería enviada al equipo comercial."
       },
       info: {
@@ -232,7 +232,7 @@ const dict = {
         phone: "PHONE",
         interest: "INTEREST",
         msg: "MESSAGE",
-        btn: "REQUEST INFORMATION →",
+        btn: "REQUEST INFORMATION",
         success: "DEMO — In a real development, this request would be sent to the sales team."
       },
       info: {
@@ -270,10 +270,10 @@ const galleryImages = [
 ];
 
 const masterplanHotspots = [
-  { id: 1, top: "45%", left: "30%", state: "avail", label: "VILLA 03", beds: "4 BEDROOMS", baths: "4.5 BATHROOMS", area: "465 m²", views: "OCEAN VIEW" },
+  { id: 1, top: "28%", left: "42%", state: "avail", label: "VILLA 03", beds: "4 BEDROOMS", baths: "4.5 BATHROOMS", area: "465 m²", views: "OCEAN VIEW" },
   { id: 2, top: "60%", left: "65%", state: "sold", label: "VILLA 14", beds: "5 BEDROOMS", baths: "5.5 BATHROOMS", area: "580 m²", views: "PANORAMIC OCEAN" },
-  { id: 3, top: "75%", left: "40%", state: "res", label: "VILLA 08", beds: "3 BEDROOMS", baths: "3.5 BATHROOMS", area: "320 m²", views: "LANDSCAPE VIEW" },
-  { id: 4, top: "35%", left: "55%", state: "avail", label: "VILLA 21", beds: "4 BEDROOMS", baths: "4.5 BATHROOMS", area: "480 m²", views: "OCEAN VIEW" },
+  { id: 3, top: "76%", left: "35%", state: "res", label: "VILLA 08", beds: "3 BEDROOMS", baths: "3.5 BATHROOMS", area: "320 m²", views: "LANDSCAPE VIEW" },
+  { id: 4, top: "42%", left: "78%", state: "avail", label: "VILLA 21", beds: "4 BEDROOMS", baths: "4.5 BATHROOMS", area: "480 m²", views: "OCEAN VIEW" },
 ];
 
 export default function AzuraDevelopments() {
@@ -355,7 +355,7 @@ export default function AzuraDevelopments() {
     <div className="min-h-screen bg-[#FDFDFD] text-[#1A1A1A] font-inter selection:bg-[#003B5C] selection:text-white">
       
       {/* LABEL */}
-      <div className="fixed top-24 right-4 md:right-8 z-50 pointer-events-none flex justify-end">
+      <div className="fixed bottom-6 right-6 md:bottom-8 md:right-8 z-50 pointer-events-none flex justify-end">
         <div className="bg-[#1A1A1A] text-white/90 text-[10px] md:text-xs font-mono font-medium tracking-widest px-3 md:px-4 py-2 uppercase shadow-xl backdrop-blur-sm border border-white/10">
           {language === 'ES' ? 'DEMO · EMPRESA FICTICIA' : 'DEMO · FICTIONAL COMPANY'}
         </div>
@@ -454,8 +454,8 @@ export default function AzuraDevelopments() {
       </section>
 
       {/* MANIFESTO */}
-      <section className="py-32 md:py-48 px-6 md:px-16 max-w-[1600px] mx-auto bg-[#FDFDFD]">
-        <div className="flex flex-col md:flex-row items-center gap-16 md:gap-32">
+      <section className="py-24 md:py-32 px-6 md:px-16 max-w-[1600px] mx-auto bg-[#FDFDFD]">
+        <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
           <div className="w-full md:w-1/2">
             <h2 className="text-3xl md:text-5xl font-light leading-tight text-[#1A1A1A] mb-8 whitespace-pre-line tracking-tight">
               {t.manifesto.h2}
@@ -530,33 +530,42 @@ export default function AzuraDevelopments() {
             <img src={images.masterplan} alt="Azura Cabo Masterplan" loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700" />
             
             {/* Interactive Hotspots */}
-            {masterplanHotspots.map((spot, i) => (
-              <div 
-                key={i} 
-                className="absolute w-6 h-6 -ml-3 -mt-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/40"
-                style={{ top: spot.top, left: spot.left }}
-                onMouseEnter={() => setActiveHotspot(spot.id)}
-                onMouseLeave={() => setActiveHotspot(null)}
-              >
-                <div className={`w-2 h-2 rounded-full ${spot.state === 'avail' ? 'bg-[#003B5C]' : spot.state === 'res' ? 'bg-[#F59E0B]' : 'bg-[#EF4444]'}`}></div>
-                
-                {/* Tooltip */}
-                <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-64 bg-white text-[#1A1A1A] p-6 shadow-2xl transition-all duration-300 pointer-events-none ${activeHotspot === spot.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-                  <div className="flex justify-between items-center mb-4 border-b border-[#EAEAEA] pb-4">
-                    <span className="font-bold tracking-tight text-lg">{spot.label}</span>
-                    <span className={`text-[9px] font-mono tracking-widest px-2 py-1 uppercase ${spot.state === 'avail' ? 'bg-[#F0F9FF] text-[#003B5C]' : spot.state === 'res' ? 'bg-[#FFFBEB] text-[#F59E0B]' : 'bg-[#FEF2F2] text-[#EF4444]'}`}>
-                      {t.masterplan.states[spot.state as keyof typeof t.masterplan.states]}
-                    </span>
-                  </div>
-                  <div className="space-y-2 font-mono text-[10px] tracking-widest text-[#525252] uppercase">
-                    <div className="flex justify-between"><span>BEDROOMS</span><span className="text-[#1A1A1A]">{spot.beds}</span></div>
-                    <div className="flex justify-between"><span>BATHROOMS</span><span className="text-[#1A1A1A]">{spot.baths}</span></div>
-                    <div className="flex justify-between"><span>AREA</span><span className="text-[#1A1A1A]">{spot.area}</span></div>
-                    <div className="flex justify-between pt-2 mt-2 border-t border-[#EAEAEA] text-[#1A1A1A]">{spot.views}</div>
+            {masterplanHotspots.map((spot, i) => {
+              const translatedSpot = language === 'ES' ? {
+                ...spot,
+                beds: spot.beds.replace('BEDROOMS', 'HABITACIONES'),
+                baths: spot.baths.replace('BATHROOMS', 'BAÑOS'),
+                views: spot.views.replace('OCEAN VIEW', 'VISTA AL MAR').replace('PANORAMIC OCEAN', 'OCÉANO PANORÁMICO').replace('LANDSCAPE VIEW', 'VISTA AL PAISAJE')
+              } : spot;
+              
+              return (
+                <div 
+                  key={i} 
+                  className="absolute w-6 h-6 -ml-3 -mt-3 rounded-full border border-white/50 bg-white/20 backdrop-blur-sm flex items-center justify-center transition-all duration-300 hover:scale-110 hover:bg-white/40"
+                  style={{ top: spot.top, left: spot.left }}
+                  onMouseEnter={() => setActiveHotspot(spot.id)}
+                  onMouseLeave={() => setActiveHotspot(null)}
+                >
+                  <div className={`w-2 h-2 rounded-full ${spot.state === 'avail' ? 'bg-[#003B5C]' : spot.state === 'res' ? 'bg-[#F59E0B]' : 'bg-[#EF4444]'}`}></div>
+                  
+                  {/* Tooltip */}
+                  <div className={`absolute bottom-full mb-4 left-1/2 -translate-x-1/2 w-64 bg-white text-[#1A1A1A] p-6 shadow-2xl transition-all duration-300 pointer-events-none ${activeHotspot === spot.id ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+                    <div className="flex justify-between items-center mb-4 border-b border-[#EAEAEA] pb-4">
+                      <span className="font-bold tracking-tight text-lg">{spot.label}</span>
+                      <span className={`text-[9px] font-mono tracking-widest px-2 py-1 uppercase ${spot.state === 'avail' ? 'bg-[#F0F9FF] text-[#003B5C]' : spot.state === 'res' ? 'bg-[#FFFBEB] text-[#F59E0B]' : 'bg-[#FEF2F2] text-[#EF4444]'}`}>
+                        {t.masterplan.states[spot.state as keyof typeof t.masterplan.states]}
+                      </span>
+                    </div>
+                    <div className="space-y-2 font-mono text-[10px] tracking-widest text-[#525252] uppercase">
+                      <div className="flex justify-between"><span>{language === 'ES' ? 'HABITACIONES' : 'BEDROOMS'}</span><span className="text-[#1A1A1A]">{translatedSpot.beds}</span></div>
+                      <div className="flex justify-between"><span>{language === 'ES' ? 'BAÑOS' : 'BATHROOMS'}</span><span className="text-[#1A1A1A]">{translatedSpot.baths}</span></div>
+                      <div className="flex justify-between"><span>{language === 'ES' ? 'ÁREA' : 'AREA'}</span><span className="text-[#1A1A1A]">{translatedSpot.area}</span></div>
+                      <div className="flex justify-between pt-2 mt-2 border-t border-[#EAEAEA] text-[#1A1A1A]">{translatedSpot.views}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
           
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center text-[#A3A3A3]">
@@ -738,11 +747,11 @@ export default function AzuraDevelopments() {
               const btn = e.currentTarget.querySelector('button');
               const orig = btn?.innerHTML;
               if(btn) btn.innerHTML = `<span class="flex items-center justify-center">${t.contact.form.success}</span>`;
-              if(btn) btn.className = "w-full bg-black text-white text-xs font-mono tracking-[0.2em] px-8 py-5 uppercase transition-all";
+              if(btn) btn.className = "w-full bg-[#1A1A1A] text-white text-xs font-mono tracking-[0.2em] px-8 py-5 uppercase transition-all duration-500 border border-[#1A1A1A]";
               setTimeout(() => {
                 if(btn && orig) {
                   btn.innerHTML = orig;
-                  btn.className = "w-full bg-[#1A1A1A] text-white text-xs font-medium tracking-[0.2em] px-8 py-5 uppercase hover:bg-[#003B5C] transition-colors";
+                  btn.className = "group w-full bg-[#1A1A1A] text-white text-xs font-medium tracking-[0.2em] px-8 py-5 uppercase hover:bg-white hover:text-[#1A1A1A] border border-[#1A1A1A] transition-all duration-500 flex items-center justify-center gap-3";
                   (e.target as HTMLFormElement).reset();
                 }
               }, 4000);
@@ -774,8 +783,8 @@ export default function AzuraDevelopments() {
                 <label className="text-[10px] font-mono tracking-[0.2em] uppercase text-[#737373]">{t.contact.form.msg}</label>
                 <textarea rows={3} className="border-b border-[#D4D4D4] py-2 bg-transparent focus:outline-none focus:border-[#1A1A1A] transition-colors resize-none"></textarea>
               </div>
-              <button type="submit" className="w-full bg-[#1A1A1A] text-white text-xs font-medium tracking-[0.2em] px-8 py-5 uppercase hover:bg-[#003B5C] transition-colors">
-                {t.contact.form.btn}
+              <button type="submit" className="group w-full bg-[#1A1A1A] text-white text-xs font-medium tracking-[0.2em] px-8 py-5 uppercase hover:bg-white hover:text-[#1A1A1A] border border-[#1A1A1A] transition-all duration-500 flex items-center justify-center gap-3">
+                {t.contact.form.btn} <span className="transition-transform duration-500 group-hover:translate-x-2">→</span>
               </button>
             </form>
           </div>
