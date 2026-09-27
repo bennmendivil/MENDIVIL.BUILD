@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../../context/LanguageContext';
 import { 
   Menu, X, ChevronRight, ChevronLeft
@@ -72,6 +72,12 @@ const dict = {
     },
     lifestyle: {
       title: "Una forma diferente de vivir.",
+    },
+    premiumLifestyle: {
+      tag: "LIFESTYLE · AZURA",
+      title: "VIVIR EL PROYECTO ANTES DE HABITARLO.",
+      desc: "Espacios, vistas y experiencias que comunican el valor de un desarrollo más allá de sus metros cuadrados.",
+      bullets: ["Lifestyle", "Amenidades", "Arquitectura", "Experiencia residencial"]
     },
     location: {
       title: "Los Cabos, naturalmente.",
@@ -188,6 +194,12 @@ const dict = {
     lifestyle: {
       title: "Life, considered.",
     },
+    premiumLifestyle: {
+      tag: "LIFESTYLE · AZURA",
+      title: "LIVING THE PROJECT BEFORE IT'S BUILT.",
+      desc: "Spaces, views, and experiences that communicate the value of a development beyond its square meters.",
+      bullets: ["Lifestyle", "Amenities", "Architecture", "Residential experience"]
+    },
     location: {
       title: "Los Cabos, naturally.",
       disclaimer: "Conceptual location for demonstration purposes.",
@@ -271,7 +283,49 @@ export default function AzuraDevelopments() {
   const [activeHotspot, setActiveHotspot] = useState<number | null>(null);
   const [galleryIndex, setGalleryIndex] = useState<number | null>(null);
   
+  const terraceSectionRef = useRef<HTMLElement>(null);
+  const terraceVideoRef = useRef<HTMLVideoElement>(null);
+  
   const t = dict[language as keyof typeof dict];
+
+  useEffect(() => {
+    // Lazy load terrace video
+    if (!terraceSectionRef.current || !terraceVideoRef.current) return;
+    
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (isReducedMotion) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && terraceVideoRef.current) {
+          const video = terraceVideoRef.current;
+          const sources = video.querySelectorAll('source');
+          let hasLoaded = false;
+          sources.forEach(source => {
+            const dataSrc = source.getAttribute('data-src');
+            if (dataSrc && source.src !== dataSrc) {
+              source.src = dataSrc;
+              hasLoaded = true;
+            }
+          });
+          if (hasLoaded) {
+            video.load();
+            const playPromise = video.play();
+            if (playPromise !== undefined) playPromise.catch(() => {});
+          } else {
+            const playPromise = video.play();
+            if (playPromise !== undefined) playPromise.catch(() => {});
+          }
+        } else if (!entry.isIntersecting && terraceVideoRef.current) {
+          terraceVideoRef.current.pause();
+        }
+      });
+    }, { rootMargin: '200px' });
+    
+    observer.observe(terraceSectionRef.current);
+    
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     document.title = "AZURA DEVELOPMENTS | Premium Real Estate";
@@ -356,11 +410,24 @@ export default function AzuraDevelopments() {
 
       {/* HERO */}
       <section className="relative w-full h-[100svh] overflow-hidden bg-[#1A1A1A]">
-        {/* Cinematic zoom animation on image */}
-        <div className="absolute inset-0 z-0">
-          <img src={images.hero} alt="Azura Cabo" className="w-full h-full object-cover animate-[cinematicZoom_30s_ease-out_forwards] brightness-[0.85]" />
-          {/* Subtle gradient overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
+        {/* Cinematic zoom animation on video */}
+        <div className="absolute inset-0 z-0 bg-[#1A1A1A]">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/demos/azura/videos/azura-hero-villa-poster.webp"
+            className="w-full h-full object-cover object-center animate-[cinematicZoom_30s_ease-out_forwards]"
+          >
+            <source src="/demos/azura/videos/azura-hero-villa.webm" type="video/webm" />
+            <source src="/demos/azura/videos/azura-hero-villa.mp4" type="video/mp4" />
+          </video>
+          {/* Base navy/black tint for premium feel, kept light (20%) */}
+          <div className="absolute inset-0 bg-[#070D14]/20 mix-blend-multiply"></div>
+          {/* Gradients: bottom/top for mobile/desktop readability, plus a left-to-right gradient on desktop */}
+          <div className="absolute inset-0 bg-gradient-to-t from-[#070D14]/80 via-transparent to-[#070D14]/40"></div>
+          <div className="hidden md:block absolute inset-0 bg-gradient-to-r from-[#070D14]/60 via-[#070D14]/10 to-transparent"></div>
         </div>
 
         <div className="relative z-10 h-full flex flex-col justify-end pb-24 md:pb-32 px-6 md:px-16 max-w-[1600px] mx-auto text-white">
@@ -553,6 +620,58 @@ export default function AzuraDevelopments() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* PREMIUM LIFESTYLE VIDEO SECTION */}
+      <section 
+        ref={terraceSectionRef}
+        className="relative w-full h-[80vh] md:h-auto overflow-hidden bg-[#1A1A1A] md:bg-[#FDFDFD] md:py-32 border-t border-[#EAEAEA]"
+      >
+        <div className="md:max-w-[1600px] md:mx-auto md:px-16 flex flex-col md:flex-row items-center h-full">
+          
+          {/* VIDEO CONTAINER: Absolute on mobile, static 4/5 aspect container on desktop */}
+          <div className="absolute inset-0 z-0 md:relative md:w-1/2 md:aspect-[4/5] md:shadow-2xl md:order-2 md:overflow-hidden group md:bg-[#EAEAEA]">
+            <video
+              ref={terraceVideoRef}
+              className="w-full h-full object-cover object-center transition-transform duration-1000 md:group-hover:scale-105"
+              muted
+              loop
+              playsInline
+              preload="none"
+              poster="/demos/azura/videos/azura-lifestyle-terrace-poster.webp"
+            >
+              <source data-src="/demos/azura/videos/azura-lifestyle-terrace.webm" type="video/webm" />
+              <source data-src="/demos/azura/videos/azura-lifestyle-terrace.mp4" type="video/mp4" />
+            </video>
+            {/* Overlays: visible only on mobile */}
+            <div className="absolute inset-0 z-10 bg-[#1A1512]/30 mix-blend-multiply md:hidden"></div>
+            <div className="absolute inset-0 z-10 bg-gradient-to-t from-[#1A1512]/80 via-transparent to-[#1A1512]/30 md:hidden"></div>
+          </div>
+
+          {/* TEXT CONTAINER: Bottom text on mobile, left column on desktop */}
+          <div className="relative z-20 h-full w-full flex flex-col justify-end px-6 pb-24 md:pb-0 md:justify-center md:w-1/2 md:pr-24 md:order-1 text-white md:text-[#1A1A1A]">
+            <div className="max-w-4xl text-center md:text-left mx-auto md:mx-0">
+              <span className="text-[10px] md:text-xs font-mono tracking-[0.3em] uppercase opacity-90 md:opacity-50 mb-6 block drop-shadow-md md:drop-shadow-none md:text-[#737373]">
+                {t.premiumLifestyle.tag}
+              </span>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-light leading-[1.1] mb-8 drop-shadow-lg md:drop-shadow-none tracking-tight">
+                {t.premiumLifestyle.title}
+              </h2>
+              <p className="text-lg md:text-xl font-light text-white/90 md:text-[#525252] max-w-2xl mx-auto md:mx-0 mb-10 drop-shadow-md md:drop-shadow-none leading-relaxed">
+                {t.premiumLifestyle.desc}
+              </p>
+              <div className="flex flex-wrap justify-center md:justify-start gap-4 text-[10px] font-mono tracking-widest uppercase opacity-80 md:opacity-100 md:text-[#1A1A1A]">
+                {t.premiumLifestyle.bullets.map((bullet, idx) => (
+                  <span key={idx} className="flex items-center gap-4">
+                    {idx > 0 && <span className="w-1 h-1 rounded-full bg-white/50 md:bg-[#D4D4D4]"></span>}
+                    {bullet}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+          
         </div>
       </section>
 
