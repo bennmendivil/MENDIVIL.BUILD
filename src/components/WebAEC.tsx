@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 
 import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { VERTICE_DEMO_URL } from '../config/vertice';
 import { 
   CheckCircle2, ChevronDown, 
   ArrowRight, ShieldCheck, Check, MessageCircle, Mail
@@ -169,6 +170,45 @@ const WebAEC: React.FC = () => {
             <h2 className="font-barlow font-bold text-4xl md:text-5xl text-[#F0F0F0] uppercase tracking-wide mb-4">¿CÓMO PODRÍA VERSE TU EMPRESA?</h2>
             <p className="font-inter text-lg text-[#5A8FA8]">Explora ejemplos conceptuales diseñados para distintos perfiles del sector AEC.</p>
           </div>
+
+          <article aria-labelledby="vertice-demo-title" className="group mb-10 overflow-hidden border border-[#4A9FD4]/40 bg-[#0F2236] shadow-xl transition-[border-color,box-shadow] duration-300 hover:border-[#4A9FD4]/80 hover:shadow-[0_12px_40px_rgba(74,159,212,0.12)] motion-reduce:transition-none">
+            <div className="grid lg:grid-cols-[1.2fr_1fr]">
+              <div className="relative overflow-hidden border-b border-[#4A9FD4]/20 bg-[#080B10] lg:border-b-0 lg:border-r">
+                <img
+                  src="/web-aec/demos/demo_vertice_desktop.webp"
+                  alt="Captura real de la landing VÉRTICE: arquitectura contemporánea y presentación inmersiva de proyectos."
+                  width={1440}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                  className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
+                />
+                <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B10]/20 to-transparent" />
+              </div>
+              <div className="flex flex-col items-start justify-center p-6 sm:p-10 lg:p-12">
+                <span className="mb-6 inline-flex border border-[#4A9FD4]/40 bg-[#4A9FD4]/10 px-3 py-2 font-jetbrains text-[10px] tracking-[0.16em] text-[#8CC9ED] sm:text-xs">
+                  EXPERIENCIA WEB PREMIUM
+                </span>
+                <h3 id="vertice-demo-title" className="mb-3 font-barlow text-4xl font-bold tracking-wide text-[#F0F0F0] sm:text-5xl">VÉRTICE</h3>
+                <p className="mb-5 max-w-sm font-inter text-sm leading-relaxed text-[#8CC9ED]">
+                  Arquitectura, ingeniería y desarrollo inmobiliario.
+                </p>
+                <p className="mb-8 max-w-md font-inter text-base leading-relaxed text-[#F0F0F0]/75">
+                  Diseño inmersivo, animaciones cinematográficas e interacción avanzada para explorar una nueva perspectiva del sector AEC.
+                </p>
+                {VERTICE_DEMO_URL ? (
+                  <a href={VERTICE_DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 border border-[#4A9FD4] bg-[#4A9FD4] px-6 py-4 font-barlow text-sm font-bold tracking-widest text-deepBlack transition-colors hover:border-[#8CC9ED] hover:bg-[#8CC9ED] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8CC9ED] motion-reduce:transition-none">
+                    EXPLORAR DEMO <ArrowRight aria-hidden="true" className="h-4 w-4" />
+                  </a>
+                ) : (
+                  <button type="button" disabled className="inline-flex cursor-not-allowed items-center justify-center border border-[#4A9FD4]/35 bg-[#4A9FD4]/10 px-6 py-4 font-barlow text-sm font-bold tracking-widest text-[#8CC9ED]/80">
+                    PRÓXIMAMENTE
+                  </button>
+                )}
+                <p className="mt-5 font-jetbrains text-[10px] uppercase tracking-widest text-[#F0F0F0]/50">Demo conceptual · Empresa ficticia</p>
+              </div>
+            </div>
+          </article>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
             {/* TARJETA 1 */}
