@@ -1,3 +1,6 @@
+.linksCTA { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; transition: color 0.2s ease; }
+.linksCTA:hover { color: #4a9fd4; }
+.linksCTA svg { flex-shrink: 0; }
 .footer a:focus-visible { outline: 2px solid #8bc6e9; outline-offset: 5px; border-radius: 2px; }
 .footer nav { max-width: 100%; }
 @media (prefers-reduced-motion: reduce) {

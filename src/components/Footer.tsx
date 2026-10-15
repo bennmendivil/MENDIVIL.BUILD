@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { MessageCircle } from 'lucide-react';
+import { ArrowUpRight, MessageCircle } from 'lucide-react';
 import Logo from './Logo';
 import { getSiteNavigation, respectReducedMotion } from './siteNavigation';
 import styles from './Footer.module.css';
@@ -110,9 +110,10 @@ const Footer: React.FC = () => {
                 {t.footer.available.replace('● ', '')}
               </span>
             </div>
-            <p className="font-inter text-sm text-titaniumWhite">
-              {t.footer.degree}
-            </p>
+            <a href="https://mendivil.build/links" className={`${styles.linksCTA} font-inter text-sm text-titaniumWhite`}>
+              <span>{language === 'ES' ? 'EXPLORAR MIS ENLACES' : 'EXPLORE MY LINKS'}</span>
+              <ArrowUpRight size={16} aria-hidden="true" focusable="false" />
+            </a>
           </div>
 
         </div>

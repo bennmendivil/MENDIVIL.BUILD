@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { homeImageDimensions } from './home/imageMetadata';
+import { optimizedProjectImages, projectImageSizes } from './home/projectImages';
 
 type Tab = 'INDUSTRIAL' | 'HOSPITALARIO' | 'COMERCIAL';
 
@@ -164,7 +165,9 @@ const Portfolio: React.FC = () => {
                   {project.images.map((img, i) => (
                     <div key={i} className="group relative overflow-hidden rounded-[6px] cursor-pointer">
                       <img 
-                        src={img} 
+                        src={optimizedProjectImages[img]?.src ?? img}
+                        srcSet={optimizedProjectImages[img]?.srcSet}
+                        sizes={optimizedProjectImages[img] ? projectImageSizes : undefined}
                         alt={`${project.title} photo ${i + 1}`} 
                         loading="lazy"
                         decoding="async"
