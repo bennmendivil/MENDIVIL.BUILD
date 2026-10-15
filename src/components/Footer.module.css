@@ -1,0 +1,7 @@
+.footer a:focus-visible { outline: 2px solid #8bc6e9; outline-offset: 5px; border-radius: 2px; }
+.footer nav { max-width: 100%; }
+@media (prefers-reduced-motion: reduce) {
+  .footer a { transition: none; }
+  .footer a:hover { transform: none; }
+  .footer :global(.animate-ping) { animation: none; }
+}

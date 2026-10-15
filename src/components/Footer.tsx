@@ -2,6 +2,8 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { MessageCircle } from 'lucide-react';
 import Logo from './Logo';
+import { getSiteNavigation, respectReducedMotion } from './siteNavigation';
+import styles from './Footer.module.css';
 
 const TikTokIcon = ({ size = 24 }: { size?: number }) => (
   <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -39,10 +41,11 @@ const YoutubeIcon = ({ size = 24 }: { size?: number }) => (
 );
 
 const Footer: React.FC = () => {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const { links } = getSiteNavigation(window.location.pathname);
 
   return (
-    <footer className="bg-deepBlack pt-16 pb-8 border-t-4 border-matteGold rounded-t-3xl mt-[-20px] relative z-20">
+    <footer className={`${styles.footer} bg-deepBlack pt-16 pb-8 border-t-4 border-matteGold rounded-t-3xl mt-[-20px] relative z-20`}>
       {/* SVG Definitions */}
       <svg width="0" height="0" className="absolute">
         <defs>
@@ -57,48 +60,47 @@ const Footer: React.FC = () => {
       </svg>
       <div className="container mx-auto px-6">
         
-        <div className="flex flex-col md:flex-row justify-between items-center md:items-start border-b border-titaniumWhite/10 pb-12 mb-8 gap-8">
+        <div className="flex flex-col xl:flex-row justify-between items-center xl:items-start border-b border-titaniumWhite/10 pb-12 mb-8 gap-8">
           
           {/* Brand */}
-          <div className="text-center md:text-left">
-            <a href="#" className="inline-block mb-4">
+          <div className="min-w-0 text-center xl:text-left xl:max-w-[340px]">
+            <a href="/" className="inline-block mb-4">
               <Logo size="lg" />
             </a>
             <p className="font-jetbrains text-titaniumWhite/80 text-sm italic mb-6">
               "{t.footer.slogan}"
             </p>
-            <div className="flex justify-center md:justify-start items-center space-x-6">
-              <a href="https://www.instagram.com/mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white [&:hover_svg]:[stroke:url(#ig-grad-footer)] transition-all duration-300 hover:scale-110">
+            <div className="flex justify-center xl:justify-start items-center space-x-6">
+              <a aria-label="Instagram" href="https://www.instagram.com/mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white [&:hover_svg]:[stroke:url(#ig-grad-footer)] transition-all duration-300 hover:scale-110">
                 <InstagramIcon size={24} />
               </a>
-              <a href="https://www.facebook.com/share/1DeBT3qsub/" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#1877F2] transition-all duration-300 hover:scale-110">
+              <a aria-label="Facebook" href="https://www.facebook.com/share/1DeBT3qsub/" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#1877F2] transition-all duration-300 hover:scale-110">
                 <FacebookIcon size={24} />
               </a>
-              <a href="https://www.tiktok.com/@mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white transition-all duration-300 hover:scale-110">
+              <a aria-label="TikTok" href="https://www.tiktok.com/@mendivil.build" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-white transition-all duration-300 hover:scale-110">
                 <TikTokIcon size={24} />
               </a>
-              <a href="https://wa.me/message/OMVEQBVAUTQLM1" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
+              <a aria-label="WhatsApp" href="https://wa.me/message/OMVEQBVAUTQLM1" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#25D366] transition-all duration-300 hover:scale-110">
                 <MessageCircle size={24} />
               </a>
-              <a href="https://linkedin.com/in/benjamín-mendívil-hernández-4a0065158" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#0077B5] transition-all duration-300 hover:scale-110">
+              <a aria-label="LinkedIn" href="https://linkedin.com/in/benjamín-mendívil-hernández-4a0065158" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#0077B5] transition-all duration-300 hover:scale-110">
                 <LinkedinIcon size={24} />
               </a>
-              <a href="https://www.youtube.com/channel/UCqH3-iUphsyJJ_31JretqoQ" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#FF0000] transition-all duration-300 hover:scale-110">
+              <a aria-label="YouTube" href="https://www.youtube.com/channel/UCqH3-iUphsyJJ_31JretqoQ" target="_blank" rel="noopener noreferrer" className="text-[#5A8FA8] hover:text-[#FF0000] transition-all duration-300 hover:scale-110">
                 <YoutubeIcon size={24} />
               </a>
             </div>
           </div>
 
           {/* Links */}
-          <div className="flex flex-wrap justify-center gap-6">
-            <a href="#projects" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.projects}</a>
-            <a href="#services" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.services}</a>
-            <a href="#lean-ai" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.leanAi}</a>
-            <a href="#contact" className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav.contact}</a>
-          </div>
+          <nav aria-label={language === 'ES' ? 'Navegación del pie de página' : 'Footer navigation'} className="flex flex-wrap justify-center gap-6">
+            {(['projects', 'services', 'leanAi', 'contact'] as const).map((key) => (
+              <a key={key} href={links.find((link) => link.key === key)!.href} onClick={respectReducedMotion} className="font-inter text-sm font-medium text-concreteGray hover:text-matteGold transition-colors">{t.nav[key]}</a>
+            ))}
+          </nav>
 
           {/* Status */}
-          <div className="text-center md:text-right">
+          <div className="text-center xl:text-right">
             <div className="inline-flex items-center space-x-2 bg-[#12121E] px-4 py-2 rounded-full mb-4">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>

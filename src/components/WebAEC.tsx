@@ -1,8 +1,10 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 
 import { useForm, ValidationError } from '@formspree/react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
-import { VERTICE_DEMO_URL } from '../config/vertice';
+import DemoCatalog from './web-aec/DemoCatalog';
+import WebAECHero from './web-aec/WebAECHero';
+import DeferredBackgroundVideo from './web-aec/DeferredBackgroundVideo';
 import { 
   CheckCircle2, ChevronDown, 
   ArrowRight, ShieldCheck, Check, MessageCircle, Mail
@@ -42,7 +44,6 @@ const WebAEC: React.FC = () => {
     }
   };
 
-  const heroRef = useIntersectionObserver({ threshold: 0.1 });
   const problemRef = useIntersectionObserver({ threshold: 0.1 });
   const diffRef = useIntersectionObserver({ threshold: 0.1 });
   const whoRef = useIntersectionObserver({ threshold: 0.1 });
@@ -54,78 +55,11 @@ const WebAEC: React.FC = () => {
   const ctaRef = useIntersectionObserver({ threshold: 0.1 });
   const premiumRef = useIntersectionObserver({ threshold: 0.1 });
   const nazasRef = useIntersectionObserver({ threshold: 0.1 });
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const videoRef2 = useRef<HTMLVideoElement>(null);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const video = entry.target as HTMLVideoElement;
-          const sources = video.querySelectorAll('source');
-          let hasChanges = false;
-          sources.forEach(source => {
-            if (source.dataset.src) {
-              source.src = source.dataset.src;
-              source.removeAttribute('data-src');
-              hasChanges = true;
-            }
-          });
-          if (hasChanges) {
-            video.load();
-            if (!prefersReducedMotion) {
-              video.play().catch(e => console.log('Autoplay prevented:', e));
-            }
-          }
-          observer.unobserve(video);
-        }
-      });
-    }, { rootMargin: '200px 0px' });
-
-    if (videoRef.current) observer.observe(videoRef.current);
-    if (videoRef2.current) observer.observe(videoRef2.current);
-    
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
 
   return (
     <div className="bg-deepBlack min-h-screen text-titaniumWhite font-inter">
       {/* 1. HERO */}
-      <section className="relative pt-32 pb-24 lg:pt-48 lg:pb-32 overflow-hidden border-b border-steelBlue/30" ref={heroRef}>
-        <div className="absolute inset-0 bg-hero-gradient opacity-30 z-0"></div>
-        <div className="absolute inset-0 z-0 opacity-10" style={{ backgroundImage: 'linear-gradient(#1E4A6E 1px, transparent 1px), linear-gradient(90deg, #1E4A6E 1px, transparent 1px)', backgroundSize: '40px 40px' }}></div>
-        
-        <div className="container mx-auto px-6 max-w-6xl relative z-10 fade-in-section">
-          <div className="max-w-4xl">
-            <div className="inline-block border border-electricBlue text-electricBlue font-jetbrains text-xs tracking-widest py-1 px-3 mb-6 bg-electricBlue/10 uppercase">
-              WEB AEC — Tecnología digital para la construcción
-            </div>
-            
-            <h1 className="font-barlow font-black text-5xl md:text-7xl lg:text-[5.5rem] tracking-tight uppercase leading-[0.95] mb-8">
-              <span className="text-[#F0F0F0]">TU EMPRESA CONSTRUYE PROYECTOS IMPORTANTES.</span><br/>
-              <span className="text-[#4A9FD4]">TU SITIO WEB DEBERÍA DEMOSTRARLO.</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-[#F0F0F0]/90 drop-shadow-md max-w-3xl mb-12 leading-relaxed font-inter">
-              Creamos sitios web para empresas AEC que necesitan convertir su experiencia, proyectos y capacidad técnica en una presencia digital que genere confianza y oportunidades.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-6">
-              <a href="#contacto-web-aec" onClick={(e) => scrollToSection(e, "contacto-web-aec")} className="group relative overflow-hidden inline-flex justify-center items-center bg-[#4A9FD4] text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
-                <span className="relative z-10 flex items-center">QUIERO MI SITIO WEB <ArrowRight className="ml-2 w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" /></span>
-                <div className="absolute inset-0 h-full w-[200%] translate-x-[-150%] skew-x-[-45deg] bg-white/40 transition-transform duration-1000 ease-out group-hover:translate-x-[100%] z-0"></div>
-              </a>
-              <a href="#ejemplos" onClick={(e) => scrollToSection(e, "ejemplos")} className="inline-flex justify-center items-center border border-[#4A9FD4] text-[#4A9FD4] hover:bg-[#4A9FD4] hover:text-deepBlack font-barlow font-bold text-[15px] tracking-widest py-4 px-10 uppercase btn-premium">
-                VER EJEMPLOS →
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <WebAECHero onNavigate={scrollToSection} />
 
       {/* 2. PROBLEMA */}
       <section className="py-16 bg-[#0A131F]" ref={problemRef}>
@@ -171,119 +105,8 @@ const WebAEC: React.FC = () => {
             <p className="font-inter text-lg text-[#5A8FA8]">Explora ejemplos conceptuales diseñados para distintos perfiles del sector AEC.</p>
           </div>
 
-          <article aria-labelledby="vertice-demo-title" className="group mb-10 overflow-hidden border border-[#4A9FD4]/40 bg-[#0F2236] shadow-xl transition-[border-color,box-shadow] duration-300 hover:border-[#4A9FD4]/80 hover:shadow-[0_12px_40px_rgba(74,159,212,0.12)] motion-reduce:transition-none">
-            <div className="grid lg:grid-cols-[1.2fr_1fr]">
-              <div className="relative overflow-hidden border-b border-[#4A9FD4]/20 bg-[#080B10] lg:border-b-0 lg:border-r">
-                <img
-                  src="/web-aec/demos/demo_vertice_desktop.webp"
-                  alt="Captura real de la landing VÉRTICE: arquitectura contemporánea y presentación inmersiva de proyectos."
-                  width={1440}
-                  height={1000}
-                  loading="lazy"
-                  decoding="async"
-                  className="h-auto w-full lg:h-full lg:object-cover lg:object-top"
-                />
-                <div aria-hidden="true" className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#080B10]/20 to-transparent" />
-              </div>
-              <div className="flex flex-col items-start justify-center p-6 sm:p-10 lg:p-12">
-                <span className="mb-6 inline-flex border border-[#4A9FD4]/40 bg-[#4A9FD4]/10 px-3 py-2 font-jetbrains text-[10px] tracking-[0.16em] text-[#8CC9ED] sm:text-xs">
-                  EXPERIENCIA WEB PREMIUM
-                </span>
-                <h3 id="vertice-demo-title" className="mb-3 font-barlow text-4xl font-bold tracking-wide text-[#F0F0F0] sm:text-5xl">VÉRTICE</h3>
-                <p className="mb-5 max-w-sm font-inter text-sm leading-relaxed text-[#8CC9ED]">
-                  Arquitectura, ingeniería y desarrollo inmobiliario.
-                </p>
-                <p className="mb-8 max-w-md font-inter text-base leading-relaxed text-[#F0F0F0]/75">
-                  Diseño inmersivo, animaciones cinematográficas e interacción avanzada para explorar una nueva perspectiva del sector AEC.
-                </p>
-                {VERTICE_DEMO_URL ? (
-                  <a href={VERTICE_DEMO_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 border border-[#4A9FD4] bg-[#4A9FD4] px-6 py-4 font-barlow text-sm font-bold tracking-widest text-deepBlack transition-colors hover:border-[#8CC9ED] hover:bg-[#8CC9ED] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#8CC9ED] motion-reduce:transition-none">
-                    EXPLORAR DEMO <ArrowRight aria-hidden="true" className="h-4 w-4" />
-                  </a>
-                ) : (
-                  <button type="button" disabled className="inline-flex cursor-not-allowed items-center justify-center border border-[#4A9FD4]/35 bg-[#4A9FD4]/10 px-6 py-4 font-barlow text-sm font-bold tracking-widest text-[#8CC9ED]/80">
-                    PRÓXIMAMENTE
-                  </button>
-                )}
-                <p className="mt-5 font-jetbrains text-[10px] uppercase tracking-widest text-[#F0F0F0]/50">Demo conceptual · Empresa ficticia</p>
-              </div>
-            </div>
-          </article>
+          <DemoCatalog />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            {/* TARJETA 1 */}
-            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_vertexa_desktop.webp" alt="Vertexa Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Constructora</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">VERTEXA</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
-                  Una presencia digital sólida para mostrar capacidad técnica, proyectos y experiencia en obra.
-                </p>
-                <a href="/web-aec/demos/vertexa" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* TARJETA 2 */}
-            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_stratumlabs_desktop.webp" alt="Stratum Labs Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Laboratorio</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">STRATUM LABS</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
-                  Un sitio técnico y profesional para comunicar servicios geotécnicos, ensayes y experiencia de campo.
-                </p>
-                <a href="/web-aec/demos/stratum-labs" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* TARJETA 3 */}
-            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_nexora_desktop.webp" alt="Nexora Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Firma de Ingeniería</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">NEXORA ENGINEERING</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
-                  Una estructura clara para presentar especialidades, experiencia y proyectos relevantes.
-                </p>
-                <a href="/web-aec/demos/nexora-engineering" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-
-            {/* TARJETA 4 */}
-            <div className="bg-[#0F2236] border border-steelBlue/30 overflow-hidden group hover:border-[#4A9FD4]/80 flex flex-col card-premium">
-              <div className="relative h-64 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/demos/demo_azura_desktop.webp" alt="Azura Demo" className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0F2236] to-transparent opacity-60"></div>
-              </div>
-              <div className="p-8 flex flex-col flex-grow">
-                <span className="inline-block text-[#4A9FD4] font-jetbrains text-xs tracking-widest uppercase mb-2">Desarrolladora</span>
-                <h3 className="font-barlow font-bold text-2xl text-[#F0F0F0] uppercase mb-4">AZURA</h3>
-                <p className="font-inter text-[#F0F0F0]/70 text-sm leading-relaxed mb-8 flex-grow">
-                  Una experiencia visual y comercial para presentar desarrollos, atraer prospectos y fortalecer la percepción de marca.
-                </p>
-                <a href="/web-aec/demos/azura-developments" className="inline-flex items-center text-[#4A9FD4] hover:text-white font-barlow font-bold text-sm tracking-widest uppercase transition-colors">
-                  VER EJEMPLO <ArrowRight className="ml-2 w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </a>
-              </div>
-            </div>
-          </div>
-          
           <div className="mt-8 text-center">
             <p className="font-inter text-xs text-[#5A8FA8]">*Ejemplos conceptuales creados para mostrar posibilidades visuales y estratégicas.</p>
           </div>
@@ -295,18 +118,12 @@ const WebAEC: React.FC = () => {
         
         {/* VIDEO BACKGROUND */}
         <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef}
+          <DeferredBackgroundVideo
             className="w-full h-full object-cover"
-            muted
-            loop
-            playsInline
-            preload="none"
             poster="/web-aec/video/parque-industrial-poster.webp"
-          >
-            <source data-src="/web-aec/video/parque-industrial.webm" type="video/webm" />
-            <source data-src="/web-aec/video/parque-industrial.mp4" type="video/mp4" />
-          </video>
+            webm="/web-aec/video/parque-industrial.webm"
+            mp4="/web-aec/video/parque-industrial.mp4"
+          />
         </div>
 
         {/* OVERLAYS */}
@@ -395,14 +212,14 @@ const WebAEC: React.FC = () => {
           <div className="bg-[#0F2236] border border-white/10 p-2 shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
               <div className="md:col-span-2 relative h-64 md:h-96 overflow-hidden bg-[#0A1624]">
-                <img src="/web-aec/gasave/gasave_home_desktop.webp" alt="Gasave Home" className="w-full h-full object-cover object-top" />
+                <img src="/web-aec/gasave/gasave_home_desktop.webp" loading="lazy" decoding="async" width={1600} height={868} alt="Gasave Home" className="w-full h-full object-cover object-top" />
               </div>
               <div className="flex flex-col gap-2 h-64 md:h-96">
                 <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
-                  <img src="/web-aec/gasave/gasave_press_photo.webp" alt="Gasave Press" className="w-full h-full object-cover" />
+                  <img src="/web-aec/gasave/gasave_press_photo.webp" loading="lazy" decoding="async" width={1600} height={1600} alt="Gasave Press" className="w-full h-full object-cover" />
                 </div>
                 <div className="relative flex-1 overflow-hidden bg-[#0A1624]">
-                  <img src="/web-aec/gasave/gasave_sieves_photo.webp" alt="Gasave Sieves" className="w-full h-full object-cover" />
+                  <img src="/web-aec/gasave/gasave_sieves_photo.webp" loading="lazy" decoding="async" width={1600} height={1600} alt="Gasave Sieves" className="w-full h-full object-cover" />
                 </div>
               </div>
             </div>
@@ -491,18 +308,12 @@ const WebAEC: React.FC = () => {
         
         {/* VIDEO BACKGROUND */}
         <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef2}
+          <DeferredBackgroundVideo
             className="w-full h-full object-cover object-center md:object-[30%_center]"
-            muted
-            loop
-            playsInline
-            preload="none"
             poster="/web-aec/video/torre-nazas-poster.webp"
-          >
-            <source data-src="/web-aec/video/torre-nazas.webm" type="video/webm" />
-            <source data-src="/web-aec/video/torre-nazas.mp4" type="video/mp4" />
-          </video>
+            webm="/web-aec/video/torre-nazas.webm"
+            mp4="/web-aec/video/torre-nazas.mp4"
+          />
         </div>
 
         {/* OVERLAYS */}
@@ -550,7 +361,7 @@ const WebAEC: React.FC = () => {
       </section>
 
       {/* 10. INVERSIÓN */}
-      <section className="py-24 bg-[#0A131F] border-t border-steelBlue/30" ref={pricingRef}>
+      <section id="servicios-web-aec" className="py-24 bg-[#0A131F] border-t border-steelBlue/30" ref={pricingRef}>
         <div className="container mx-auto px-6 max-w-6xl fade-in-section">
           <div className="text-center mb-16">
             <h2 className="font-barlow font-bold text-4xl md:text-5xl text-titaniumWhite uppercase tracking-wide mb-6">

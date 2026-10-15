@@ -13,11 +13,32 @@ const Hero: React.FC = () => {
     <section id="hero" className="relative min-h-[85vh] flex items-center pt-28 pb-16 overflow-hidden">
       {/* Background Image & Overlay */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/IMG_5454.jpeg" 
-          alt="Industrial construction site" 
-          className="w-full h-full object-cover object-center"
-        />
+        <picture className="block w-full h-full">
+          {/* Here 85vh >= 100vw: the square removes only already-hidden side pixels. */}
+          <source
+            type="image/webp"
+            media="(max-width: 639px) and (max-aspect-ratio: 17/20)"
+            srcSet="/home/hero/hero-industrial-mobile-1600.webp 1600w, /home/hero/hero-industrial-mobile-1920.webp 1920w"
+            sizes="(max-width: 359px) 960px, 100vh"
+            width={1600}
+            height={1600}
+          />
+          <source
+            type="image/webp"
+            srcSet="/home/hero/hero-industrial-1920.webp 1920w, /home/hero/hero-industrial-2880.webp 2880w"
+            sizes="(max-width: 1023px) 1600px, (min-aspect-ratio: 16/9) 100vw, 152vh"
+          />
+          <img
+            src="/IMG_5454.jpeg"
+            alt="Industrial construction site"
+            width={4032}
+            height={2268}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+            className="w-full h-full object-cover object-center"
+          />
+        </picture>
         <div className="absolute inset-0 bg-hero-gradient"></div>
         <div className="absolute inset-0 bg-deepBlack/40"></div> {/* Additional darkening for contrast */}
       </div>

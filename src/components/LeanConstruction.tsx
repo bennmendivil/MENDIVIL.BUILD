@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
 import { Users, BarChart2, TrendingUp } from 'lucide-react';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
+import { homeImageDimensions } from './home/imageMetadata';
 
 const LeanConstruction: React.FC = () => {
   const { language } = useLanguage();
@@ -167,10 +168,10 @@ const LeanConstruction: React.FC = () => {
 
   const images = [
     '/lean-tablero-01.jpg',
-    '/lean-tablero-02.jpg',
+    '/home/lean/lean-tablero-02-1920.webp',
     '/lean-touchplan-01.jpg',
     '/lean-ppc-01.jpg',
-    '/lean-tablero-03.jpg'
+    '/home/lean/lean-tablero-03-1920.webp'
   ];
 
   // Helper to render bold text based on asterisks
@@ -231,6 +232,10 @@ const LeanConstruction: React.FC = () => {
                 <img 
                   src="/lean-huddle-01.jpg" 
                   alt="Lean Huddle" 
+                  loading="lazy"
+                  decoding="async"
+                  width={1600}
+                  height={720}
                   className="w-full h-[280px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                 />
                 <div className="absolute inset-0 bg-[#4A9FD4]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
@@ -242,6 +247,10 @@ const LeanConstruction: React.FC = () => {
                   <img 
                     src={img} 
                     alt={`Lean photo ${idx + 1}`} 
+                    loading="lazy"
+                    decoding="async"
+                    width={homeImageDimensions[img]?.width}
+                    height={homeImageDimensions[img]?.height}
                     className="w-full h-[180px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                   />
                   <div className="absolute inset-0 bg-[#4A9FD4]/15 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

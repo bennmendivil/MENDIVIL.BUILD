@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
+import { homeImageDimensions } from './home/imageMetadata';
 
 type Tab = 'INDUSTRIAL' | 'HOSPITALARIO' | 'COMERCIAL';
 
@@ -165,7 +166,10 @@ const Portfolio: React.FC = () => {
                       <img 
                         src={img} 
                         alt={`${project.title} photo ${i + 1}`} 
-                        loading={idx === 0 && i < 3 ? "eager" : "lazy"}
+                        loading="lazy"
+                        decoding="async"
+                        width={homeImageDimensions[img]?.width}
+                        height={homeImageDimensions[img]?.height}
                         className="w-full h-[200px] lg:h-[260px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       />
                       <div className="absolute inset-0 bg-[#4A9FD4]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>

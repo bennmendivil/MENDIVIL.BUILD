@@ -73,6 +73,10 @@ const Contact: React.FC = () => {
         <img 
           src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?q=80&w=2070&auto=format&fit=crop" 
           alt="Steel structure" 
+          loading="lazy"
+          decoding="async"
+          width={2070}
+          height={1380}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-contact-overlay"></div>
